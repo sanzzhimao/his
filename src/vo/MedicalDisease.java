@@ -2,9 +2,8 @@ package vo;
 
 import java.util.Date;
 
-/*
-诊断类
-2019.5.31
+/**
+ * 实体类：诊断类
  */
 public class MedicalDisease {
     private int id;//主键

@@ -3,7 +3,7 @@ import java.util.Date;
 
 /**
  * 患者历次挂号信息表
- * */
+ */
 public class Register {
     //唯一标识
     private int id;

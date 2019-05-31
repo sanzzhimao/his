@@ -2,8 +2,8 @@ package vo;
 
 import java.util.Date;
 
-/*
-患者成药处方表
+/**
+ * 实体类：患者成药处方表
  */
 public class Prescription {
     private int id;//主键

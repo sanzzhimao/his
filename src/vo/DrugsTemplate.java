@@ -1,8 +1,9 @@
 package vo;
 
 import java.util.Date;
-/*
-  实体类：成药处方模板表
+
+/**
+ * 实体类：成药处方模板表
  */
 public class DrugsTemplate {
   private int id;

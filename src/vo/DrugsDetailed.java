@@ -1,6 +1,7 @@
 package vo;
-/*
-    成药模板明细
+
+/**
+ * 实体类：成药模板明细
  */
 public class DrugsDetailed {
     private int id;

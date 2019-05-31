@@ -2,8 +2,8 @@ package vo;
 
 import java.util.Date;
 
-/*
-    患者草药处方
+/**
+ * 实体类：患者草药处方
  */
 public class HerbalPrescription {
     private int id;
