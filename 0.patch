@@ -1,0 +1,1568 @@
+Index: .gitignore
+===================================================================
+--- .gitignore	(revision a75188f97a49b7bd7c5e40a66f71ceb9ee899949)
++++ .gitignore	(revision a75188f97a49b7bd7c5e40a66f71ceb9ee899949)
+@@ -1,27 +0,0 @@
+-# Created by .ignore support plugin (hsz.mobi)
+-### Java template
+-# Compiled class file
+-*.class
+-
+-# Log file
+-*.log
+-
+-# BlueJ files
+-*.ctxt
+-
+-# Mobile Tools for Java (J2ME)
+-.mtj.tmp/
+-
+-# Package Files #
+-*.jar
+-*.war
+-*.nar
+-*.ear
+-*.zip
+-*.tar.gz
+-*.rar
+-
+-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+-hs_err_pid*
+-
+-/.idea/
+Index: src/vo/ConstantItem.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/ConstantItem.java	(date 1559274729817)
++++ src/vo/ConstantItem.java	(date 1559274729817)
+@@ -0,0 +1,79 @@
++/**
++ * 实体类：常数项表
++ *已检查
++ * */
++package vo;
++
++public class ConstantItem {
++    //id总段唯一标识
++    private int id;
++    //所属常数类别id----指向ConstantType类的(ID)
++    private int constantTypeID;
++    //常数项编码
++    private  String contantCode;
++    //常数项名称
++    private String constantName;
++    //删除标记
++    private int delMark;
++
++    public ConstantItem() {
++    }
++
++    public ConstantItem(int constantTypeID, String contantCode, String constantName, int delMark) {
++        this.constantTypeID = constantTypeID;
++        this.contantCode = contantCode;
++        this.constantName = constantName;
++        this.delMark = delMark;
++    }
++
++    public int getConstantTypeID() {
++        return constantTypeID;
++    }
++
++    public void setConstantTypeID(int constantTypeID) {
++        this.constantTypeID = constantTypeID;
++    }
++
++    public String getContantCode() {
++        return contantCode;
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public void setContantCode(String contantCode) {
++        this.contantCode = contantCode;
++    }
++
++    public String getConstantName() {
++        return constantName;
++    }
++
++    public void setConstantName(String constantName) {
++        this.constantName = constantName;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    @Override
++    public String toString() {
++        return "ConstantItem{" +
++                "id=" + id +
++                ", constantTypeID=" + constantTypeID +
++                ", contantCode='" + contantCode + '\'' +
++                ", constantName='" + constantName + '\'' +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: src/vo/ConstantType.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/ConstantType.java	(date 1559274729638)
++++ src/vo/ConstantType.java	(date 1559274729638)
+@@ -0,0 +1,67 @@
++/**
++ * 实体类：常数类别表
++ *已检查
++ * */
++package vo;
++
++public class ConstantType {
++    //id字段唯一标识
++    private int id;
++    //常数类别字段
++    private String constantTypeCode;
++    //常数名称字段
++    private String constantTypeName;
++    //删除标记：1-正常；0-已删除
++    private int delMark;
++
++    public ConstantType(String constantTypeCode, String constantTypeName, int delMark) {
++        this.constantTypeCode = constantTypeCode;
++        this.constantTypeName = constantTypeName;
++        this.delMark = delMark;
++    }
++
++    public ConstantType() {
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getConstantTypeCode() {
++        return constantTypeCode;
++    }
++
++    public void setConstantTypeCode(String constantTypeCode) {
++        this.constantTypeCode = constantTypeCode;
++    }
++
++    public String getConstantTypeName() {
++        return constantTypeName;
++    }
++
++    public void setConstantTypeName(String constantTypeName) {
++        this.constantTypeName = constantTypeName;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    @Override
++    public String toString() {
++        return "ConstantType{" +
++                "id=" + id +
++                ", constantTypeCode='" + constantTypeCode + '\'' +
++                ", constantTypeName='" + constantTypeName + '\'' +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: src/vo/Department.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/Department.java	(date 1559274729916)
++++ src/vo/Department.java	(date 1559274729916)
+@@ -0,0 +1,91 @@
++/**
++ * 实体类：科室类
++ *已检查
++ * */
++package vo;
++
++public class Department {
++    //唯一标识id；
++    private  int id;
++    //科室编码
++    private String deptCode;
++    //科室名称
++    private  String deptName;
++    //科室分类
++    private  int deptCategoryID;
++    //科室类型1-临床；2-医技；3-财务；4-行政；5-其他
++    private  int deptType;
++    //删除标记；1-正常；0-已删除
++    private int delMark;
++
++    public Department(String deptCode, String deptName, int deptCategoryID, int deptType, int delMark) {
++        this.deptCode = deptCode;
++        this.deptName = deptName;
++        this.deptCategoryID = deptCategoryID;
++        this.deptType = deptType;
++        this.delMark = delMark;
++    }
++
++    public Department() {
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getDeptCode() {
++        return deptCode;
++    }
++
++    public void setDeptCode(String deptCode) {
++        this.deptCode = deptCode;
++    }
++
++    public String getDeptName() {
++        return deptName;
++    }
++
++    public void setDeptName(String deptName) {
++        this.deptName = deptName;
++    }
++
++    public int getDeptCategoryID() {
++        return deptCategoryID;
++    }
++
++    public void setDeptCategoryID(int deptCategoryID) {
++        this.deptCategoryID = deptCategoryID;
++    }
++
++    public int getDeptType() {
++        return deptType;
++    }
++
++    public void setDeptType(int deptType) {
++        this.deptType = deptType;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    @Override
++    public String toString() {
++        return "Department{" +
++                "id=" + id +
++                ", deptCode='" + deptCode + '\'' +
++                ", deptName='" + deptName + '\'' +
++                ", deptCategoryID=" + deptCategoryID +
++                ", deptType=" + deptType +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: src/vo/Disease.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/Disease.java	(date 1559274729717)
++++ src/vo/Disease.java	(date 1559274729717)
+@@ -0,0 +1,90 @@
++package vo;
++/**
++ * 疾病表
++ * 检查
++ * */
++public class Disease {
++    //唯一标识
++    private int id;
++    //疾病助记编码
++    private String diseaseCode;
++    //疾病名称
++    private String diseaseName;
++    //国际ICD编码
++    private String diseaseICD;
++    //疾病所属分类
++    private int diseCategoryID;
++    //删除标记
++    private int delMark;
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getDiseaseCode() {
++        return diseaseCode;
++    }
++
++    public void setDiseaseCode(String diseaseCode) {
++        this.diseaseCode = diseaseCode;
++    }
++
++    public String getDiseaseName() {
++        return diseaseName;
++    }
++
++    public void setDiseaseName(String diseaseName) {
++        this.diseaseName = diseaseName;
++    }
++
++    public String getDiseaseICD() {
++        return diseaseICD;
++    }
++
++    public void setDiseaseICD(String diseaseICD) {
++        this.diseaseICD = diseaseICD;
++    }
++
++    public int getDiseCategoryID() {
++        return diseCategoryID;
++    }
++
++    public void setDiseCategoryID(int diseCategoryID) {
++        this.diseCategoryID = diseCategoryID;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    public Disease(String diseaseCode, String diseaseName, String diseaseICD, int diseCategoryID, int delMark) {
++        this.diseaseCode = diseaseCode;
++        this.diseaseName = diseaseName;
++        this.diseaseICD = diseaseICD;
++        this.diseCategoryID = diseCategoryID;
++        this.delMark = delMark;
++    }
++
++    public Disease() {
++    }
++
++    @Override
++    public String toString() {
++        return "Disease{" +
++                "id=" + id +
++                ", diseaseCode='" + diseaseCode + '\'' +
++                ", diseaseName='" + diseaseName + '\'' +
++                ", diseaseICD='" + diseaseICD + '\'' +
++                ", diseCategoryID=" + diseCategoryID +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: src/vo/DiseCategory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/DiseCategory.java	(date 1559274729685)
++++ src/vo/DiseCategory.java	(date 1559274729685)
+@@ -0,0 +1,91 @@
++/**
++ * 实体类：疾病分类表
++ *检查
++ * */
++package vo;
++
++public class DiseCategory {
++    //唯一标识
++    private int id;
++    //分类编码
++    private  String dicaCode;
++    //分类名称
++    private String dicaName;
++    //显示顺序号
++    private int sequenceNo;
++    //疾病类型
++    private  int dicaType;
++    //删除标记
++    private int delMark;
++
++    public DiseCategory(String dicaCode, String dicaName, int sequenceNo, int dicaType, int delMark) {
++        this.dicaCode = dicaCode;
++        this.dicaName = dicaName;
++        this.sequenceNo = sequenceNo;
++        this.dicaType = dicaType;
++        this.delMark = delMark;
++    }
++
++    public DiseCategory() {
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getDicaCode() {
++        return dicaCode;
++    }
++
++    public void setDicaCode(String dicaCode) {
++        this.dicaCode = dicaCode;
++    }
++
++    public String getDicaName() {
++        return dicaName;
++    }
++
++    public void setDicaName(String dicaName) {
++        this.dicaName = dicaName;
++    }
++
++    public int getSequenceNo() {
++        return sequenceNo;
++    }
++
++    public void setSequenceNo(int sequenceNo) {
++        this.sequenceNo = sequenceNo;
++    }
++
++    public int getDicaType() {
++        return dicaType;
++    }
++
++    public void setDicaType(int dicaType) {
++        this.dicaType = dicaType;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    @Override
++    public String toString() {
++        return "DiseCategory{" +
++                "id=" + id +
++                ", dicaCode='" + dicaCode + '\'' +
++                ", dicaName='" + dicaName + '\'' +
++                ", sequenceNo=" + sequenceNo +
++                ", dicaType=" + dicaType +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: .idea/libraries/lib.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/lib.xml	(date 1559274114060)
++++ .idea/libraries/lib.xml	(date 1559274114060)
+@@ -0,0 +1,10 @@
++<component name="libraryTable">
++  <library name="lib">
++    <CLASSES>
++      <root url="file://G:/Apache/apache-tomcat-8.5.40/lib" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++    <jarDirectory url="file://G:/Apache/apache-tomcat-8.5.40/lib" recursive="false" />
++  </library>
++</component>
+\ No newline at end of file
+Index: src/vo/Drugs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/Drugs.java	(date 1559274729564)
++++ src/vo/Drugs.java	(date 1559274729564)
+@@ -0,0 +1,177 @@
++package vo;
++
++import java.util.Date;
++
++/**
++ * 实体类：药品目录类
++ *已检查
++ * */
++public class Drugs {
++    //唯一标识
++    private int id;
++    //药品编码
++    private String drugCode;
++    //药品名称
++    private String drugName;
++    //药品规格
++    private String drugsFormat;
++    //包装单位
++    private String drugsUnit;
++    //生产厂家
++    private String Maufacturer;
++    //药品剂型
++    private int drugsDosageID;
++    //药品类型
++    private int drugsTpyeID;
++    //药品单价
++    private Double drugsPrice;
++    //拼音助记码
++    private String mnemonicCode;
++    //创建时间
++    private Date creationDate;
++    //最后修改时间
++    private Date lastUpdateDate;
++    //删除标记
++    private int delMark;
++
++    public Drugs(String drugCode, String drugName, String drugsFormat, String drugsUnit, String maufacturer, int drugsDosageID, int drugsTpyeID, Double drugsPrice, String mnemonicCode, Date creationDate, Date lastUpdateDate, int delMark) {
++        this.drugCode = drugCode;
++        this.drugName = drugName;
++        this.drugsFormat = drugsFormat;
++        this.drugsUnit = drugsUnit;
++        Maufacturer = maufacturer;
++        this.drugsDosageID = drugsDosageID;
++        this.drugsTpyeID = drugsTpyeID;
++        this.drugsPrice = drugsPrice;
++        this.mnemonicCode = mnemonicCode;
++        this.creationDate = creationDate;
++        this.lastUpdateDate = lastUpdateDate;
++        this.delMark = delMark;
++    }
++
++    public Drugs() {
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getDrugCode() {
++        return drugCode;
++    }
++
++    public void setDrugCode(String drugCode) {
++        this.drugCode = drugCode;
++    }
++
++    public String getDrugName() {
++        return drugName;
++    }
++
++    public void setDrugName(String drugName) {
++        this.drugName = drugName;
++    }
++
++    public String getDrugsFormat() {
++        return drugsFormat;
++    }
++
++    public void setDrugsFormat(String drugsFormat) {
++        this.drugsFormat = drugsFormat;
++    }
++
++    public String getDrugsUnit() {
++        return drugsUnit;
++    }
++
++    public void setDrugsUnit(String drugsUnit) {
++        this.drugsUnit = drugsUnit;
++    }
++
++    public String getMaufacturer() {
++        return Maufacturer;
++    }
++
++    public void setMaufacturer(String maufacturer) {
++        Maufacturer = maufacturer;
++    }
++
++    public int getDrugsDosageID() {
++        return drugsDosageID;
++    }
++
++    public void setDrugsDosageID(int drugsDosageID) {
++        this.drugsDosageID = drugsDosageID;
++    }
++
++    public int getDrugsTpyeID() {
++        return drugsTpyeID;
++    }
++
++    public void setDrugsTpyeID(int drugsTpyeID) {
++        this.drugsTpyeID = drugsTpyeID;
++    }
++
++    public Double getDrugsPrice() {
++        return drugsPrice;
++    }
++
++    public void setDrugsPrice(Double drugsPrice) {
++        this.drugsPrice = drugsPrice;
++    }
++
++    public String getMnemonicCode() {
++        return mnemonicCode;
++    }
++
++    public void setMnemonicCode(String mnemonicCode) {
++        this.mnemonicCode = mnemonicCode;
++    }
++
++    public Date getCreationDate() {
++        return creationDate;
++    }
++
++    public void setCreationDate(Date creationDate) {
++        this.creationDate = creationDate;
++    }
++
++    public Date getLastUpdateDate() {
++        return lastUpdateDate;
++    }
++
++    public void setLastUpdateDate(Date lastUpdateDate) {
++        this.lastUpdateDate = lastUpdateDate;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    @Override
++    public String toString() {
++        return "Drugs{" +
++                "id=" + id +
++                ", drugCode='" + drugCode + '\'' +
++                ", drugName='" + drugName + '\'' +
++                ", drugsFormat='" + drugsFormat + '\'' +
++                ", drugsUnit='" + drugsUnit + '\'' +
++                ", Maufacturer='" + Maufacturer + '\'' +
++                ", drugsDosageID=" + drugsDosageID +
++                ", drugsTpyeID=" + drugsTpyeID +
++                ", drugsPrice=" + drugsPrice +
++                ", mnemonicCode='" + mnemonicCode + '\'' +
++                ", creationDate=" + creationDate +
++                ", lastUpdateDate=" + lastUpdateDate +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: src/vo/ExpenseClass.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/ExpenseClass.java	(date 1559274729791)
++++ src/vo/ExpenseClass.java	(date 1559274729791)
+@@ -0,0 +1,68 @@
++/***
++ * 实体类：费用科目表
++ * 检查
++ */
++
++package vo;
++
++public class ExpenseClass {
++    //唯一标识
++    private int id;
++    //费用科目编码
++    private String expCode;
++    //费用科目名称
++    private String expName;
++    //删除标记
++    private  int delMark;
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getExpCode() {
++        return expCode;
++    }
++
++    public void setExpCode(String expCode) {
++        this.expCode = expCode;
++    }
++
++    public String getExpName() {
++        return expName;
++    }
++
++    public void setExpName(String expName) {
++        this.expName = expName;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    public ExpenseClass(String expCode, String expName, int delMark) {
++        this.expCode = expCode;
++        this.expName = expName;
++        this.delMark = delMark;
++    }
++
++    public ExpenseClass() {
++    }
++
++    @Override
++    public String toString() {
++        return "ExpenseClass{" +
++                "id=" + id +
++                ", expCode='" + expCode + '\'' +
++                ", expName='" + expName + '\'' +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: src/vo/Fmeditem.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/Fmeditem.java	(date 1559274729868)
++++ src/vo/Fmeditem.java	(date 1559274729868)
+@@ -0,0 +1,53 @@
++/**
++ * 实体类：非药品收费项目
++ * 检查
++ * */
++package vo;
++
++import javax.sound.midi.Track;
++import java.util.Date;
++
++public class Fmeditem {
++    //唯一标识
++    private  int id;
++    //项目编码
++    private String itemCode;
++    //项目名称
++    private String itemName;
++    //规格
++    private String format;
++    //单价
++    private double price;
++    //所属费用科目id
++    private int expClassID;
++    //执行科室id
++    private int deptID;
++    //拼音助记码
++    private String mnemonicCode;
++    //创建时间
++    private Date creationDate;
++    //最后修改时间
++    private Date lastUpdateDate;
++    //项目类型（1--检查  2--检验  3--处置）
++    private int recordType;
++    //删除标记
++    private int delMark;
++
++    @Override
++    public String toString() {
++        return "Fmeditem{" +
++                "id=" + id +
++                ", itemCode='" + itemCode + '\'' +
++                ", itemName='" + itemName + '\'' +
++                ", format='" + format + '\'' +
++                ", price=" + price +
++                ", expClassID=" + expClassID +
++                ", deptID=" + deptID +
++                ", mnemonicCode='" + mnemonicCode + '\'' +
++                ", creationDate=" + creationDate +
++                ", lastUpdateDate=" + lastUpdateDate +
++                ", recordType=" + recordType +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: src/vo/Register.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/Register.java	(date 1559274729768)
++++ src/vo/Register.java	(date 1559274729768)
+@@ -0,0 +1,226 @@
++package vo;
++import java.util.Date;
++
++/**
++ * 患者历次挂号信息表
++ * */
++public class Register {
++    //唯一标识
++    private int id;
++    //病例号
++    private String caseNumber;
++    //真实姓名
++    private String realName;
++    //性别
++    private int dender;
++    //身份证号
++    private String idNumber;
++    //出生日期
++    private Date birthDate;
++    //年龄
++    private int age;
++    //年龄类型（年-月-日）
++    private char ageTpye;
++    //家庭住址
++    private String homeAddress;
++    //本次看诊日期
++    private Date visitDate;
++    //午别
++    private String noon;
++    //本次挂号科室id
++    private int deptID;
++    //本次挂号医生id
++    private int userID;
++    //挂号级别id
++    private int registLeID;
++    //挂号类别id
++    private int settLeID;
++    //是否需要病历本
++    private boolean isBook;
++    //挂号时间
++    private Date registTime;
++    //挂号员id
++    private int registerID;
++    //看诊状态（1-已经挂号；2-医生接诊；3-看诊结束；4-已退号）
++    private int visitState;
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getCaseNumber() {
++        return caseNumber;
++    }
++
++    public void setCaseNumber(String caseNumber) {
++        this.caseNumber = caseNumber;
++    }
++
++    public String getRealName() {
++        return realName;
++    }
++
++    public void setRealName(String realName) {
++        this.realName = realName;
++    }
++
++    public int getDender() {
++        return dender;
++    }
++
++    public void setDender(int dender) {
++        this.dender = dender;
++    }
++
++    public String getIdNumber() {
++        return idNumber;
++    }
++
++    public void setIdNumber(String idNumber) {
++        this.idNumber = idNumber;
++    }
++
++    public Date getBirthDate() {
++        return birthDate;
++    }
++
++    public void setBirthDate(Date birthDate) {
++        this.birthDate = birthDate;
++    }
++
++    public int getAge() {
++        return age;
++    }
++
++    public void setAge(int age) {
++        this.age = age;
++    }
++
++    public char getAgeTpye() {
++        return ageTpye;
++    }
++
++    public void setAgeTpye(char ageTpye) {
++        this.ageTpye = ageTpye;
++    }
++
++    public String getHomeAddress() {
++        return homeAddress;
++    }
++
++    public void setHomeAddress(String homeAddress) {
++        this.homeAddress = homeAddress;
++    }
++
++    public Date getVisitDate() {
++        return visitDate;
++    }
++
++    public void setVisitDate(Date visitDate) {
++        this.visitDate = visitDate;
++    }
++
++    public String getNoon() {
++        return noon;
++    }
++
++    public void setNoon(String noon) {
++        this.noon = noon;
++    }
++
++    public int getDeptID() {
++        return deptID;
++    }
++
++    public void setDeptID(int deptID) {
++        this.deptID = deptID;
++    }
++
++    public int getUserID() {
++        return userID;
++    }
++
++    public void setUserID(int userID) {
++        this.userID = userID;
++    }
++
++    public int getRegistLeID() {
++        return registLeID;
++    }
++
++    public void setRegistLeID(int registLeID) {
++        this.registLeID = registLeID;
++    }
++
++    public int getSettLeID() {
++        return settLeID;
++    }
++
++    public void setSettLeID(int settLeID) {
++        this.settLeID = settLeID;
++    }
++
++    public boolean isBook() {
++        return isBook;
++    }
++
++    public void setBook(boolean book) {
++        isBook = book;
++    }
++
++    public Date getRegistTime() {
++        return registTime;
++    }
++
++    public void setRegistTime(Date registTime) {
++        this.registTime = registTime;
++    }
++
++    public int getRegisterID() {
++        return registerID;
++    }
++
++    public void setRegisterID(int registerID) {
++        this.registerID = registerID;
++    }
++
++    public int getVisitState() {
++        return visitState;
++    }
++
++    public void setVisitState(int visitState) {
++        this.visitState = visitState;
++    }
++
++    public Register() {
++    }
++
++    @Override
++    public String toString() {
++        return "Register{" +
++                "id=" + id +
++                ", caseNumber='" + caseNumber + '\'' +
++                ", realName='" + realName + '\'' +
++                ", dender=" + dender +
++                ", idNumber='" + idNumber + '\'' +
++                ", birthDate=" + birthDate +
++                ", age=" + age +
++                ", ageTpye=" + ageTpye +
++                ", homeAddress='" + homeAddress + '\'' +
++                ", visitDate=" + visitDate +
++                ", noon='" + noon + '\'' +
++                ", deptID=" + deptID +
++                ", userID=" + userID +
++                ", registLeID=" + registLeID +
++                ", settLeID=" + settLeID +
++                ", isBook=" + isBook +
++                ", registTime=" + registTime +
++                ", registerID=" + registerID +
++                ", visitState=" + visitState +
++                '}';
++    }
++}
+Index: src/vo/RegistLevel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/RegistLevel.java	(date 1559274729890)
++++ src/vo/RegistLevel.java	(date 1559274729890)
+@@ -0,0 +1,102 @@
++/**
++ * 实体类--挂号级别表
++ * */
++package vo;
++
++public class RegistLevel {
++    //唯一标识
++    private int id;
++    //号别编码
++    private String registCode;
++    //号别名称
++    private String registName;
++    //显示顺序号
++    private int sequenceNo;
++    //挂号费用
++    private Double registFree;
++    //挂号限额
++    private int registquota;
++    //删除标记
++    private int delMark;
++
++    public RegistLevel(String registCode, String registName, int sequenceNo, Double registFree, int registquota, int delMark) {
++        this.registCode = registCode;
++        this.registName = registName;
++        this.sequenceNo = sequenceNo;
++        this.registFree = registFree;
++        this.registquota = registquota;
++        this.delMark = delMark;
++    }
++
++    public RegistLevel() {
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getRegistCode() {
++        return registCode;
++    }
++
++    public void setRegistCode(String registCode) {
++        this.registCode = registCode;
++    }
++
++    public String getRegistName() {
++        return registName;
++    }
++
++    public void setRegistName(String registName) {
++        this.registName = registName;
++    }
++
++    public int getSequenceNo() {
++        return sequenceNo;
++    }
++
++    public void setSequenceNo(int sequenceNo) {
++        this.sequenceNo = sequenceNo;
++    }
++
++    public Double getRegistFree() {
++        return registFree;
++    }
++
++    public void setRegistFree(Double registFree) {
++        this.registFree = registFree;
++    }
++
++    public int getRegistquota() {
++        return registquota;
++    }
++
++    public void setRegistquota(int registquota) {
++        this.registquota = registquota;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    @Override
++    public String toString() {
++        return "RegistLevel{" +
++                "id=" + id +
++                ", registCode='" + registCode + '\'' +
++                ", registName='" + registName + '\'' +
++                ", sequenceNo=" + sequenceNo +
++                ", registFree=" + registFree +
++                ", registquota=" + registquota +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: src/vo/Rule.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/Rule.java	(date 1559274729656)
++++ src/vo/Rule.java	(date 1559274729656)
+@@ -0,0 +1,97 @@
++package vo;
++
++import java.util.TreeMap;
++
++/**
++ * 排班规则版
++ * */
++public class Rule {
++    //唯一标识
++    private int id;
++    //规则名称
++    private String ruleNmae;
++    //科室id
++    private int deptID;
++    //医生id
++    private int userID;
++    /*
++     星期
++     14位1和0组成的字符串，1代表有班0代表无班
++     14为字符串从左到右依次表示星期一到星期日
++     每天两位标识上下午
++     */
++    private String week;
++    //删除标记
++    private int delMark;
++
++    public Rule() {
++    }
++
++    public Rule(String ruleNmae, int deptID, int userID, String week, int delMark) {
++        this.ruleNmae = ruleNmae;
++        this.deptID = deptID;
++        this.userID = userID;
++        this.week = week;
++        this.delMark = delMark;
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getRuleNmae() {
++        return ruleNmae;
++    }
++
++    public void setRuleNmae(String ruleNmae) {
++        this.ruleNmae = ruleNmae;
++    }
++
++    public int getDeptID() {
++        return deptID;
++    }
++
++    public void setDeptID(int deptID) {
++        this.deptID = deptID;
++    }
++
++    public int getUserID() {
++        return userID;
++    }
++
++    public void setUserID(int userID) {
++        this.userID = userID;
++    }
++
++    public String getWeek() {
++        return week;
++    }
++
++    public void setWeek(String week) {
++        this.week = week;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    @Override
++    public String toString() {
++        return "Rule{" +
++                "id=" + id +
++                ", ruleNmae='" + ruleNmae + '\'' +
++                ", deptID=" + deptID +
++                ", userID=" + userID +
++                ", week='" + week + '\'' +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: src/vo/Scheduling.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/Scheduling.java	(date 1559274729622)
++++ src/vo/Scheduling.java	(date 1559274729622)
+@@ -0,0 +1,33 @@
++package vo;
++
++import java.util.Date;
++
++/**
++ * 排班表
++ * */
++public class Scheduling {
++    //唯一标识
++    private  int id;
++    //排班日期
++    private Date schedDate;
++    //科室id
++    private int deptID;
++    //医生id
++    private int userID;
++    //午别（上午/下午）
++    private  String noon;
++    //排版规则id
++    private int ruleID;
++
++    @Override
++    public String toString() {
++        return "Scheduling{" +
++                "id=" + id +
++                ", schedDate=" + schedDate +
++                ", deptID=" + deptID +
++                ", userID=" + userID +
++                ", noon='" + noon + '\'' +
++                ", ruleID=" + ruleID +
++                '}';
++    }
++}
+Index: src/vo/SettleCategory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/SettleCategory.java	(date 1559274729842)
++++ src/vo/SettleCategory.java	(date 1559274729842)
+@@ -0,0 +1,78 @@
++/**
++ * 实体类：结算类别表
++ * */
++package vo;
++
++public class SettleCategory {
++    //唯一标识
++    private int id;
++    //类别编码
++    private String settleCode;
++    //类别名称
++    private String settleName;
++    //显示顺序号
++    private int sequenceNo;
++    //删除标记
++    private int delMark;
++
++    public SettleCategory(String settleCode, String settleName, int sequenceNo, int delMark) {
++        this.settleCode = settleCode;
++        this.settleName = settleName;
++        this.sequenceNo = sequenceNo;
++        this.delMark = delMark;
++    }
++
++    public SettleCategory() {
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getSettleCode() {
++        return settleCode;
++    }
++
++    public void setSettleCode(String settleCode) {
++        this.settleCode = settleCode;
++    }
++
++    public String getSettleName() {
++        return settleName;
++    }
++
++    public void setSettleName(String settleName) {
++        this.settleName = settleName;
++    }
++
++    public int getSequenceNo() {
++        return sequenceNo;
++    }
++
++    public void setSequenceNo(int sequenceNo) {
++        this.sequenceNo = sequenceNo;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    @Override
++    public String toString() {
++        return "SettleCategory{" +
++                "id=" + id +
++                ", settleCode='" + settleCode + '\'' +
++                ", settleName='" + settleName + '\'' +
++                ", sequenceNo=" + sequenceNo +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: src/vo/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/vo/User.java	(date 1559274729748)
++++ src/vo/User.java	(date 1559274729748)
+@@ -0,0 +1,138 @@
++/**
++ * 实体类：用户类表
++ * */
++package vo;
++
++public class User {
++    //唯一标识
++    private int id;
++    //用户名
++    private String userName;
++    //用户密码
++    private String password;
++    //真实名字
++    private String realName;
++    //用户类型---1-医院管理员；2-挂号管理员；3-门诊医生；4-医技医生；5-药房操作员；6-财务管理员
++    private  int useTpye;
++    //医生职称
++    private int docTileID;
++    //是否排班
++    private Boolean isScheduling;
++    //部门编号
++    private int deptid;
++    //挂号级别id
++    private int  registLeID;
++    //删除编号
++    private int delMark;
++
++    public User(String userName, String password, String realName, int useTpye, int docTileID, Boolean isScheduling, int deptid, int registLeID, int delMark) {
++        this.userName = userName;
++        this.password = password;
++        this.realName = realName;
++        this.useTpye = useTpye;
++        this.docTileID = docTileID;
++        this.isScheduling = isScheduling;
++        this.deptid = deptid;
++        this.registLeID = registLeID;
++        this.delMark = delMark;
++    }
++
++    public User() {
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getUserName() {
++        return userName;
++    }
++
++    public void setUserName(String userName) {
++        this.userName = userName;
++    }
++
++    public String getPassword() {
++        return password;
++    }
++
++    public void setPassword(String password) {
++        this.password = password;
++    }
++
++    public String getRealName() {
++        return realName;
++    }
++
++    public void setRealName(String realName) {
++        this.realName = realName;
++    }
++
++    public int getUseTpye() {
++        return useTpye;
++    }
++
++    public void setUseTpye(int useTpye) {
++        this.useTpye = useTpye;
++    }
++
++    public int getDocTileID() {
++        return docTileID;
++    }
++
++    public void setDocTileID(int docTileID) {
++        this.docTileID = docTileID;
++    }
++
++    public Boolean getScheduling() {
++        return isScheduling;
++    }
++
++    public void setScheduling(Boolean scheduling) {
++        isScheduling = scheduling;
++    }
++
++    public int getDeptid() {
++        return deptid;
++    }
++
++    public void setDeptid(int deptid) {
++        this.deptid = deptid;
++    }
++
++    public int getRegistLeID() {
++        return registLeID;
++    }
++
++    public void setRegistLeID(int registLeID) {
++        this.registLeID = registLeID;
++    }
++
++    public int getDelMark() {
++        return delMark;
++    }
++
++    public void setDelMark(int delMark) {
++        this.delMark = delMark;
++    }
++
++    @Override
++    public String toString() {
++        return "User{" +
++                "id=" + id +
++                ", userName='" + userName + '\'' +
++                ", password='" + password + '\'' +
++                ", realName='" + realName + '\'' +
++                ", useTpye=" + useTpye +
++                ", docTileID=" + docTileID +
++                ", isScheduling=" + isScheduling +
++                ", deptid=" + deptid +
++                ", registLeID=" + registLeID +
++                ", delMark=" + delMark +
++                '}';
++    }
++}
+Index: his.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- his.iml	(revision a75188f97a49b7bd7c5e40a66f71ceb9ee899949)
++++ his.iml	(date 1559274113985)
+@@ -21,5 +21,6 @@
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="lib" level="project" />
+   </component>
+ </module>
+\ No newline at end of file
