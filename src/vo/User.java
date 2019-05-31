@@ -13,7 +13,7 @@ public class User {
     //真实名字
     private String realName;
     //用户类型---1-医院管理员；2-挂号管理员；3-门诊医生；4-医技医生；5-药房操作员；6-财务管理员
-    private  int useTpye;
+    private int useType;
     //医生职称
     private int docTileID;
     //是否排班
@@ -21,15 +21,15 @@ public class User {
     //部门编号
     private int deptid;
     //挂号级别id
-    private int  registLeID;
+    private int registLeID;
     //删除编号
     private int delMark;
 
-    public User(String userName, String password, String realName, int useTpye, int docTileID, Boolean isScheduling, int deptid, int registLeID, int delMark) {
+    public User(String userName, String password, String realName, int useType, int docTileID, Boolean isScheduling, int deptid, int registLeID, int delMark) {
         this.userName = userName;
         this.password = password;
         this.realName = realName;
-        this.useTpye = useTpye;
+        this.useType = useType;
         this.docTileID = docTileID;
         this.isScheduling = isScheduling;
         this.deptid = deptid;
@@ -72,12 +72,12 @@ public class User {
         this.realName = realName;
     }
 
-    public int getUseTpye() {
-        return useTpye;
+    public int getUseType() {
+        return useType;
     }
 
-    public void setUseTpye(int useTpye) {
-        this.useTpye = useTpye;
+    public void setUseType(int useType) {
+        this.useType = useType;
     }
 
     public int getDocTileID() {
@@ -127,7 +127,7 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", realName='" + realName + '\'' +
-                ", useTpye=" + useTpye +
+                ", useType=" + useType +
                 ", docTileID=" + docTileID +
                 ", isScheduling=" + isScheduling +
                 ", deptid=" + deptid +
