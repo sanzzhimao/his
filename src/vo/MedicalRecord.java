@@ -1,6 +1,7 @@
 package vo;
-/*
-    实体类：患者病历首页
+
+/**
+ * 实体类：患者病历首页
  */
 public class MedicalRecord {
     private int id;

@@ -1,10 +1,8 @@
 package vo;
 
-
 import java.util.Date;
-
-/*
-处置申请表
+/**
+ * 实体类：处置申请表
  */
 public class CheckApply {
     private int id;//id

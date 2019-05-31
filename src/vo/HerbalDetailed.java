@@ -1,6 +1,7 @@
 package vo;
-/*
-    草药处方明细
+
+/**
+ * 实体类：草药处方明细
  */
 public class HerbalDetailed {
     private int id;

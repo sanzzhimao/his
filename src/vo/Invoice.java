@@ -1,8 +1,9 @@
 package vo;
 
 import java.util.Date;
-/*
-    发票
+
+/**
+ * 实体类：发票
  */
 public class Invoice {
     private int id;

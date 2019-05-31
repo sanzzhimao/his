@@ -2,8 +2,8 @@ package vo;
 
 import java.util.Date;
 
-/*
-    患者费用明细
+/**
+ * 实体类：患者费用明细
  */
 public class PatientCosts {
     private int id;

@@ -1,6 +1,7 @@
 package vo;
-/*
-患者成药处方明细表
+
+/**
+ * 实体类：患者成药处方明细表
  */
 public class PrescriptionDetailed {
     private int id;//id
