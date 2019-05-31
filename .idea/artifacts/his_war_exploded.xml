@@ -7,7 +7,13 @@
         <element id="directory" name="classes">
           <element id="module-output" name="his" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="Java EE 6" />
+          <element id="library" level="project" name="Java EE 6 (2)" />
+        </element>
       </element>
+      <element id="library" level="project" name="lib" />
     </root>
   </artifact>
 </component>
