@@ -1,15 +1,12 @@
-/**
- * 实体类：非药品收费项目
- * 检查
- * */
 package vo;
 
-import javax.sound.midi.Track;
-import java.util.Date;
+import java.sql.Date;
 
-public class Fmeditem {
-    //唯一标识
-    private  int id;
+/**
+ * 实体类：非药品管理实体类(已用)
+ */
+public class NoDrug {
+    private int id;
     //项目编码
     private String itemCode;
     //项目名称
@@ -18,9 +15,9 @@ public class Fmeditem {
     private String format;
     //单价
     private double price;
-    //所属费用科目id
+    //所属费用科目ID
     private int expClassID;
-    //执行科室id
+    //执行科室ID
     private int deptID;
     //拼音助记码
     private String mnemonicCode;
@@ -28,15 +25,19 @@ public class Fmeditem {
     private Date creationDate;
     //最后修改时间
     private Date lastUpdateDate;
-    //项目类型（1--检查  2--检验  3--处置）
+    //项目类型
     private int recordType;
     //删除标记
     private int delMark;
+    //所属费用科目名称
+    private String expName;
+    //执行科室名称
+    private String deptName;
 
-    public Fmeditem() {
+    public NoDrug() {
     }
 
-    public Fmeditem(String itemCode, String itemName, String format, double price, int expClassID, int deptID, String mnemonicCode, Date creationDate, Date lastUpdateDate, int recordType, int delMark) {
+    public NoDrug(String itemCode, String itemName, String format, double price, int expClassID, int deptID, String mnemonicCode, Date creationDate, Date lastUpdateDate, int recordType, int delMark, String expName, String deptName) {
         this.itemCode = itemCode;
         this.itemName = itemName;
         this.format = format;
@@ -48,6 +49,8 @@ public class Fmeditem {
         this.lastUpdateDate = lastUpdateDate;
         this.recordType = recordType;
         this.delMark = delMark;
+        this.expName = expName;
+        this.deptName = deptName;
     }
 
     public int getId() {
@@ -146,9 +149,25 @@ public class Fmeditem {
         this.delMark = delMark;
     }
 
+    public String getExpName() {
+        return expName;
+    }
+
+    public void setExpName(String expName) {
+        this.expName = expName;
+    }
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
     @Override
     public String toString() {
-        return "Fmeditem{" +
+        return "NoDrug{" +
                 "id=" + id +
                 ", itemCode='" + itemCode + '\'' +
                 ", itemName='" + itemName + '\'' +
@@ -161,6 +180,8 @@ public class Fmeditem {
                 ", lastUpdateDate=" + lastUpdateDate +
                 ", recordType=" + recordType +
                 ", delMark=" + delMark +
+                ", expName='" + expName + '\'' +
+                ", deptName='" + deptName + '\'' +
                 '}';
     }
 }
