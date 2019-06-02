@@ -16,8 +16,8 @@ public class User {
     private int useType;
     //医生职称
     private int docTileID;
-    //是否排班
-    private Boolean isScheduling;
+    //是否排班(是  或者  否)
+    private String isScheduling;
     //部门编号
     private int deptid;
     //挂号级别id
@@ -25,17 +25,7 @@ public class User {
     //删除编号
     private int delMark;
 
-    public User(String userName, String password, String realName, int useType, int docTileID, Boolean isScheduling, int deptid, int registLeID, int delMark) {
-        this.userName = userName;
-        this.password = password;
-        this.realName = realName;
-        this.useType = useType;
-        this.docTileID = docTileID;
-        this.isScheduling = isScheduling;
-        this.deptid = deptid;
-        this.registLeID = registLeID;
-        this.delMark = delMark;
-    }
+
 
     public User() {
     }
@@ -88,12 +78,24 @@ public class User {
         this.docTileID = docTileID;
     }
 
-    public Boolean getScheduling() {
+    public User(String userName, String password, String realName, int useType, int docTileID, String isScheduling, int deptid, int registLeID, int delMark) {
+        this.userName = userName;
+        this.password = password;
+        this.realName = realName;
+        this.useType = useType;
+        this.docTileID = docTileID;
+        this.isScheduling = isScheduling;
+        this.deptid = deptid;
+        this.registLeID = registLeID;
+        this.delMark = delMark;
+    }
+
+    public String getIsScheduling() {
         return isScheduling;
     }
 
-    public void setScheduling(Boolean scheduling) {
-        isScheduling = scheduling;
+    public void setIsScheduling(String isScheduling) {
+        this.isScheduling = isScheduling;
     }
 
     public int getDeptid() {
