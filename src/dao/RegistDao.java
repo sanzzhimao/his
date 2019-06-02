@@ -2,9 +2,11 @@ package dao;
 
 import sun.awt.image.ImageWatched;
 import util.JdbcUtil;
+import vo.Department;
 import vo.RegistLevel;
 import vo.SettleCategory;
 
+import java.beans.FeatureDescriptor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -132,5 +134,22 @@ public class RegistDao implements IRegistDao {
         }
         JdbcUtil.release(null,ptmt,rs);
         return registLevel;
+    }
+
+    @Override
+    public List<Department> selectDepartment() throws SQLException {
+        String sql="select * from deptpartment where depttype=1 and delmark=1";
+        PreparedStatement ptmt=con.prepareStatement(sql);
+        ResultSet rs=ptmt.executeQuery();
+        List<Department> list=new LinkedList<>();
+        while (rs.next()){
+            Department department=new Department();
+            department.setId(rs.getInt(1));
+            department.setDeptCode(rs.getString(2));
+            department.setDeptName(rs.getString(3));
+            department.setDeptCategoryID(rs.getInt(1));
+
+        }
+        return null;
     }
 }

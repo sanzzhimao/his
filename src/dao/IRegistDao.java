@@ -1,5 +1,6 @@
 package dao;
 
+import vo.Department;
 import vo.RegistLevel;
 import vo.SettleCategory;
 
@@ -56,4 +57,11 @@ public interface IRegistDao {
      * @return vo.RegistLevel
     **/
     RegistLevel selectRegistLevelById(int id) throws SQLException;
+    /**
+     * @Author lym
+     * @Description:读取有效的临床科室
+     * @Param []
+     * @return java.util.List<vo.Department>
+    **/
+    List<Department>selectDepartment() throws SQLException;
 }
