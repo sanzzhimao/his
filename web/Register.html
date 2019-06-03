@@ -89,8 +89,6 @@
         </li>
     </ul>
 
-
-
     <div class="layui-tab" lay-allowClose="true" id="panel">
         <ul class="layui-tab-title">
             <li class="layui-this">现场挂号</li>
@@ -329,8 +327,15 @@
             var laydate = layui.laydate;
             //执行一个laydate实例
             laydate.render({
-                elem: '#birthDate', //指定元素
-                elem: '#visitDate'
+                elem: '#birthDate' //指定元素
+            });
+        });
+
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#visitDate' //指定元素
             });
         });
     </script>
