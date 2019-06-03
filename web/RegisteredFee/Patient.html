@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #panel {
+        /* background:green; */
+        float: left;
+        position: absolute;
+        top: 80px;
+        left: 220px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>东软云医院HIS系统</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+
+<body>
+    <header>东软云医院HIS系统</header>
+    <ul class="layui-nav layui-nav-tree layui-bg-#393D49" lay-filter="test">
+        <li class="layui-nav-item">
+            <a href="javascript:;">挂号收费</a>
+            <dl class="layui-nav-child">
+                <!-- 二级菜单 -->
+                <dd><a href="">现场挂号</a></dd>
+                <dd><a href="">退号</a></dd>
+                <dd><a href="">收费</a></dd>
+                <dd><a href="">退费</a></dd>
+                <dd><a href="">发票补打</a></dd>
+                <dd><a href="">发票重打</a></dd>
+                <dd><a href="">患者费用查询</a></dd>
+                <dd><a href="">日结*</a></dd>
+                <dd><a href="">日结查询*</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">门诊医生</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">门诊病历</a></dd>
+                <dd><a href="">医技模板管理</a></dd>
+                <dd><a href="">西药处方模板</a></dd>
+                <dd><a href="">中药处方模板</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">医技处置*</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">患者检验*</a></dd>
+                <dd><a href="">患者检查*</a></dd>
+                <dd><a href="">患者处置*</a></dd>
+                <dd><a href="">医技管理*</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">药房管理</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">药房发药</a></dd>
+                <dd><a href="">药房退药</a></dd>
+                <dd><a href="">药品管理</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">财务管理</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">门诊医生工作量统计*</a></dd>
+                <dd><a href="">开单科室工作量统计*</a></dd>
+                <dd><a href="">执行科室工作量统计*</a></dd>
+                <dd><a href="">费用科目管理</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">系统信息</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">常数类别管理</a></dd>
+                <dd><a href="">科室管理</a></dd>
+                <dd><a href="">用户管理</a></dd>
+                <dd><a href="">挂号级别管理</a></dd>
+                <dd><a href="">结算类别管理</a></dd>
+                <dd><a href="">诊断目录管理</a></dd>
+                <dd><a href="">非药品收费项目管理</a></dd>
+                <dd><a href="">医生排班管理</a></dd>
+            </dl>
+        </li>
+    </ul>
+
+
+    <div class="layui-tab" lay-allowClose="true" id="panel">
+        <ul class="layui-tab-title">
+            <li class="layui-this">退号</li>
+        </ul>
+
+        <form class="layui-form" action="" style="padding-top: 20px">
+        <p>患者信息查询</p>
+        <table>
+            <tr>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">*病 历 号：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" required lay-verify="required" placeholder="病历号"
+                                autocomplete="off" class="layui-input">
+                        </div>
+
+                    </div>
+                </td>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">开始时间：</label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input layui-icon" id="startDate"
+                                placeholder="&#xe637; 选择日期">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">结束时间：</label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input layui-icon" id="endDate" placeholder="&#xe637; 选择日期">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615; 搜索</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <p>患者信息确认</p>
+        <table>
+            <tr>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">姓 名：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" required lay-verify="required" placeholder="姓名"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">身份证号：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" required lay-verify="required" placeholder="身份证号"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">家庭住址：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" required lay-verify="required" placeholder="家庭住址"
+                                autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <p>患者发票信息</p>
+        <table class="layui-table" lay-even lay-skin="nob">
+            <!-- <colgroup>
+                <col width="150">
+                <col width="150">
+                <col width="150">
+            </colgroup> -->
+            <thead>
+                <tr>
+                    <th>病历号</th>
+                    <th>姓名</th>
+                    <th>消费名称</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>日期</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>123456</td>
+                    <td>test</td>
+                    <td>123456</td>
+                </tr>
+                <tr>
+                    <td>123456</td>
+                    <td>test</td>
+                    <td>12345611111111111</td>
+                </tr>
+            </form>
+        </table>
+        <span>总比数：0</span>
+        <span>总金额：0</span>
+    </div>
+
+    <script>
+        //注意：导航依赖element模块，否则无法进行功能性操作
+        layui.use('element', function () {
+            var element = layui.element;
+
+            //…
+        });
+
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#startDate' //指定元素
+            });
+        });
+
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#endDate' //指定元素
+            });
+        });
+    </script>
+</body>
+
+</html>
