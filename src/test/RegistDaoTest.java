@@ -70,4 +70,18 @@ public class RegistDaoTest {
         register.setRegistLeID(1);
         System.out.println(registDao.selectDoctorInfo(register));
     }
+    @Test
+    public void reRegisterByCaseNumber() throws SQLException {
+        RegistDao registDao=new RegistDao();
+        registDao.setConnection(JdbcUtil.getConnection());
+        System.out.println(registDao.reRegisterByCaseNumber("600616"));
+    }
+    @Test
+    public void changeByCaseNumber() throws SQLException {
+        RegistDao registDao=new RegistDao();
+        registDao.setConnection(JdbcUtil.getConnection());
+        registDao.changeByCaseNumber("600618");
+        JdbcUtil.release(JdbcUtil.getConnection(),null,null);
+    }
+
 }

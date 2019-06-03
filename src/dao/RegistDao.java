@@ -8,6 +8,7 @@ import java.beans.FeatureDescriptor;
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.SplittableRandom;
 
 public class RegistDao implements IRegistDao {
     Connection con;
@@ -189,5 +190,196 @@ public class RegistDao implements IRegistDao {
         JdbcUtil.release(null,ptmt,rs);
         return list;
     }
-
+    /**
+     * @Author lym
+     * @Description:根据选中医生找到已经用去多少的号额(这个医生已经又多少个人看诊了)
+     * @Param [reg]
+     * @return int
+    **/
+    @Override
+    public int selectDoctorUsedId(Register reg) throws SQLException {
+        String sql="select count(id) from register " +
+                "where userid=?" +
+                "and visidate=?" +
+                "and visistate in (1,2,3)" ;
+        PreparedStatement ptmt=con.prepareStatement(sql);
+        ptmt.setInt(1,reg.getUserID());
+        Date date=new Date(reg.getVisitDate().getTime());
+        ptmt.setDate(2,date);
+        ResultSet rs = ptmt.executeQuery();
+        int allUsedId=0;
+        while (rs.next()){
+            allUsedId=rs.getInt(1);
+        }
+        JdbcUtil.release(null,ptmt,rs);
+        return allUsedId;
+    }
+    /**
+     * @Author lym
+     * @Description：插入一个挂号的病人（前提是挂号的医生有班且有限额，时间是可以选定的）
+     * @Param [reg]
+     * @return j
+     * ava.lang.Boolean
+    **/
+    @Override
+    public Boolean addRegist(Register reg) throws SQLException {
+        String sql="insert into register(casenumber,realname,gender,idnumber,birthday,age,agetype," +
+                "homeaddress,visidate,noon,deptid,userid,registleid,settleid,isbook," +
+                "registtime,registerid,visitstate) " +
+                "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,1)";
+        PreparedStatement pstm=con.prepareStatement(sql);
+        pstm.setString(1,reg.getCaseNumber());
+        pstm.setString(2,reg.getRealName());
+        pstm.setInt(3,reg.getGender());
+        //身份证号
+        pstm.setString(4,reg.getIdNumber());
+        //出生日期
+        Date date=new Date(reg.getBirthDate().getTime());
+        pstm.setDate(5,date);
+        pstm.setInt(6,reg.getAge());
+        //年龄类型？？？
+        pstm.setString(7, reg.getAgeTpye());
+        pstm.setString(8,reg.getHomeAddress());
+        //看诊日期
+        Date vistiDate=new Date(reg.getVisitDate().getTime());
+        pstm.setDate(9,vistiDate);
+        pstm.setString(10,reg.getNoon());
+        pstm.setInt(11,reg.getDeptID());
+        //挂号医生id
+        pstm.setInt(12,reg.getUserID());
+        //挂号级别
+        pstm.setInt(13,reg.getRegistLeID());
+        pstm.setInt(14,reg.getSettLeID());
+        String isbook=String.valueOf(reg.getIsBook());
+        pstm.setString(15,isbook);
+        /*注册日期设置为当前系统日期*/
+        Date registTime=new Date(System.currentTimeMillis());
+        pstm.setDate(16,registTime);
+        pstm.setInt(17,reg.getRegisterID());
+        pstm.executeUpdate();
+        JdbcUtil.release(null,pstm,null);
+        return true;
+    }
+    /**
+     * @Author lym
+     * @Description:记录使用的发票
+     * @Param [iv]
+     * @return boolean
+    **/
+    @Override
+    public boolean addInvoice(Invoice iv) throws SQLException {
+        String sql="insert into invoice(invoicenum,money,state,creationtime,userid,registid,freetype,back,dailystate)" +
+                "values(?,?,?,?,?,?,?,?,?)";
+        PreparedStatement pstm=con.prepareStatement(sql);
+        pstm.setString(1,iv.getInvoiceNum());
+        pstm.setDouble(2,iv.getMoney());
+        pstm.setInt(3,iv.getState());
+        //系统时间
+        pstm.setDate(4,new Date(System.currentTimeMillis()));
+        pstm.setInt(5,iv.getUserID());
+        pstm.setInt(6,iv.getRegistID());
+        pstm.setInt(7,iv.getFeeType());
+        pstm.setString(8,iv.getBack());
+        pstm.setInt(9,iv.getDailyState());
+        pstm.executeUpdate();
+        JdbcUtil.release(null,pstm,null);
+        return true;
+    }
+    /**
+     * @Author lym
+     * @Description:患者费用明细表
+     * @Param [pc]
+     * @return void
+    **/
+    @Override
+    public boolean addPatientCosts(PatientCosts pc) throws SQLException {
+        String sql="insert into patientCosts(registid,invoiceid,itemid,itemtype,name,price,amount,deptid,createtime,createoperid,paytime,registerid,freetype,backid)" +
+                " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setInt(1,pc.getRegistID());
+        pstm.setInt(2,pc.getInvoiceID());
+        pstm.setInt(3,pc.getItemID());
+        pstm.setInt(4,pc.getItemType());
+        pstm.setString(5,pc.getName());
+        pstm.setDouble(6,pc.getPrice());
+        pstm.setDouble(7,pc.getAmount());
+        pstm.setInt(8,pc.getDeptID());
+        Date creatTime=new Date(pc.getCreateTime().getTime());
+        pstm.setDate(9,creatTime);
+        pstm.setInt(10,pc.getCreateOperID());
+        Date payTime=new Date(pc.getPayTime().getTime());
+        pstm.setDate(11,payTime);
+        pstm.setInt(12,pc.getRegisterID());
+        pstm.setInt(13,pc.getFeeType());
+        pstm.setInt(14,pc.getBackID());
+        JdbcUtil.release(null,pstm,null);
+        return true;
+    }
+    /**
+     * @Author lym
+     * @Description:记录患者的情况
+     * @Param [pc]
+     * @return void
+     **/
+    @Override
+    public Register reRegisterByCaseNumber(String  caseNumber) throws SQLException {
+        String sql="select r.*,d.deptname from register r,department d where r.deptid=d.id and r.casenumber=? and visitstate=1";
+        PreparedStatement psmt=con.prepareStatement(sql);
+        psmt.setString(1,caseNumber);
+        ResultSet rs=psmt.executeQuery();
+        Register register=null;
+        while (rs.next()){
+            register=new Register();
+            register.setId(rs.getInt(1));
+            register.setCaseNumber(rs.getString(2));
+            register.setRealName(rs.getString(3));
+            register.setGender(rs.getInt(4));
+            register.setIdNumber(rs.getString(5));
+            register.setBirthDate(rs.getDate(6));
+            register.setAge(rs.getInt(7));
+            register.setAgeTpye(rs.getString(8));
+            register.setHomeAddress(rs.getString(9));
+            register.setVisitDate(rs.getDate(10));
+            register.setNoon(rs.getString(11));
+            register.setDeptID(rs.getInt(12));
+            register.setUserID(rs.getInt(13));
+            register.setRegistLeID(rs.getInt(14));
+            register.setSettLeID(rs.getInt(15));
+            register.setIsBook(rs.getString(16));
+            register.setRegistTime(rs.getTime(17));
+            register.setRegisterID(rs.getInt(18));
+            register.setVisitState(rs.getInt(19));
+            register.setDeptName(rs.getString(20));
+        }
+        JdbcUtil.release(null,psmt,rs);
+        return register;
+    }
+        /**
+         * @Author lym
+         * @Description：退号之后修改挂号状态--4
+         * @Param [caseNumber]通过病历号修改
+         * @return vo.Register
+        **/
+    @Override
+    public void  changeByCaseNumber(String caseNumber) throws SQLException {
+        String sql="update register set visitstate=4 where casenumber=?";
+        PreparedStatement psmt =con.prepareStatement(sql);
+        psmt.setString(1,caseNumber);
+        psmt.executeUpdate();
+        JdbcUtil.release(null,psmt,null);
+    }
+    /**
+     * @Author lym
+     * @Description：退号之后修改挂号状态--4
+     * @Param [id]通过id修改
+     * @return vo.Register
+     **/
+    @Override
+    public void  changeByCaseNumber(int id) throws SQLException {
+        String sql="update register set visitstate=4 where casenumber=?";
+        PreparedStatement psmt =con.prepareStatement(sql);
+        psmt.setInt(1,id);
+        psmt.executeUpdate();
+        JdbcUtil.release(null,psmt,null);
+    }
 }

@@ -70,4 +70,35 @@ public interface IRegistDao {
      * @return java.util.List<vo.User>
     **/
     List<User>selectDoctorInfo(Register register)throws SQLException;
+     int selectDoctorUsedId(Register reg) throws SQLException;
+     /**
+      * @Author lym
+      * @Description:插入一个挂号病人
+      * @Param [reg]
+      * @return java.lang.Boolean
+     **/
+     Boolean addRegist(Register reg) throws SQLException;
+     /**
+      * @Author lym
+      * @Description：记录使用的发票
+      * @Param [iv]
+      * @return boolean
+     **/
+     boolean addInvoice(Invoice iv) throws SQLException;
+     /**
+      * @Author lym
+      * @Description:记录患者的情况
+      * @Param [pc]
+      * @return void
+     **/
+    boolean addPatientCosts(PatientCosts pc) throws SQLException;
+    /**
+     * @Author lym
+     * @Description:通过病历号去查询未看诊的挂号记录
+     * @Param [caseNumber]
+     * @return vo.Register
+    **/
+    Register reRegisterByCaseNumber(String caseNumber) throws SQLException;
+    void changeByCaseNumber(String caseNumber) throws SQLException;
+    void changeByCaseNumber(int id) throws SQLException;
 }
