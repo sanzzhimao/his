@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>东软云医院HIS系统</title>
     <link rel="stylesheet" href="../css/homepage.css">
     <link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../js/jquery-3.3.1.min.js"></script>
@@ -22,11 +22,10 @@
 
 <body>
     <header>东软云医院HIS系统</header>
-    <ul class="layui-nav layui-nav-tree layui-bg-#393D49" lay-filter="test">
+    <ul class="layui-nav layui-nav-tree layui-bg-#393D49">
         <li class="layui-nav-item layui-nav-itemed">
             <a>挂号收费</a>
             <dl class="layui-nav-child">
-                <!-- 二级菜单 -->
                 <dd><a href="">现场挂号</a></dd>
                 <dd><a href="Signout.html">退号</a></dd>
                 <dd><a href="Charge.html">收费</a></dd>
@@ -88,58 +87,47 @@
         </li>
     </ul>
 
-
     <div class="layui-tab layui-tab-card" lay-allowClose="true" id="panel">
         <ul class="layui-tab-title">
-            <li class="layui-this">退号</li>
+            <li class="layui-this">退费</li>
         </ul>
 
-        <p style="padding-top: 20px">患者信息查询</p>
-        <div class="layui-form-item">
-            <label class="layui-form-label">*病 历 号：</label>
-            <div class="layui-input-block">
-                <input type="text" name="" required lay-verify="required" placeholder="病历号" autocomplete="off"
-                    class="layui-input">
+        <form class="layui-form" action="" style="padding-top: 20px">
+            <p>患者信息查询</p>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">*病 历 号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="病历号" autocomplete="off"
+                        class="layui-input">
+                </div>
             </div>
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-input-block">
+            <div class="layui-form-item layui-inline">
                 <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615; 搜索</button>
             </div>
-        </div>
 
-        <p>患者信息确认</p>
-        <table>
-            <tr>
-                <td>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">姓 名：</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="" required lay-verify="required" placeholder="姓名"
-                                autocomplete="off" class="layui-input">
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">身份证号：</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="" required lay-verify="required" placeholder="身份证号"
-                                autocomplete="off" class="layui-input">
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">家庭住址：</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="" required lay-verify="required" placeholder="家庭住址"
-                                autocomplete="off" class="layui-input">
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
+            <p>患者信息确认</p>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">姓 名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="姓名" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">身份证号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="身份证号" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">家庭住址：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="家庭住址" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+        </form>
         <p>患者交费信息</p>
         <table class="layui-table" lay-even lay-skin="nob">
             <thead>
@@ -158,43 +146,30 @@
                     <td>123456</td>
                     <td>test</td>
                     <td>123456</td>
+                    <td>1500</td>
+                    <td>12</td>
+                    <td>2019-06-01</td>
+                    <td>已开立</td>
                 </tr>
                 <tr>
                     <td>123456</td>
                     <td>test</td>
-                    <td>12345611111111111</td>
+                    <td>123456</td>
+                    <td>1500</td>
+                    <td>12</td>
+                    <td>2019-06-01</td>
+                    <td>已开立</td>
                 </tr>
         </table>
+        </form>
     </div>
 
     <script>
-        layui.use('form', function () {
-            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
-
-            //但是，如果你的HTML是动态生成的，自动渲染就会失效
-            //因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
-            form.render();
-        });
-
-        //注意：选项卡依赖element模块，否则无法进行功能性操作
+        //注意：导航依赖element模块，否则无法进行功能性操作
         layui.use('element', function () {
             var element = layui.element;
-        });
 
-        layui.use('laydate', function () {
-            var laydate = layui.laydate;
-            //执行一个laydate实例
-            laydate.render({
-                elem: '#birthDate' //指定元素
-            });
-        });
-
-        layui.use('laydate', function () {
-            var laydate = layui.laydate;
-            //执行一个laydate实例
-            laydate.render({
-                elem: '#visitDate' //指定元素
-            });
+            //…
         });
     </script>
 </body>

@@ -2,7 +2,6 @@
 <html lang="en">
 <style>
     #panel {
-        /* background:green; */
         float: left;
         position: absolute;
         top: 80px;
@@ -27,8 +26,7 @@
         <li class="layui-nav-item layui-nav-itemed">
             <a>挂号收费</a>
             <dl class="layui-nav-child">
-                <!-- 二级菜单 -->
-                <dd><a href="">现场挂号</a></dd>
+                <dd><a href="Register.html">现场挂号</a></dd>
                 <dd><a href="Signout.html">退号</a></dd>
                 <dd><a href="Charge.html">收费</a></dd>
                 <dd><a href="Refund.html">退费</a></dd>
@@ -89,115 +87,92 @@
         </li>
     </ul>
 
-
-    <div class="layui-tab" lay-allowClose="true" id="panel">
+    <div class="layui-tab layui-tab-card" lay-allowClose="true" id="panel">
         <ul class="layui-tab-title">
-            <li class="layui-this">退号</li>
+            <li class="layui-this">患者费用查询</li>
         </ul>
 
         <form class="layui-form" action="" style="padding-top: 20px">
             <p>患者信息查询</p>
-            <table>
-                <tr>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">*病 历 号：</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" placeholder="病历号"
-                                    autocomplete="off" class="layui-input">
-                            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">*病 历 号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="病历号" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">开始时间：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input layui-icon" id="startDate" placeholder="&#xe637; 选择日期">
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">结束时间：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input layui-icon" id="endDate" placeholder="&#xe637; 选择日期">
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <div class="layui-input-inline">
+                    <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
+                        搜索</button>
+                </div>
+            </div>
 
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">开始时间：</label>
-                            <div class="layui-input-block">
-                                <input type="text" class="layui-input layui-icon" id="startDate"
-                                    placeholder="&#xe637; 选择日期">
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">结束时间：</label>
-                            <div class="layui-input-block">
-                                <input type="text" class="layui-input layui-icon" id="endDate"
-                                    placeholder="&#xe637; 选择日期">
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <div class="layui-input-block">
-                                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
-                                    搜索</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
             <p>患者信息确认</p>
-            <table>
-                <tr>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">姓 名：</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" placeholder="姓名"
-                                    autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">身份证号：</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" placeholder="身份证号"
-                                    autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">家庭住址：</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" placeholder="家庭住址"
-                                    autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <p>患者发票信息</p>
-            <table class="layui-table" lay-even lay-skin="nob">
-                <!-- <colgroup>
-                <col width="150">
-                <col width="150">
-                <col width="150">
-            </colgroup> -->
-                <thead>
-                    <tr>
-                        <th>病历号</th>
-                        <th>姓名</th>
-                        <th>消费名称</th>
-                        <th>单价</th>
-                        <th>数量</th>
-                        <th>日期</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>123456</td>
-                        <td>test</td>
-                        <td>123456</td>
-                    </tr>
-                    <tr>
-                        <td>123456</td>
-                        <td>test</td>
-                        <td>12345611111111111</td>
-                    </tr>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">姓 名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="姓名" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">身份证号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="身份证号" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">家庭住址：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="家庭住址" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
         </form>
+        <p>患者发票信息</p>
+        <table class="layui-table" lay-even lay-skin="nob">
+            <thead>
+                <tr>
+                    <th>病历号</th>
+                    <th>姓名</th>
+                    <th>消费名称</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>日期</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>123456</td>
+                    <td>test</td>
+                    <td>123456</td>
+                    <td>123456</td>
+                    <td>123456</td>
+                    <td>123456</td>
+                </tr>
+                <tr>
+                    <td>123456</td>
+                    <td>test</td>
+                    <td>123456</td>
+                    <td>123456</td>
+                    <td>123456</td>
+                    <td>123456</td>
+                </tr>
+
         </table>
         <span>总比数：0</span>
         <span>总金额：0</span>
@@ -207,8 +182,12 @@
         //注意：导航依赖element模块，否则无法进行功能性操作
         layui.use('element', function () {
             var element = layui.element;
+        });
 
-            //…
+        layui.use('form', function () {
+            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+            //但是，如果你的HTML是动态生成的，自动渲染就会失效
+            form.render();
         });
 
         layui.use('laydate', function () {
