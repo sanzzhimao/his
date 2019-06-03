@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>药房发药</title>
+  <link rel="stylesheet" href="layui/css/layui.css">
+  <script src="layui/layui.js"></script>
+  <link rel="stylesheet" href="css/yaofangfayao.css">
+</head>
+
+<body>
+  <form class="layui-form" action="">
+    <table>
+      <tr>
+        <td>
+          <div class="layui-form-item">
+            <label class="layui-form-label"><span>*</span>病历号</label>
+            <div class="layui-input-block">
+              <input type="text" id="binglinum" name="title" required lay-verify="required" placeholder="请输入病历号"
+                autocomplete="off" class="layui-input">
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="layui-form-item">
+            <label class="layui-form-label">时间</label>
+            <div class="layui-input-block">
+              <input type="text" class="layui-input layui-icon" id="birthDate" placeholder="&#xe637; 出生日期">
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="layui-form-item" id="chaxunbutton">
+            <button class="layui-btn layui-btn-normal">查询</button>
+          </div>
+        </td>
+      </tr>
+  </form>
+
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <table class="layui-table">
+    <colgroup>
+      <col width="200">
+      <col width="150">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>药品名称</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>药品状态</th>
+        <th>开立医生</th>
+        <th>处方名称</th>
+        <th>开立时间</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <script>
+    layui.use('laydate', function () {
+      var laydate = layui.laydate;
+      //执行一个laydate实例
+      laydate.render({
+        elem: '#birthDate' //指定元素
+      });
+    });
+  </script>
+</body>
+
+</html>
