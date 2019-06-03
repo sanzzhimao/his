@@ -20,7 +20,7 @@ public class Register {
     //年龄
     private int age;
     //年龄类型（年-月-日）
-    private char ageTpye;
+    private String ageTpye;
     //家庭住址
     private String homeAddress;
     //本次看诊日期
@@ -100,11 +100,11 @@ public class Register {
         this.age = age;
     }
 
-    public char getAgeTpye() {
+    public String getAgeTpye() {
         return ageTpye;
     }
 
-    public void setAgeTpye(char ageTpye) {
+    public void setAgeTpye(String ageTpye) {
         this.ageTpye = ageTpye;
     }
 

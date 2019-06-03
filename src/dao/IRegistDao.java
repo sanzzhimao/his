@@ -1,8 +1,7 @@
 package dao;
 
-import vo.Department;
-import vo.RegistLevel;
-import vo.SettleCategory;
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
+import vo.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -64,4 +63,11 @@ public interface IRegistDao {
      * @return java.util.List<vo.Department>
     **/
     List<Department>selectDepartment() throws SQLException;
+    /**
+     * @Author lym
+     * @Description:找出医生的id和姓名
+     * @Param []
+     * @return java.util.List<vo.User>
+    **/
+    List<User>selectDoctorInfo(Register register)throws SQLException;
 }

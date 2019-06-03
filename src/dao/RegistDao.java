@@ -2,15 +2,10 @@ package dao;
 
 import sun.awt.image.ImageWatched;
 import util.JdbcUtil;
-import vo.Department;
-import vo.RegistLevel;
-import vo.SettleCategory;
+import vo.*;
 
 import java.beans.FeatureDescriptor;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -135,10 +130,15 @@ public class RegistDao implements IRegistDao {
         JdbcUtil.release(null,ptmt,rs);
         return registLevel;
     }
-
+    /**
+     * @Author lym
+     * @Description:查询所有的有效科室
+     * @Param []
+     * @return java.util.List<vo.Department>
+    **/
     @Override
     public List<Department> selectDepartment() throws SQLException {
-        String sql="select * from deptpartment where depttype=1 and delmark=1";
+        String sql="select * from department where depttype=1 and delmark=1";
         PreparedStatement ptmt=con.prepareStatement(sql);
         ResultSet rs=ptmt.executeQuery();
         List<Department> list=new LinkedList<>();
@@ -147,9 +147,47 @@ public class RegistDao implements IRegistDao {
             department.setId(rs.getInt(1));
             department.setDeptCode(rs.getString(2));
             department.setDeptName(rs.getString(3));
-            department.setDeptCategoryID(rs.getInt(1));
-
+            department.setDeptCategoryID(rs.getInt(4));
+            department.setDeptType(rs.getInt(5));
+            department.setDelMark(rs.getInt(6));
+            list.add(department);
         }
-        return null;
+        JdbcUtil.release(null,ptmt,rs);
+        return list;
     }
+    /**
+     * @Author lym
+     * @Description:通过看诊日期，午别，排班科室，挂号级别，读取当天的医生id和姓名
+     * @Param [register]
+     * @return java.util.List<vo.User>
+    **/
+    @Override
+    public List<User> selectDoctorInfo(Register register) throws SQLException {
+        String sql="select  user.id,user.realname " +
+                "from scheduling,user where"+
+                " scheduling.userid=user.deptid and " +
+                "scheduling.scheddate=? and "+
+                "scheduling.noon=? and " +
+                "scheduling.deptid=? and " +
+                "user.registleid=?";
+        PreparedStatement ptmt=con.prepareStatement(sql);
+        Date date=new Date(register.getVisitDate().getTime());
+        ptmt.setDate(1,date);
+        String noon=String.valueOf(register.getNoon());
+        ptmt.setString(2,noon);
+        ptmt.setInt(3,register.getDeptID());
+        ptmt.setInt(4,register.getRegistLeID());
+        ResultSet rs=ptmt.executeQuery();
+        List<User> list=new LinkedList();
+        User user=null;
+        while (rs.next()){
+            user=new User();
+            user.setId(rs.getInt(1));
+            user.setRealName(rs.getString(2));
+            list.add(user);
+        }
+        JdbcUtil.release(null,ptmt,rs);
+        return list;
+    }
+
 }
