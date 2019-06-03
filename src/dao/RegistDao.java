@@ -359,6 +359,7 @@ public class RegistDao implements IRegistDao {
          * @Description：退号之后修改挂号状态--4
          * @Param [caseNumber]通过病历号修改
          * @return vo.Register
+         * w
         **/
     @Override
     public void  changeByCaseNumber(String caseNumber) throws SQLException {
