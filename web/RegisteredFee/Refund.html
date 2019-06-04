@@ -22,11 +22,11 @@
 
 <body>
     <header>东软云医院HIS系统</header>
-    <ul class="layui-nav layui-nav-tree layui-bg-#393D49" lay-filter="test">
+    <ul class="layui-nav layui-nav-tree layui-bg-#393D49">
         <li class="layui-nav-item layui-nav-itemed">
             <a>挂号收费</a>
             <dl class="layui-nav-child">
-                <dd><a href="Register.html">现场挂号</a></dd>
+                <dd><a href="">现场挂号</a></dd>
                 <dd><a href="Signout.html">退号</a></dd>
                 <dd><a href="Charge.html">收费</a></dd>
                 <dd><a href="Refund.html">退费</a></dd>
@@ -87,10 +87,9 @@
         </li>
     </ul>
 
-
     <div class="layui-tab layui-tab-card" lay-allowClose="true" id="panel">
         <ul class="layui-tab-title">
-            <li class="layui-this">发票重打</li>
+            <li class="layui-this">退费</li>
         </ul>
 
         <form class="layui-form" action="" style="padding-top: 20px">
@@ -129,40 +128,40 @@
                 </div>
             </div>
         </form>
-
-        <p>患者发票信息</p>
+        <p>患者交费信息</p>
         <table class="layui-table" lay-even lay-skin="nob">
             <thead>
                 <tr>
                     <th>病历号</th>
-                    <th>发票号</th>
                     <th>姓名</th>
-                    <th>金额</th>
-                    <th>发票状态</th>
-                    <th>看诊日期</th>
-                    <th>操作</th>
+                    <th>项目名称</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>开立时间</th>
+                    <th>状态</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>123456</td>
                     <td>test</td>
-                    <td>张三</td>
-                    <td>1500</td>
                     <td>123456</td>
+                    <td>1500</td>
+                    <td>12</td>
                     <td>2019-06-01</td>
-                    <td>啊哈哈哈</td>
+                    <td>已开立</td>
                 </tr>
                 <tr>
                     <td>123456</td>
                     <td>test</td>
-                    <td>张三</td>
-                    <td>1500</td>
                     <td>123456</td>
+                    <td>1500</td>
+                    <td>12</td>
                     <td>2019-06-01</td>
-                    <td>啊哈哈哈</td>
+                    <td>已开立</td>
                 </tr>
         </table>
+        </form>
     </div>
 
     <script>
