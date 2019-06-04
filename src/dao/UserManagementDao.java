@@ -132,7 +132,7 @@ public class UserManagementDao implements IUserManagementDao {
  * @Description:查询用户（医院人员）【
  * @Param [name]通过登录名或者名字查询或者null】
  * @return java.util.List<vo.User>
- *     已测试success
+ *     已测试---success
 **/
     @Override
     public List<User> selectUser(String name) throws SQLException {
