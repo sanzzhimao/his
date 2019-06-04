@@ -1,10 +1,9 @@
 package test;
 
-import dao.RegistDao;
+import dao.registdao.RegistDao;
 import org.junit.Test;
 import util.JdbcUtil;
 import vo.Register;
-import vo.Scheduling;
 import vo.User;
 
 import java.sql.SQLException;
@@ -13,7 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.junit.Assert.*;
+
 
 public class RegistDaoTest {
     @Test
@@ -76,12 +75,4 @@ public class RegistDaoTest {
         registDao.setConnection(JdbcUtil.getConnection());
         System.out.println(registDao.reRegisterByCaseNumber("600616"));
     }
-    @Test
-    public void changeByCaseNumber() throws SQLException {
-        RegistDao registDao=new RegistDao();
-        registDao.setConnection(JdbcUtil.getConnection());
-        registDao.changeByCaseNumber("600618");
-        JdbcUtil.release(JdbcUtil.getConnection(),null,null);
-    }
-
 }

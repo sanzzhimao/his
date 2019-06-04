@@ -79,7 +79,7 @@ public interface IRegistDao {
      Boolean addRegist(Register reg) throws SQLException;
      /**
       * @Author lym
-      * @Description：记录使用的发票
+      * @Description：记录使用的发票(加入)
       * @Param [iv]
       * @return boolean
      **/
@@ -98,6 +98,5 @@ public interface IRegistDao {
      * @return vo.Register
     **/
     Register reRegisterByCaseNumber(String caseNumber) throws SQLException;
-    void changeByCaseNumber(String caseNumber) throws SQLException;
-    void changeByCaseNumber(int id) throws SQLException;
+
 }
