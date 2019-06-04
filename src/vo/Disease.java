@@ -12,10 +12,20 @@ public class Disease {
     private String diseaseName;
     //国际ICD编码
     private String diseaseICD;
-    //疾病所属分类
+    //疾病所属分类ID
     private int diseCategoryID;
+    //疾病所属分类名称
+    private String dicaName;
     //删除标记
     private int delMark;
+
+    public String getDicaName() {
+        return dicaName;
+    }
+
+    public void setDicaName(String dicaName) {
+        this.dicaName = dicaName;
+    }
 
     public int getId() {
         return id;
@@ -84,6 +94,7 @@ public class Disease {
                 ", diseaseName='" + diseaseName + '\'' +
                 ", diseaseICD='" + diseaseICD + '\'' +
                 ", diseCategoryID=" + diseCategoryID +
+                ", dicaName='" + dicaName + '\'' +
                 ", delMark=" + delMark +
                 '}';
     }
