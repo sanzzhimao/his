@@ -1,12 +1,19 @@
 package test;
 
-import dao.IUserManagementDao;
-import dao.regist.RegistDao;
-import dao.UserManagementDao;
+import dao.RegistDao;
 import org.junit.Test;
 import util.JdbcUtil;
+import vo.Register;
+import vo.Scheduling;
+import vo.User;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import static org.junit.Assert.*;
 
 public class RegistDaoTest {
     @Test
@@ -42,58 +49,39 @@ public class RegistDaoTest {
         registDao.setConnection(JdbcUtil.getConnection());
         System.out.println(registDao.selectRegistLevelById(1));
     }
-
-    public static class UserManagementDaoTest {
-
-        @Test
-        public void setCon() {
-        }
-
-        @Test
-        public void addUSer() {
-        }
-
-        @Test
-        public void delUser() {
-        }
-
-        @Test
-        public void delUser1() {
-        }
-
-        @Test
-        public void changeUser() {
-        }
-
-        @Test
-        public void selectUser() throws SQLException {
-            IUserManagementDao iuser=new UserManagementDao();
-            ((UserManagementDao) iuser).setCon(JdbcUtil.getConnection());
-            System.out.println(iuser.selectUser("华佗"));;
-        }
-
-        @Test
-        public void reName() {
-        }
-
-        @Test
-        public void selectUser1() {
-        }
-
-        @Test
-        public void selectDetpID() {
-        }
-
-        @Test
-        public void selectUser2() {
-        }
-
-        @Test
-        public void selectDoc() {
-        }
-
-        @Test
-        public void selectRegistLevel() {
-        }
+    @Test
+    public void selectDepartment() throws SQLException {
+        RegistDao registDao=new RegistDao();
+        registDao.setConnection(JdbcUtil.getConnection());
+        System.out.println(registDao.selectDepartment());
     }
+    @Test
+    public void selectDoctorInfo() throws SQLException, ParseException {
+        RegistDao registDao=new RegistDao();
+        registDao.setConnection(JdbcUtil.getConnection());
+        Register register=new Register();
+        User user=new User();
+        DateFormat df= new SimpleDateFormat("yyyy-MM-dd");
+        Date date=df.parse("2019-04-01");
+        register.setVisitDate(date);
+        register.setDeptID(1);
+        register.setUserID(2);
+        register.setNoon("上午");
+        register.setRegistLeID(1);
+        System.out.println(registDao.selectDoctorInfo(register));
+    }
+    @Test
+    public void reRegisterByCaseNumber() throws SQLException {
+        RegistDao registDao=new RegistDao();
+        registDao.setConnection(JdbcUtil.getConnection());
+        System.out.println(registDao.reRegisterByCaseNumber("600616"));
+    }
+    @Test
+    public void changeByCaseNumber() throws SQLException {
+        RegistDao registDao=new RegistDao();
+        registDao.setConnection(JdbcUtil.getConnection());
+        registDao.changeByCaseNumber("600618");
+        JdbcUtil.release(JdbcUtil.getConnection(),null,null);
+    }
+
 }
