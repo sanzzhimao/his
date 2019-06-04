@@ -225,33 +225,19 @@
     </div>
 
     <script>
-        layui.use('form', function () {
-            var form = layui.form;
-            form.render();
-        });
-
-        //注意：导航依赖element模块，否则无法进行功能性操作
-        layui.use('element', function () {
+        layui.use(['element', 'form', 'laydate'], function () {
             var element = layui.element;
-
-            //…
-        });
-
-        layui.use('laydate', function () {
+            var form = layui.form;
             var laydate = layui.laydate;
-            //执行一个laydate实例
+
+            form.render();
             laydate.render({
                 elem: '#dailyStartTime2', //指定元素
                 type: 'datetime'
             });
-        });
-
-        layui.use('laydate', function () {
-            var laydate = layui.laydate;
-            //执行一个laydate实例
             laydate.render({
-                elem: '#dailyEndTime2', //指定元素
-                type: 'datetime'
+                elem: '#dailyEndTime2',
+                type: 'datetime' 
             });
         });
     </script>
