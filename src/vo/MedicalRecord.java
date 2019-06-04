@@ -33,6 +33,12 @@ public class MedicalRecord {
     private String handling;
     //病历状态
     private int caseState;
+    //患者名字
+    private String realName;
+    //患者年龄
+    private int age;
+    //患者性别
+    private int gender;
 
     public MedicalRecord() {
     }
@@ -173,5 +179,53 @@ public class MedicalRecord {
 
     public void setCaseState(int caseState) {
         this.caseState = caseState;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+        return "MedicalRecord{" +
+                "id=" + id +
+                ", caseNumber='" + caseNumber + '\'' +
+                ", registerID=" + registerID +
+                ", readme='" + readme + '\'' +
+                ", present='" + present + '\'' +
+                ", presentTreat='" + presentTreat + '\'' +
+                ", history='" + history + '\'' +
+                ", allergy='" + allergy + '\'' +
+                ", physique='" + physique + '\'' +
+                ", proposal='" + proposal + '\'' +
+                ", careful='" + careful + '\'' +
+                ", checkResult='" + checkResult + '\'' +
+                ", diagnosis='" + diagnosis + '\'' +
+                ", handling='" + handling + '\'' +
+                ", caseState=" + caseState +
+                ", realName='" + realName + '\'' +
+                ", age=" + age +
+                ", gender=" + gender +
+                '}';
     }
 }

@@ -1,14 +1,11 @@
 package test;
 
-import dao.IRegistLevelDao;
-import dao.RegistLevelDao;
+import dao.informationdao.IRegistLevelDao;
+import dao.informationdao.RegistLevelDao;
 import org.junit.Test;
 import util.JdbcUtil;
-import vo.RegistLevel;
 
 import java.sql.SQLException;
-
-import static org.junit.Assert.*;
 
 public class RegistLevelDaoTest {
 
