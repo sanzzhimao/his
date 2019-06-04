@@ -1,8 +1,8 @@
 package test;
 
 import org.junit.Test;
-import service.DoctorCrewService;
-import service.IDoctorCrewService;
+import service.informationservice.DoctorCrewService;
+import service.informationservice.IDoctorCrewService;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -11,27 +11,51 @@ import java.util.Date;
 
 
 public class DoctorCrewServiceTest {
-    public static void main(String[] args){
-        IDoctorCrewService id=new DoctorCrewService();
-        SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
-        Date s11= null;
-        Date s12= null;
-        try {
-            s11 = sdf.parse("2019-03-10");
-            s12 = sdf.parse("2019-04-16");
-            try {
-                java.sql.Date s1=new java.sql.Date(s11.getTime());
-                java.sql.Date s2=new java.sql.Date(s12.getTime());
-                System.out.println(id.selectDoctor(s1,s2));
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
+
+    /**
+     * 医生排班管理业务测试类
+     */
+
+        @Test
+        public void selectDoctor() throws ParseException, SQLException {
+            SimpleDateFormat fo=new SimpleDateFormat("yyyy-MM-dd");
+            Date d1=fo.parse("2019-03-28");
+            Date d2=fo.parse("2019-04-5");
+            java.sql.Date da1=new java.sql.Date(d1.getTime());
+            java.sql.Date da2=new java.sql.Date(d2.getTime());
+            IDoctorCrewService idcd=new DoctorCrewService();
+            System.out.println(idcd.selectDoctor(da1,da2));
+        }
+
+        @Test
+        public void selectDepartment() throws SQLException {
+            IDoctorCrewService idcd=new DoctorCrewService();
+            System.out.println(idcd.selectDepartment());
+        }
+
+        @Test
+        public void selectRegistLevel() throws SQLException {
+            IDoctorCrewService idcd=new DoctorCrewService();
+            System.out.println(idcd.selectRegistLevel());
+        }
+
+        @Test
+        public void selectUser() throws SQLException {
+            IDoctorCrewService idcd=new DoctorCrewService();
+            System.out.println(idcd.selectUser(1,1) );
+        }
+
+        @Test
+        public void selectRule() throws SQLException {
+            IDoctorCrewService idcd=new DoctorCrewService();
+            System.out.println(idcd.selectRule(1));
+        }
+
+        @Test
+        public void addRule() {
+        }
+
+        @Test
+        public void deleteRule() {
         }
     }
-    @Test
-    public void selectDoctorCrew() {
-
-    }
-}

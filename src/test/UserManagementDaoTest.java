@@ -3,15 +3,13 @@ package test;
  * UserManagementDaoTest
  * 用户管理测试
  * */
-import dao.UserManagementDao;
+import dao.informationdao.UserManagementDao;
 import org.junit.Test;
 import util.JdbcUtil;
 import vo.User;
 
 import java.sql.SQLException;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class UserManagementDaoTest {
 
@@ -52,7 +50,7 @@ public class UserManagementDaoTest {
     public void selectUser() throws SQLException {
         UserManagementDao um =new UserManagementDao();
         um.setCon(JdbcUtil.getConnection());
-        List<User> users=um.selectUser("r");
+        List<User> users=um.selectUser("扁鹊");
         System.out.println(users);
     }
 
