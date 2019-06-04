@@ -19,10 +19,14 @@ public class Drugs {
     private String drugsUnit;
     //生产厂家
     private String Maufacturer;
-    //药品剂型
+    //药品剂型ID
     private int drugsDosageID;
-    //药品类型
+    //药品药剂名称
+    private String drugsDosageName;
+    //药品类型ID
     private int drugsTpyeID;
+    //药品类型名称
+    private String drugsTypeName;
     //药品单价
     private Double drugsPrice;
     //拼音助记码
@@ -33,21 +37,6 @@ public class Drugs {
     private Date lastUpdateDate;
     //删除标记
     private int delMark;
-
-    public Drugs(String drugCode, String drugName, String drugsFormat, String drugsUnit, String maufacturer, int drugsDosageID, int drugsTpyeID, Double drugsPrice, String mnemonicCode, Date creationDate, Date lastUpdateDate, int delMark) {
-        this.drugCode = drugCode;
-        this.drugName = drugName;
-        this.drugsFormat = drugsFormat;
-        this.drugsUnit = drugsUnit;
-        Maufacturer = maufacturer;
-        this.drugsDosageID = drugsDosageID;
-        this.drugsTpyeID = drugsTpyeID;
-        this.drugsPrice = drugsPrice;
-        this.mnemonicCode = mnemonicCode;
-        this.creationDate = creationDate;
-        this.lastUpdateDate = lastUpdateDate;
-        this.delMark = delMark;
-    }
 
     public Drugs() {
     }
@@ -116,6 +105,22 @@ public class Drugs {
         this.drugsTpyeID = drugsTpyeID;
     }
 
+    public String getDrugsDosageName() {
+        return drugsDosageName;
+    }
+
+    public void setDrugsDosageName(String drugsDosageName) {
+        this.drugsDosageName = drugsDosageName;
+    }
+
+    public String getDrugsTypeName() {
+        return drugsTypeName;
+    }
+
+    public void setDrugsTypeName(String drugsTypeName) {
+        this.drugsTypeName = drugsTypeName;
+    }
+
     public Double getDrugsPrice() {
         return drugsPrice;
     }
@@ -166,7 +171,9 @@ public class Drugs {
                 ", drugsUnit='" + drugsUnit + '\'' +
                 ", Maufacturer='" + Maufacturer + '\'' +
                 ", drugsDosageID=" + drugsDosageID +
+                ", drugsDosageName='" + drugsDosageName + '\'' +
                 ", drugsTpyeID=" + drugsTpyeID +
+                ", drugsTypeName='" + drugsTypeName + '\'' +
                 ", drugsPrice=" + drugsPrice +
                 ", mnemonicCode='" + mnemonicCode + '\'' +
                 ", creationDate=" + creationDate +
