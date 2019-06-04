@@ -18,7 +18,7 @@ public class CostAccountManagementDao implements ICostAccountManagementDao {
      * @Author lym
      * @Description:查询有效的费用科目通过名字或者编码（模糊查询）
      * @Param [strName]
-     * @return vo.ExpenseClass
+     * @return vo.ExpenseClass---
      **/
     @Override
     public ExpenseClass selectExpenseClassByname(String strName) throws SQLException {
