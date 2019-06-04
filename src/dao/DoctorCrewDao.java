@@ -113,7 +113,7 @@ public class DoctorCrewDao implements IDoctorCrewDao{
             user.setRealName(rs.getString(4));
             user.setUseType(rs.getInt(5));
             user.setDocTileID(rs.getInt(6));
-            user.setScheduling(rs.getBoolean(7));
+          //  user.setScheduling(rs.getBoolean(7));
             user.setDeptid(rs.getInt(8));
             user.setRegistLeID(rs.getInt(9));
             user.setDelMark(rs.getInt(10));

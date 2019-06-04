@@ -47,7 +47,9 @@ public class ConstantTypeDao implements IConstantTypeDao {
         pstmt.setString(1,constantType.getConstantTypeCode());
         pstmt.setString(2,constantType.getConstantTypeName());
         pstmt.setInt(3,1);
+        pstmt.executeUpdate();
         JdbcUtil.release(null,pstmt,null);
+
     }
 //查询常数类别
     @Override
@@ -101,6 +103,7 @@ public class ConstantTypeDao implements IConstantTypeDao {
         ConstantItem constantItem=null;
         ArrayList<ConstantItem> alci=new ArrayList<>();
         while (rs.next()){
+            constantItem=new ConstantItem();
             constantItem.setId(rs.getInt(1));
             constantItem.setConstantTypeID(rs.getInt(2));
             constantItem.setContantCode(rs.getString(3));
@@ -121,6 +124,7 @@ public class ConstantTypeDao implements IConstantTypeDao {
         pstmt.setString(2,constantItem.getContantCode());
         pstmt.setString(3,constantItem.getConstantName());
         pstmt.setInt(4,1);
+        pstmt.executeUpdate();
         JdbcUtil.release(null,pstmt,null);
     }
 //修改常数项
@@ -132,6 +136,7 @@ public class ConstantTypeDao implements IConstantTypeDao {
         pstmt.setString(2,constantItem.getConstantName());
         pstmt.setInt(3,constantItem.getConstantTypeID());
         pstmt.setInt(4,constantItem.getId());
+        pstmt.executeUpdate();
         JdbcUtil.release(null,pstmt,null);
     }
 //删除常数项
