@@ -52,7 +52,7 @@ public class UserManagementDaoTest {
     public void selectUser() throws SQLException {
         UserManagementDao um =new UserManagementDao();
         um.setCon(JdbcUtil.getConnection());
-        List<User> users=um.selectUser("r");
+        List<User> users=um.selectUser("扁鹊");
         System.out.println(users);
     }
 

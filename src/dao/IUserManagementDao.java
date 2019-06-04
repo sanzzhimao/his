@@ -1,10 +1,7 @@
 package dao;
 
 import org.omg.PortableServer.LIFESPAN_POLICY_ID;
-import vo.ConstantItem;
-import vo.Department;
-import vo.RegistLevel;
-import vo.User;
+import vo.*;
 
 import java.sql.SQLException;
 import java.util.List;
