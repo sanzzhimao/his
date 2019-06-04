@@ -2,7 +2,6 @@
 <html lang="en">
 <style>
     #panel {
-        /* background:green; */
         float: left;
         position: absolute;
         top: 80px;
@@ -27,8 +26,7 @@
         <li class="layui-nav-item layui-nav-itemed">
             <a>挂号收费</a>
             <dl class="layui-nav-child">
-                <!-- 二级菜单 -->
-                <dd><a href="">现场挂号</a></dd>
+                <dd><a href="Register.html">现场挂号</a></dd>
                 <dd><a href="Signout.html">退号</a></dd>
                 <dd><a href="Charge.html">收费</a></dd>
                 <dd><a href="Refund.html">退费</a></dd>
@@ -89,61 +87,45 @@
         </li>
     </ul>
 
-    <div class="layui-tab" lay-allowClose="true" id="panel">
+    <div class="layui-tab layui-tab-card" lay-allowClose="true" id="panel">
         <ul class="layui-tab-title">
             <li class="layui-this">日结</li>
         </ul>
 
         <form class="layui-form" action="" style="padding-top: 20px">
-            <table>
-                <tr>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">*收款员：</label>
-                            <div class="layui-input-block">
-                                <select name="">
-                                    <option>张三</option>
-                                    <option>李四</option>
-                                </select>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">统计日期</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required"
-                                    placeholder="2018-12-12 18:00:00" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">至：</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" placeholder="&#xe637; 选择日期"
-                                    autocomplete="off" class="layui-input layui-icon" id="dailyTime">
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <div class="layui-input-block">
-                                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
-                                    日结</button>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <div class="layui-input-block">
-                                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
-                                    保存</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">*收款员：</label>
+                <div class="layui-input-inline">
+                    <select name="">
+                        <option>张三</option>
+                        <option>李四</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">统计日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="2018-12-12 18:00:00"
+                        autocomplete="off" class="layui-input">
+                </div>
+            <!-- </div> -->
+            <!-- <div class="layui-form-item layui-inline"> -->
+                <label class="layui-form-label">至：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="&#xe637; 选择日期"
+                        autocomplete="off" class="layui-input layui-icon" id="dailyTime">
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
+                    日结</button>
+
+            </div>
+            <div class="layui-form-item layui-inline">
+                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
+                    保存</button>
+
+            </div>
         </form>
         <p>门诊收费日结单</p>
         <table class="layui-table" border="1">

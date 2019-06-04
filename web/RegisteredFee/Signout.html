@@ -2,7 +2,6 @@
 <html lang="en">
 <style>
     #panel {
-        /* background:green; */
         float: left;
         position: absolute;
         top: 80px;
@@ -23,12 +22,11 @@
 
 <body>
     <header>东软云医院HIS系统</header>
-    <ul class="layui-nav layui-nav-tree layui-bg-#393D49" lay-filter="test">
+    <ul class="layui-nav layui-nav-tree layui-bg-#393D49">
         <li class="layui-nav-item layui-nav-itemed">
             <a>挂号收费</a>
             <dl class="layui-nav-child">
-                <!-- 二级菜单 -->
-                <dd><a href="">现场挂号</a></dd>
+                <dd><a href="Register.html">现场挂号</a></dd>
                 <dd><a href="Signout.html">退号</a></dd>
                 <dd><a href="Charge.html">收费</a></dd>
                 <dd><a href="Refund.html">退费</a></dd>
@@ -89,60 +87,48 @@
         </li>
     </ul>
 
-
-    <div class="layui-tab" lay-allowClose="true" id="panel">
+    <div class="layui-tab layui-tab-card" lay-allowClose="true" id="panel">
         <ul class="layui-tab-title">
             <li class="layui-this">退号</li>
         </ul>
 
         <form class="layui-form" action="" style="padding-top: 20px">
             <p>患者信息查询</p>
-            <div class="layui-form-item">
+            <div class="layui-form-item layui-inline">
                 <label class="layui-form-label">*病 历 号：</label>
-                <div class="layui-input-block">
+                <div class="layui-input-inline">
                     <input type="text" name="" required lay-verify="required" placeholder="病历号" autocomplete="off"
                         class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615; 搜索</button>
-                </div>
+            <div class="layui-form-item layui-inline">
+                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615; 搜索</button>
             </div>
 
             <p>患者信息确认</p>
-            <table>
-                <tr>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">姓 名：</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" placeholder="姓名"
-                                    autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">身份证号：</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" placeholder="身份证号"
-                                    autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label">家庭住址：</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" placeholder="病历号"
-                                    autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">姓 名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="姓名" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">身份证号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="身份证号" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">家庭住址：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="家庭住址" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
         </form>
+
         <p>患者挂号信息</p>
         <table class="layui-table" lay-even lay-skin="nob">
             <thead>
@@ -162,11 +148,21 @@
                     <td>123456</td>
                     <td>test</td>
                     <td>123456</td>
+                    <td>2019-06-01</td>
+                    <td>上午</td>
+                    <td>内科</td>
+                    <td>已看诊</td>
+                    <td>哈哈</td>
                 </tr>
                 <tr>
                     <td>123456</td>
                     <td>test</td>
-                    <td>12345611111111111</td>
+                    <td>123456</td>
+                    <td>2019-06-01</td>
+                    <td>上午</td>
+                    <td>内科</td>
+                    <td>已看诊</td>
+                    <td>哈哈</td>
                 </tr>
             </tbody>
         </table>
