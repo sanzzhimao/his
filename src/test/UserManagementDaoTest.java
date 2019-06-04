@@ -3,7 +3,7 @@ package test;
  * UserManagementDaoTest
  * 用户管理测试
  * */
-import dao.UserManagementDao;
+import dao.informationdao.UserManagementDao;
 import org.junit.Test;
 import util.JdbcUtil;
 import vo.User;

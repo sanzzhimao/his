@@ -1,14 +1,12 @@
 package test;
 
-import dao.CostAccountManagementDao;
-import dao.ICostAccountManagementDao;
+import dao.costdao.CostAccountManagementDao;
+import dao.costdao.ICostAccountManagementDao;
 import org.junit.Test;
 import util.JdbcUtil;
 import vo.ExpenseClass;
 
 import java.sql.SQLException;
-
-import static org.junit.Assert.*;
 
 public class CostAccountManagementDaoTest {
 

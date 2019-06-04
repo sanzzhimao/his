@@ -1,14 +1,12 @@
 package test;
 
-import dao.ConstantTypeDao;
+import dao.informationdao.ConstantTypeDao;
 import org.junit.Test;
 import util.JdbcUtil;
 import vo.ConstantItem;
 import vo.ConstantType;
 
 import java.sql.SQLException;
-
-import static org.junit.Assert.*;
 
 public class ConstantTypeDaoTest {
 

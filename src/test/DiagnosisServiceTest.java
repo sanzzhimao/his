@@ -1,8 +1,8 @@
 package test;
 
 import org.junit.Test;
-import service.information.DiagnosisService;
-import service.information.IDiagnosisService;
+import service.informationservice.DiagnosisService;
+import service.informationservice.IDiagnosisService;
 
 import java.sql.SQLException;
 

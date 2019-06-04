@@ -1,7 +1,7 @@
 package test;
 
-import dao.doctor.IMedicalDao;
-import dao.doctor.MedicalDao;
+import dao.doctordao.IMedicalDao;
+import dao.doctordao.MedicalDao;
 import org.junit.Test;
 import util.JdbcUtil;
 

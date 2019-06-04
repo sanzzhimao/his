@@ -1,8 +1,8 @@
 package test;
 
 import org.junit.Test;
-import service.information.DoctorCrewService;
-import service.information.IDoctorCrewService;
+import service.informationservice.DoctorCrewService;
+import service.informationservice.IDoctorCrewService;
 
 import java.sql.SQLException;
 import java.text.ParseException;

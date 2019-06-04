@@ -1,7 +1,7 @@
 package test;
 
-import dao.regist.IRegistLevelDao;
-import dao.regist.RegistLevelDao;
+import dao.informationdao.IRegistLevelDao;
+import dao.informationdao.RegistLevelDao;
 import org.junit.Test;
 import util.JdbcUtil;
 

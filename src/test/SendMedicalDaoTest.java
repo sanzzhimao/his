@@ -1,19 +1,13 @@
 package test;
 
-import dao.ConstantTypeDao;
-import dao.SendMedicalDao;
+import dao.drugstoredao.SendMedicalDao;
 import org.junit.Test;
 import util.JdbcUtil;
-import vo.MedicalRecord;
 import vo.SendMedical;
 
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class SendMedicalDaoTest {
 
