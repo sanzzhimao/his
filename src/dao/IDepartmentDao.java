@@ -1,5 +1,6 @@
 package dao;
 
+import vo.ConstantItem;
 import vo.Department;
 
 import java.sql.Connection;
@@ -7,12 +8,16 @@ import java.sql.SQLException;
 
 public interface IDepartmentDao {
     public void setConnection(Connection con);
+    //依据科室编号查询科室
+    Department selectDepartment(String deptCode,String deptName) throws SQLException;
+    //根据id查询科室
+    Department selectDepartmentByID(int id) throws SQLException;
+    //查询科室分类
+    ConstantItem getConstantItem()throws SQLException;
     //新增科室
     void addnewDepartment(Department department) throws SQLException;
-    //读取当前有效费用科目
-    Department selectDepartment(String deptCode,String deptName) throws SQLException;
-    //更新科室信息
-    void updateDepartment( String deptCode,String deptName,String deptCategoryID,int deptType,int delMark);
+    //编辑科室信息
+    void updateDepartment(Department department) throws SQLException;
     //删除科室
-    void deleteDepartment(int id);
+    void deleteDepartment(int id) throws SQLException;
 }
