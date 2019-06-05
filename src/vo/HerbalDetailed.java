@@ -10,6 +10,7 @@ public class HerbalDetailed {
     private String dosage;//用量
     private double price;//药品单价
     private String footnote;//脚注
+    private String herbalName;//药品名称
 
     public HerbalDetailed() {
     }
@@ -70,6 +71,14 @@ public class HerbalDetailed {
         this.footnote = footnote;
     }
 
+    public String getHerbalName() {
+        return herbalName;
+    }
+
+    public void setHerbalName(String herbalName) {
+        this.herbalName = herbalName;
+    }
+
     @Override
     public String toString() {
         return "HerbalDetailed{" +
@@ -79,6 +88,7 @@ public class HerbalDetailed {
                 ", dosage='" + dosage + '\'' +
                 ", price=" + price +
                 ", footnote='" + footnote + '\'' +
+                ", herbalName='" + herbalName + '\'' +
                 '}';
     }
 }

@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class Prescription {
     private int id;//主键
-    private int medicalID;//病例id
+    private int medicalID;//病历id
     private int regitID;//挂号id
     private int userID;//开立医生
     private String prescriptionName;//处方名称

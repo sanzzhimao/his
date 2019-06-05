@@ -12,7 +12,7 @@ public class HerbalPrescription {
     //挂号ID
     private int registID;
     //开立医生ID
-    private int doctorID;
+    private int userID;
     //处方名称
     private String prescriptionName;
     //开立时间
@@ -37,10 +37,10 @@ public class HerbalPrescription {
     public HerbalPrescription() {
     }
 
-    public HerbalPrescription(int medicalID, int registID, int doctorID, String prescriptionName, Date creationTime, String prescriptioType, int payNumber, String frequency, String drugsUsage, String therapy, String detailed, String advice, int state) {
+    public HerbalPrescription(int medicalID, int registID, int userID, String prescriptionName, Date creationTime, String prescriptioType, int payNumber, String frequency, String drugsUsage, String therapy, String detailed, String advice, int state) {
         this.medicalID = medicalID;
         this.registID = registID;
-        this.doctorID = doctorID;
+        this.userID = userID;
         this.prescriptionName = prescriptionName;
         this.creationTime = creationTime;
         this.prescriptioType = prescriptioType;
@@ -77,12 +77,12 @@ public class HerbalPrescription {
         this.registID = registID;
     }
 
-    public int getDoctorID() {
-        return doctorID;
+    public int getUserID() {
+        return userID;
     }
 
-    public void setDoctorID(int doctorID) {
-        this.doctorID = doctorID;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getPrescriptionName() {
@@ -171,7 +171,7 @@ public class HerbalPrescription {
                 "id=" + id +
                 ", medicalID=" + medicalID +
                 ", registID=" + registID +
-                ", doctorID=" + doctorID +
+                ", userID=" + userID +
                 ", prescriptionName='" + prescriptionName + '\'' +
                 ", creationTime=" + creationTime +
                 ", prescriptioType='" + prescriptioType + '\'' +

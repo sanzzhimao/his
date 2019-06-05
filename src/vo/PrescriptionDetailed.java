@@ -3,7 +3,7 @@ package vo;
 /**
  * 实体类：患者成药处方明细表
  */
-public class PrescriptionDetailed {
+public class PrescriptionDetailed{
     private int id;//id
     private int prescriptionID;//成药处方id
     private int drugsID;//药品id
@@ -12,6 +12,7 @@ public class PrescriptionDetailed {
     private String frequency;//频次
     private Double amount;//数量
     private int state;//状态
+    private String drugsName;//药品名字
 
     public PrescriptionDetailed() {
     }
@@ -90,6 +91,14 @@ public class PrescriptionDetailed {
         this.id = id;
     }
 
+    public String getDrugsName() {
+        return drugsName;
+    }
+
+    public void setDrugsName(String drugsName) {
+        this.drugsName = drugsName;
+    }
+
     @Override
     public String toString() {
         return "PrescriptionDetailed{" +
@@ -101,6 +110,7 @@ public class PrescriptionDetailed {
                 ", frequency='" + frequency + '\'' +
                 ", amount=" + amount +
                 ", state=" + state +
+                ", drugsName='" + drugsName + '\'' +
                 '}';
     }
 }

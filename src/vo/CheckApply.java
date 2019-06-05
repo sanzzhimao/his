@@ -9,7 +9,7 @@ public class CheckApply {
     private int medicalID;//病例id
     private int registID;//挂号id
     private int itemID;//项目id
-    private String name;//项目名字
+    private String name;//申请名字
     private String objective;//目的要求
     private String position;//检查部位
     private int isUrgent;//是非加急
@@ -23,30 +23,10 @@ public class CheckApply {
     private Date resultTime;//结果时间
     private int state;//状态
     private int recordType;//记录类型
-
-    @Override
-    public String toString() {
-        return "CheckApply{" +
-                "id=" + id +
-                ", medicalID=" + medicalID +
-                ", registID=" + registID +
-                ", itemID=" + itemID +
-                ", name='" + name + '\'' +
-                ", objective='" + objective + '\'' +
-                ", position='" + position + '\'' +
-                ", isUrgent=" + isUrgent +
-                ", num=" + num +
-                ", creationTime=" + creationTime +
-                ", doctorID=" + doctorID +
-                ", checkOperID=" + checkOperID +
-                ", resultOperID=" + resultOperID +
-                ", checkTime=" + checkTime +
-                ", result='" + result + '\'' +
-                ", resultTime=" + resultTime +
-                ", state=" + state +
-                ", recordType=" + recordType +
-                '}';
-    }
+    private String itemName;//项目名称
+    private int deptID;
+    private String deptName;
+    private double price;
 
     public int getMedicalID() {
         return medicalID;
@@ -190,6 +170,66 @@ public class CheckApply {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getDeptID() {
+        return deptID;
+    }
+
+    public void setDeptID(int deptID) {
+        this.deptID = deptID;
+    }
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "CheckApply{" +
+                "id=" + id +
+                ", medicalID=" + medicalID +
+                ", registID=" + registID +
+                ", itemID=" + itemID +
+                ", name='" + name + '\'' +
+                ", objective='" + objective + '\'' +
+                ", position='" + position + '\'' +
+                ", isUrgent=" + isUrgent +
+                ", num=" + num +
+                ", creationTime=" + creationTime +
+                ", doctorID=" + doctorID +
+                ", checkOperID=" + checkOperID +
+                ", resultOperID=" + resultOperID +
+                ", checkTime=" + checkTime +
+                ", result='" + result + '\'' +
+                ", resultTime=" + resultTime +
+                ", state=" + state +
+                ", recordType=" + recordType +
+                ", itemName='" + itemName + '\'' +
+                ", deptID=" + deptID +
+                ", deptName='" + deptName + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     public CheckApply(int medicalID, int registID, int itemID, String name, String objective, String position, int isUrgent, int num, Date creationTime, int doctorID, int checkOperID, int resultOperID, Date checkTime, String result, Date resultTime, int state, int recordType) {
