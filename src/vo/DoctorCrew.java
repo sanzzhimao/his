@@ -19,6 +19,8 @@ public class DoctorCrew {
     private String registName;
     //挂号限额
     private String registQuota;
+    //医生ID
+    private int userID;
 
     public DoctorCrew() {
     }
@@ -89,6 +91,14 @@ public class DoctorCrew {
         this.registQuota = registQuota;
     }
 
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
     @Override
     public String toString() {
         return "DoctorCrew{" +
@@ -96,9 +106,10 @@ public class DoctorCrew {
                 ", schedDate=" + schedDate +
                 ", deptName='" + deptName + '\'' +
                 ", realName='" + realName + '\'' +
-                ", noon=" + noon +
+                ", noon='" + noon + '\'' +
                 ", registName='" + registName + '\'' +
                 ", registQuota='" + registQuota + '\'' +
+                ", userID=" + userID +
                 '}';
     }
 }
