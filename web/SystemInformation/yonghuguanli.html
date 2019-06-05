@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <!-- <script src="../layui/layui.all.js"></script> -->
+    <script src="../layui/layui.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <form class="layui-form" action="">
+        <table class="layui-table" lay-skin="nob">
+            <td>
+                <div class="layui-form-item layui-inline">
+                    <div class="layui-input-inline">
+                        <input type="text" id="binglinum" name="title" required lay-verify="required"
+                            placeholder="请输入登录名或姓名" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="layui-form-item layui-inline">
+                    <button class="layui-btn layui-btn-normal">查询用户</button>
+                </div>
+            </td>
+            <td>
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-normal">新增客户</button>
+                </div>
+            </td>
+
+        </table>
+        
+
+    </form>
+    
+    <table class="layui-hide" id="test"></table>
+    <div id="keshiguanli"></div>
+
+    <script>
+        layui.use(['table', 'element'], function () {
+            var element = layui.element;
+            var table = layui.table;
+
+
+            table.render({
+                elem: '#test',
+                // url: '/demo/table/user/',
+                cellMinWidth: 80,//全局定义常规单元格的最小宽度
+                cols: [[
+                    // { type: 'checkbox' },
+                    { field: 'dengluming', title: '登录名', },
+                    { field: 'zhenshixingming', title: '真实姓名' }, //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                    { field: 'yonghuleibie', title: '用户类别', },
+                    { field: 'yishengzhicheng', title: '医生职称' },
+                    { field: 'suozaikeshi', title: '所在科室' },
+                    { field: 'guahaojibie', title: '挂号级别' },
+                    { fixed: 'right', title: '操作', toolbar: '#barDemo' },
+                ]],
+                data: [{
+                    "dengluming": "10001"
+                    , "zhengshixingming": "杜甫"
+                    , "yonghuleibie": "xianxin@layui.com"
+                    , "yishengzhicheng": "男"
+                    , "suozaikeshi": "浙江杭州"
+                }],
+            });
+            page: true
+        });
+
+        layui.use(['laypage', 'layer'], function () {
+            var laypage = layui.laypage,
+                layer = layui.layer;
+
+            laypage.render({
+                elem: 'keshiguanli',
+                count: 100,
+                prev: '<',
+                next: '>'
+            });
+        });
+    </script>
+
+
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
