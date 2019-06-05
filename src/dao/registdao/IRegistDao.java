@@ -3,6 +3,7 @@ package dao.registdao;
 import vo.*;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -69,7 +70,13 @@ public interface IRegistDao {
      * @return java.util.List<vo.User>
     **/
     List<User>selectDoctorInfo(Register register)throws SQLException;
-     int selectDoctorUsedId(Register reg) throws SQLException;
+    /**
+     * @Author lym
+     * @Description:通过医生的id和看诊的时间查找已经用去的名额
+     * @Param [userID, date]
+     * @return int
+    **/
+     int selectDoctorUsedId(int userID, Date date) throws SQLException;
      /**
       * @Author lym
       * @Description:插入一个挂号病人

@@ -194,14 +194,13 @@ public class RegistDao implements IRegistDao {
      * @return int
     **/
     @Override
-    public int selectDoctorUsedId(Register register ) throws SQLException {
-        String sql="select count(id) from register " +
-                "where userid=?" +
-                "and visidate=?" +
-                "and visistate in (1,2,3)" ;
+    public int selectDoctorUsedId(int userID,Date date ) throws SQLException {
+        String sql="select count(id) from register \n" +
+                "where userid=?\n" +
+                "AND VisitDate=?\n" +
+                "and VisitState in (1,2,3)" ;
         PreparedStatement ptmt=con.prepareStatement(sql);
-        ptmt.setInt(1,register.getDeptID());
-        Date date=new Date(register.getRegistTime().getTime());
+        ptmt.setInt(1,userID);
         ptmt.setDate(2,date);
         ResultSet rs = ptmt.executeQuery();
         int allUsedId=0;
@@ -270,7 +269,7 @@ public class RegistDao implements IRegistDao {
         PreparedStatement pstm=con.prepareStatement(sql);
         pstm.setString(1,iv.getInvoiceNum());
         pstm.setDouble(2,iv.getMoney());
-        pstm.setInt(3,iv.getState());
+        pstm.setInt(3,1);
         //系统时间
         pstm.setDate(4,new Date(System.currentTimeMillis()));
         pstm.setInt(5,iv.getUserID());

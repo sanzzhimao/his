@@ -24,7 +24,7 @@ public class DoctorCrewServiceTest {
             java.sql.Date da1=new java.sql.Date(d1.getTime());
             java.sql.Date da2=new java.sql.Date(d2.getTime());
             IDoctorCrewService idcd=new DoctorCrewService();
-            System.out.println(idcd.selectDoctor(da1,da2));
+            System.out.println(idcd.selectDoctor(da1,da1));
         }
 
         @Test
