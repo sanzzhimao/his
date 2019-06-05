@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../layui/layui.js"></script>
+    <!-- <script src="../layui/layui.all.js"></script> -->
+
 </head>
 
 <body>
@@ -179,32 +181,20 @@
     </div>
 
     <script>
-        //注意：导航依赖element模块，否则无法进行功能性操作
-        layui.use('element', function () {
-            var element = layui.element;
-        });
-
-        layui.use('form', function () {
-            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
-            //但是，如果你的HTML是动态生成的，自动渲染就会失效
-            form.render();
-        });
-
-        layui.use('laydate', function () {
-            var laydate = layui.laydate;
-            //执行一个laydate实例
-            laydate.render({
-                elem: '#startDate' //指定元素
+        $(function () {
+            layui.use(['element','form','laydate'], function () {
+                var element = layui.element;
+                var form = layui.form;
+                var laydate = layui.laydate;
+                form.render();
+                laydate.render({
+                    elem: '#startDate'
+                });
+                laydate.render({
+                    elem: '#endDate'
+                });
             });
-        });
-
-        layui.use('laydate', function () {
-            var laydate = layui.laydate;
-            //执行一个laydate实例
-            laydate.render({
-                elem: '#endDate' //指定元素
-            });
-        });
+        })
     </script>
 </body>
 

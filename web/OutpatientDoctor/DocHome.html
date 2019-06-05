@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #panel {
+        float: left;
+        position: absolute;
+        top: 80px;
+        left: 220px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+
+<body>
+    <header>东软云医院HIS系统</header>
+    <ul class="layui-nav layui-nav-tree layui-bg-#393D49" lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+            <a>挂号收费</a>
+            <dl class="layui-nav-child">
+                <dd><a href="../RegisteredFee/Register.html">现场挂号</a></dd>
+                <dd><a href="../RegisteredFee/Signout.html">退号</a></dd>
+                <dd><a href="../RegisteredFee/Charge.html">收费</a></dd>
+                <dd><a href="../RegisteredFee/Refund.html">退费</a></dd>
+                <dd><a href="../RegisteredFee/Makeup.html">发票补打</a></dd>
+                <dd><a href="../RegisteredFee/Replay.html">发票重打</a></dd>
+                <dd><a href="../RegisteredFee/Patient.html">患者费用查询</a></dd>
+                <dd><a href="../RegisteredFee/Daily.html">日结*</a></dd>
+                <dd><a href="../RegisteredFee/Daily2.html">日结查询*</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a>门诊医生</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">门诊病历</a></dd>
+                <dd><a href="">医技模板管理</a></dd>
+                <dd><a href="">西药处方模板</a></dd>
+                <dd><a href="">中药处方模板</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a>医技处置*</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">患者检验*</a></dd>
+                <dd><a href="">患者检查*</a></dd>
+                <dd><a href="">患者处置*</a></dd>
+                <dd><a href="">医技管理*</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a>药房管理</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">药房发药</a></dd>
+                <dd><a href="">药房退药</a></dd>
+                <dd><a href="">药品管理</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a>财务管理</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">门诊医生工作量统计*</a></dd>
+                <dd><a href="">开单科室工作量统计*</a></dd>
+                <dd><a href="">执行科室工作量统计*</a></dd>
+                <dd><a href="">费用科目管理</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a>系统信息</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">常数类别管理</a></dd>
+                <dd><a href="">科室管理</a></dd>
+                <dd><a href="">用户管理</a></dd>
+                <dd><a href="">挂号级别管理</a></dd>
+                <dd><a href="">结算类别管理</a></dd>
+                <dd><a href="">诊断目录管理</a></dd>
+                <dd><a href="">非药品收费项目管理</a></dd>
+                <dd><a href="">医生排班管理</a></dd>
+            </dl>
+        </li>
+    </ul>
+
+    <div class="layui-tab layui-tab-card" lay-allowClose="true" id="panel">
+        <ul class="layui-tab-title">
+            <li class="layui-this">门诊病历</li>
+        </ul>
+
+        <div class="layui-tab-content">
+            <div class="layui-form-item" style="margin-top:20px;">
+                <p>患者选择：</p>
+
+                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;</button>
+                <label class="layui-form-label">患者名:</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
+                        class="layui-input">
+                </div>
+                <button type="reset" class="layui-btn layui-icon layui-btn-primary">&#xe669;</button>
+
+                <div class="layui-tab">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">本人</li>
+                        <li>科室*</li>
+                    </ul>
+
+                    <div class="layui-tab-content">
+                        <div class="layui-form-item" style="margin-top:20px;">
+                            <p>未诊患者:</p>
+                            <table class="layui-table layui-input-inline" lay-even lay-skin="nob">
+                                <tr>
+                                    <td>暂无数据</td>
+                                </tr>
+                            </table>
+                            <hr style="width: 280px">
+                            <p>已诊患者:</p>
+                            <table class="layui-table layui-input-inline" lay-even lay-skin="nob">
+                                <tr>
+                                    <td>600603</td>
+                                    <td>张三</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>600603</td>
+                                    <td>李四</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>600603</td>
+                                    <td>王五</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>600603</td>
+                                    <td>张三</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>600603</td>
+                                    <td>李四</td>
+                                    <td>11</td>
+                                </tr>
+                                <tr>
+                                    <td>600603</td>
+                                    <td>王五</td>
+                                    <td>11</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-tab" style="margin-left: 300px;margin-top: -460px;">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">病历首页</li>
+                        <li>检查申请</li>
+                        <li>检验申请</li>
+                        <li>门诊确诊*</li>
+                        <li>处置申请*</li>
+                        <li>成药处方</li>
+                        <li>草药处方</li>
+                        <li>费用查询*</li>
+                    </ul>
+
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <form action="">
+                                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">暂存</button>
+                                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">提交</button>
+                                <button type="reset" class="layui-btn layui-icon layui-btn-primary">清空</button>
+                                <br><br>
+
+                                <p>病史内容</p>
+                                <label class="layui-form-label">主 诉</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                        class="layui-input">
+                                </div>
+                                <br>
+
+                                <label class="layui-form-label">现病史</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                        class="layui-input">
+                                </div>
+                                <br>
+
+                                <label class="layui-form-label">现病治疗情况</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                        class="layui-input">
+                                </div>
+                                <br><br>
+
+                                <label class="layui-form-label">既往史</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                        class="layui-input">
+                                </div>
+                                <br>
+
+                                <label class="layui-form-label">过敏史</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                        class="layui-input">
+                                </div>
+                                <br>
+
+                                <label class="layui-form-label">体格检查</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                        class="layui-input">
+                                </div>
+                                <br>
+
+                                <p>评估/诊断</p>
+                                <div class="layui-tab layui-tab-card">
+                                    <p>西医诊断</p>
+                                    <hr>
+                                    <table class="layui-table" lay-even lay-skin="nob">
+                                        <thead>
+                                            <tr>
+                                                <td>ICD编码</td>
+                                                <td>名称</td>
+                                                <td>发病时间</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>暂无数据</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="layui-tab layui-tab-card">
+                                    <p>中医诊断</p>
+                                    <hr>
+                                    <table class="layui-table" lay-even lay-skin="nob">
+                                        <thead>
+                                            <tr>
+                                                <td>ICD编码</td>
+                                                <td>名称</td>
+                                                <td>发病时间</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>暂无数据</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <label class="layui-form-label">检察建议</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                        class="layui-input">
+                                </div>
+                                <br>
+                                <label class="layui-form-label">注意事项</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                        class="layui-input">
+                                </div>
+                                <br>
+                                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">提交</button>
+                            </form>
+                        </div>
+
+                        <div class="layui-tab-item">
+                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">新增项目</button>
+                            <p>本项目金额合计:0元</p>
+                            <table class="layui-hide" id="jianchashenqing1"></table>
+                        </div>
+
+                        <div class="layui-tab-item">
+                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">新增项目</button>
+                            <p>本项目金额合计:0元</p>
+                            <table class="layui-hide" id="jianchashenqing2"></table>
+                        </div>
+
+                        <div class="layui-tab-item"></div>
+                        <div class="layui-tab-item"></div>
+                        <div class="layui-tab-item">
+                            <p>门诊诊断:xxxxxxxxxxx</p>
+                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">增方</button>
+                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">删方</button>
+                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">开立</button>
+                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">作废</button>
+                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">刷新</button>
+                            <p>门诊处方:</p>
+                            <table class="layui-table" lay-even lay-skin="nob">
+                                <thead>
+                                    <tr>
+                                        <td>名称</td>
+                                        <td>状态</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>新增处方1</td>
+                                        <td>暂存</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br>
+
+                            <p>本处方那个金额合计:0.00元</p>
+                            <table class="layui-table" lay-even lay-skin="nob">
+                                <thead>
+                                    <tr>
+                                        <td>药品名称</td>
+                                        <td>规格</td>
+                                        <td>单价</td>
+                                        <td>用法</td>
+                                        <td>用量</td>
+                                        <td>频次</td>
+                                        <td>数量</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>暂无数据</td>
+                                    </tr>
+                                    <tr>
+                                        <td>暂无数据</td>
+                                    </tr>
+                                    <tr>
+                                        <td>暂无数据</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="layui-tab-item"></div>
+                        <div class="layui-tab-item">
+                            <p>患者账单明细:</p>
+                            <table class="layui-hide" id="#feiyongchaxun"></table>
+                            <p>金额合计:215.00元</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        layui.use(['element', 'form', 'laydate', 'table'], function () {
+            var element = layui.element;
+            var form = layui.form;
+            var table = layui.table;
+
+            form.render();
+            //方法渲染
+            table.render({
+                elem: '#jianchashenqing1',
+                cols: [
+                    [{
+                        field:'checkbox',
+                        type: 'checkbox'
+                    }, {
+                        field:'shenqingmingcheng',
+                        title: '申请名称'
+                    }, {
+                        field:'xiangmumingcheng',
+                        title: '项目名称'
+                    }, {
+                        field:'zhixingzhuangtai',
+                        title: '执行科室'
+                    }, {
+                        field:'zhixingkeshi',
+                        title: '执行状态',
+                    }, {
+                        field:'danjia',
+                        title: '单价'
+                    }, {
+                        field:'jiachajieguo',
+                        title: '检查结果'
+                    }]
+                ],
+                data: [{
+                    "checkbox": "1",
+                    "shenqingmingcheng": "123",
+                    "xiangmumingcheng": "123",
+                    "zhixingzhuangtai": "123",
+                    "zhixingkeshi": "11",
+                    "danjia": "11",
+                    "jianchajieguo": "123"
+                }],
+            });
+
+            table.render({
+                elem: '#jianchashenqing2',
+                cols: [
+                    [{
+                        field:'checkbox',
+                        type: 'checkbox'
+                    }, {
+                        field:'shenqingmingcheng',
+                        title: '申请名称'
+                    }, {
+                        field:'xiangmumingcheng',
+                        title: '项目名称'
+                    }, {
+                        field:'zhixingzhuangtai',
+                        title: '执行科室'
+                    }, {
+                        field:'zhixingkeshi',
+                        title: '执行状态'
+                    }, {
+                        field:'danjia',
+                        title: '单价'
+                    }, {
+                        field:'jiachajieguo',
+                        title: '检查结果'
+                    }]
+                ],
+                data: [{
+                    "checkbox": "1",
+                    "shenqingmingcheng": "123",
+                    "xiangmumingcheng": "123",
+                    "zhixingzhuangtai": "123",
+                    "zhixingkeshi": "11",
+                    "danjia": "11",
+                    "jianchajieguo": "123"
+                }],
+            });
+
+            table.render({
+                elem: '#feiyongchaxun',
+                cols: [
+                    [{
+                        field: 'num',
+                        title: '#'
+                    }, {
+                        field: 'mingcheng',
+                        title: '名称'
+                    }, {
+                        field: 'guige',
+                        title: '规格'
+                    }, {
+                        field: 'shuliang',
+                        title: '数量'
+                    }, {
+                        field: 'fushu',
+                        title: '付数'
+                    }, {
+                        field: 'danjia',
+                        title: '单价'
+                    }, {
+                        field: 'jine',
+                        title: '金额'
+                    }, {
+                        field: 'shoufeizhuangtai',
+                        title: '收费状态'
+                    }],
+                ],
+                data: [{
+                    "num": "1",
+                    "mingcheng": "123",
+                    "guige": "123",
+                    "shuliang": "123",
+                    "fushu": "11",
+                    "danjia": "11",
+                    "jine": "123",
+                    "shoufeizhuangtai": "123"
+                }],
+            });
+        });
+    </script>
+</body>
+
+</html>
