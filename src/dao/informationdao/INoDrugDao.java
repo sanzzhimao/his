@@ -2,6 +2,7 @@ package dao.informationdao;
 
 import vo.Department;
 import vo.ExpenseClass;
+import vo.Fmeditem;
 import vo.NoDrug;
 
 import java.sql.Connection;
@@ -34,4 +35,7 @@ public interface INoDrugDao {
 
     //删除单个非药品信息
     void deleteNoDrug(int id) throws SQLException;
+
+    //批量删除非药品信息
+    void deleteAllNoDrug(int[] id) throws SQLException;
 }

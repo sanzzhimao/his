@@ -137,28 +137,24 @@ public class DiagnosisDao implements IDiagnosisDao {
         pstmt.setString(1,dis.getDicaCode());
         pstmt.setString(2,dis.getDicaName());
         pstmt.setInt(3,dis.getSequenceNo());
-        pstmt.setInt(4,dis.getDicaType());
-        pstmt.setInt(5,dis.getDelMark());
+        pstmt.setInt(4,1);
+        pstmt.setInt(5,1);
         pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
     }
 
     /**
      * 编辑疾病分类
-     * @param dicacode
-     * @param dicaname
-     * @param sequenceno
-     * @param id
      * @throws SQLException
      */
     @Override
-    public void updateDiseCategory(String dicacode, String dicaname, int sequenceno,int id) throws SQLException {
+    public void updateDiseCategory(DiseCategory dis) throws SQLException {
         String sql="update disecategory set DicaCode=?,DicaName=?,SequenceNo=? where id=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setString(1,dicacode);
-        pstmt.setString(2,dicaname);
-        pstmt.setInt(3,sequenceno);
-        pstmt.setInt(4,id);
+        pstmt.setString(1,dis.getDicaCode());
+        pstmt.setString(2,dis.getDicaName());
+        pstmt.setInt(3,dis.getSequenceNo());
+        pstmt.setInt(4,dis.getId());
         pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
     }
@@ -195,11 +191,11 @@ public class DiagnosisDao implements IDiagnosisDao {
         String sql="select D1.ID,D1.DiseaseCode,D1.DiseaseName,D1.DiseaseICD,D1.DiseCategoryID,D1.DelMark,D2.DicaName,D2.ID\n" +
                 "FROM Disease D1,DiseCategory D2\n" +
                 "WHERE D1.DiseCategoryID = D2.ID\n" +
-                "and D1.DelMark = 1\n" +
-                "and (D1.DiseaseCode like \"%\"?\"%\" Or D1.DiseaseName like \"%\"?\"%\")" ;
+                "and D1.DelMark = 1\n";
+        if(dis!=null&&dis.length()!=0){
+            sql+="and (D1.DiseaseCode like '%"+dis+"% 'Or D1.DiseaseName like '%"+dis+"% ')" ;
+        }
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setString(1,dis);
-        pstmt.setString(2,dis);
         ResultSet rs=pstmt.executeQuery();
         List<Disease> dises=new ArrayList<>();
         Disease dise=null;

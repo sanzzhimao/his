@@ -108,8 +108,6 @@
                     <input type="text" name="" required lay-verify="required" placeholder="2018-12-12 18:00:00"
                         autocomplete="off" class="layui-input">
                 </div>
-            <!-- </div> -->
-            <!-- <div class="layui-form-item layui-inline"> -->
                 <label class="layui-form-label">至：</label>
                 <div class="layui-input-inline">
                     <input type="text" name="" required lay-verify="required" placeholder="&#xe637; 选择日期"
@@ -119,14 +117,13 @@
             <div class="layui-form-item layui-inline">
                 <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
                     日结</button>
-
             </div>
             <div class="layui-form-item layui-inline">
                 <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
                     保存</button>
-
             </div>
         </form>
+
         <p>门诊收费日结单</p>
         <table class="layui-table" border="1">
             <tr>
@@ -170,31 +167,15 @@
                 <td>1530.00</td>
             </tr>
         </table>
-
     </div>
 
-
-
-
     <script>
-        layui.use('form', function () {
-            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
-
-            //但是，如果你的HTML是动态生成的，自动渲染就会失效
-            //因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
-            form.render();
-        });
-
-        //注意：导航依赖element模块，否则无法进行功能性操作
-        layui.use('element', function () {
+        layui.use(['element', 'form', 'laydate'], function () {
             var element = layui.element;
-
-            //…
-        });
-
-        layui.use('laydate', function () {
+            var form = layui.form;
             var laydate = layui.laydate;
-            //执行一个laydate实例
+
+            form.render();
             laydate.render({
                 elem: '#dailyTime', //指定元素
                 type: 'datetime'

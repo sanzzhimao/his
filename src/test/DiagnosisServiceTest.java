@@ -51,7 +51,7 @@ public class DiagnosisServiceTest {
     @Test
     public void selectDisease() throws SQLException{
         IDiagnosisService ids=new DiagnosisService();
-        System.out.println(ids.selectDicaCode("AZ"));
+        System.out.println(ids.selectDisease(""));
     }
 
     @Test

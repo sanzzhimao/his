@@ -1,10 +1,9 @@
 package test;
 
-import dao.RegistDao;
+import dao.registdao.RegistDao;
 import org.junit.Test;
 import util.JdbcUtil;
 import vo.Register;
-import vo.Scheduling;
 import vo.User;
 
 import java.sql.SQLException;
@@ -12,8 +11,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static org.junit.Assert.*;
 
 public class RegistDaoTest {
     @Test

@@ -19,7 +19,7 @@ public interface IConstantTypeDao {
     ConstantType selectConstantType(String string) throws SQLException;
     //通过常数类别查询常数项
     ArrayList<ConstantItem> selectAllConstantItem(String string) throws SQLException;
-    //通过常数项名字或者编号查询常数项
+    //通过常数项名字或者编号模糊查询常数项
     ArrayList<ConstantItem> selectConstantItem(String string) throws SQLException;
     //新增常数项
     void addConstantItem(ConstantItem constantItem) throws SQLException;
@@ -27,7 +27,7 @@ public interface IConstantTypeDao {
     void modifyConstantItem(ConstantItem constantItem) throws SQLException;
     //删除常数项；
     void delectConstantItem(ConstantItem constantItem) throws SQLException;
-    //批量删除常数项
-    void delectDuoConstantItem();
+    //批量删除常数项 传入常数项id集合
+    void delectDuoConstantItem(ArrayList arrayList) throws SQLException;
 
 }
