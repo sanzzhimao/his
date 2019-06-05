@@ -3,6 +3,7 @@ package dao.informationdao;
 import util.JdbcUtil;
 import vo.Department;
 import vo.ExpenseClass;
+import vo.Fmeditem;
 import vo.NoDrug;
 
 import java.sql.Connection;
@@ -19,17 +20,23 @@ public class NoDrugDao implements INoDrugDao {
         this.con=con;
     }
 
+    /**
+     * 查询当前有效非药品收费项目
+     * @param item
+     * @return
+     * @throws SQLException
+     */
     @Override
     public List<NoDrug> selectNoDrug(String item) throws SQLException {
         String sql="SELECT F.ID,F.ItemCode,F.ItemName,F.Format,F.Price,F.ExpClassID,F.DeptID,F.MnemonicCode,F.CreationDate,F.LastUpdateDate,F.RecordType,F.DelMark,E.ExpName,D.DeptName\n" +
                 "FROm Fmeditem F,ExpenseClass E,Department D\n" +
                 "where F.ExpClassID = E.ID\n" +
                 "and F.DeptID = D.ID\n" +
-                "and F.DelMark=1\n" +
-                "and (F.ItemCode like \"%\"?\"%\" or F.ItemName like \"%\"?\"%\")";
+                "and F.DelMark=1\n";
+        if(item!=null&&item.length()!=0){
+            sql+="and (F.ItemCode like '%"+item+"%' or F.ItemName like '%"+item+"%')";
+        }
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setString(1,item);
-        pstmt.setString(2,item);
         ResultSet rs=pstmt.executeQuery();
         List<NoDrug> nodrugs=new ArrayList<>();
         NoDrug nodrug=null;
@@ -55,6 +62,12 @@ public class NoDrugDao implements INoDrugDao {
         return nodrugs;
     }
 
+    /**
+     * 根据ID查询当前非药品信息
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     @Override
     public NoDrug selectNoDrugByID(int id) throws SQLException {
         String sql="SELECT F.ID,F.ItemCode,F.ItemName,F.Format,F.Price,F.ExpClassID,F.DeptID,F.MnemonicCode,F.CreationDate,F.LastUpdateDate,F.RecordType,F.DelMark,E.ExpName,D.DeptName\n" +
@@ -197,6 +210,17 @@ public class NoDrugDao implements INoDrugDao {
         pstmt.setInt(1,id);
         pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
+    }
+
+    @Override
+    public void deleteAllNoDrug(int[] id) throws SQLException {
+        String sql="update fmeditem set DelMark=0 where id=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        for (int i=0;i<id.length;i++){
+            pstmt.setInt(1,id[i]);
+            pstmt.addBatch();
+
+        }
     }
 
 }

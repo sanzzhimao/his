@@ -29,14 +29,15 @@ public class DrugDao implements IDrugDao {
      */
     @Override
     public List<Drugs> selectDrugs(String mnemonicCode) throws SQLException {
-        String sql="SELECT ID,DrugsCode,DrugsName,DrugsFormat,DrugsUnit,Manufacturer,DrugsDosageID,DrugsTypeID,DrugsPrice,MnemonicCode,CreationDate,LastUpdateDate,DelMark,C1.ConstantName,C2.ConstantName\n" +
-                "FROM Drugs D,ConstatntItem C1,ConstatntItem C2\n" +
-                "WHERE D.DrugsDosageID = C1.ID\n" +
-                "and D.DrugsTypeID = C2.ID\n" +
-                "MnemonicCode like \"%\"?\"%\" \n" +
-                "and DelMark = 1";
+        String sql="SELECT D.ID,DrugsCode,DrugsName,DrugsFormat,DrugsUnit,Manufacturer,DrugsDosageID,DrugsTypeID,DrugsPrice,MnemonicCode,CreationDate,LastUpdateDate,D.DelMark,C1.ConstantName,C2.ConstantName \n" +
+                "FROM Drugs D,ConstantItem C1,ConstantItem C2 \n" +
+                "WHERE D.DrugsDosageID = C1.ID \n" +
+                "and D.DrugsTypeID = C2.ID \n" +
+                "and D.DelMark = 1 ";
+        if(mnemonicCode!=null&&mnemonicCode.length()!=0){
+            sql+="and D.MnemonicCode like '%"+mnemonicCode+"%'\n";
+        }
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setString(1,mnemonicCode);
         ResultSet rs=pstmt.executeQuery();
         List<Drugs> list=new ArrayList<>();
         Drugs drugs=null;
@@ -70,7 +71,7 @@ public class DrugDao implements IDrugDao {
      */
     @Override
     public List<ConstantItem> selectDrugsDosage() throws SQLException {
-        String sql="select C2.ID,C2.ContantCode,C2.ConstantName \n" +
+        String sql="select C2.ID,C2.ConstantCode,C2.ConstantName \n" +
                 "from ConstantType C1,ConstantItem C2\n" +
                 "where C2.ConstantTypeID=C1.ID\n" +
                 "and ConstantTypeCode ='Drugs_Dosage' \n" +
@@ -97,7 +98,7 @@ public class DrugDao implements IDrugDao {
      */
     @Override
     public List<ConstantItem> selectDrugsType() throws SQLException {
-        String sql="select C2.ID,C2.ContantCode,C2.ConstantName \n" +
+        String sql="select C2.ID,C2.ConstantCode,C2.ConstantName \n" +
                 "from ConstantType C1,ConstantItem C2\n" +
                 "where C2.ConstantTypeID=C1.ID\n" +
                 "and ConstantTypeCode ='Drugs_Type' \n" +
@@ -125,12 +126,12 @@ public class DrugDao implements IDrugDao {
      */
     @Override
     public Drugs selectDrug(int id) throws SQLException {
-        String sql="SELECT ID,DrugsCode,DrugsName,DrugsFormat,DrugsUnit,Manufacturer,DrugsDosageID,DrugsTypeID,DrugsPrice,MnemonicCode,CreationDate,LastUpdateDate,DelMark,C1.ConstantName,C2.ConstantName\n" +
-                "FROM Drugs D,ConstatntItem C1,ConstatntItem C2\n" +
+        String sql="SELECT D.ID,DrugsCode,DrugsName,DrugsFormat,DrugsUnit,Manufacturer,DrugsDosageID,DrugsTypeID,DrugsPrice,MnemonicCode,CreationDate,LastUpdateDate,D.DelMark,C1.ConstantName,C2.ConstantName \n" +
+                "FROM Drugs D,ConstantItem C1,ConstantItem C2\n" +
                 "WHERE D.DrugsDosageID = C1.ID\n" +
                 "and D.DrugsTypeID = C2.ID\n" +
-                "and ID=?\n" +
-                "and DelMark = 1";
+                "and D.ID=?\n" +
+                "and D.DelMark = 1";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setInt(1,id);
         ResultSet rs=pstmt.executeQuery();
