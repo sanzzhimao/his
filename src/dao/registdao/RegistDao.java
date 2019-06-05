@@ -194,14 +194,14 @@ public class RegistDao implements IRegistDao {
      * @return int
     **/
     @Override
-    public int selectDoctorUsedId(Register reg) throws SQLException {
+    public int selectDoctorUsedId(Register register ) throws SQLException {
         String sql="select count(id) from register " +
                 "where userid=?" +
                 "and visidate=?" +
                 "and visistate in (1,2,3)" ;
         PreparedStatement ptmt=con.prepareStatement(sql);
-        ptmt.setInt(1,reg.getUserID());
-        Date date=new Date(reg.getVisitDate().getTime());
+        ptmt.setInt(1,register.getDeptID());
+        Date date=new Date(register.getRegistTime().getTime());
         ptmt.setDate(2,date);
         ResultSet rs = ptmt.executeQuery();
         int allUsedId=0;
@@ -320,7 +320,7 @@ public class RegistDao implements IRegistDao {
      **/
     @Override
     public Register reRegisterByCaseNumber(String  caseNumber) throws SQLException {
-        String sql="select r.*,d.deptname from register r,department d where r.deptid=d.id and r.casenumber=? and visitstate=1";
+        String sql="select r.*,d.deptname from register r,department d where r.deptid=d.id and r.casenumber=?";
         PreparedStatement psmt=con.prepareStatement(sql);
         psmt.setString(1,caseNumber);
         ResultSet rs=psmt.executeQuery();
@@ -350,6 +350,20 @@ public class RegistDao implements IRegistDao {
         }
         JdbcUtil.release(null,psmt,rs);
         return register;
+    }
+
+    @Override
+    public int selectUserIDByUserName(String name) throws SQLException {
+        String sql="select id from user where username=?";
+        PreparedStatement psmt=con.prepareStatement(sql);
+        psmt.setString(1,name);
+        ResultSet rs=psmt.executeQuery();
+        int id=0;
+        while (rs.next()){
+            id=rs.getInt(1);
+        }
+        JdbcUtil.release(null,psmt,rs);
+        return  id;
     }
 
 }

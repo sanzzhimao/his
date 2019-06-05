@@ -75,4 +75,10 @@ public class RegistDaoTest {
         registDao.setConnection(JdbcUtil.getConnection());
         System.out.println(registDao.reRegisterByCaseNumber("600616"));
     }
+    @Test
+    public void selectID() throws SQLException {
+        RegistDao registDao=new RegistDao();
+        registDao.setConnection(JdbcUtil.getConnection());
+        System.out.println(registDao.selectUserIDByUserName("root"));
+    }
 }

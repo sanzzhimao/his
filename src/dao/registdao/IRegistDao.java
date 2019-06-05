@@ -98,5 +98,11 @@ public interface IRegistDao {
      * @return vo.Register
     **/
     Register reRegisterByCaseNumber(String caseNumber) throws SQLException;
-
+    /**
+     * @Author lym
+     * @Description：通过医生名字（登录名）找到id
+     * @Param [name]
+     * @return int
+     **/
+    int selectUserIDByUserName(String name) throws SQLException;
 }
