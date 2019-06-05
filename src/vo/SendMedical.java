@@ -1,16 +1,19 @@
+/*
+发药管理类
+ */
 package vo;
 
 import java.util.Date;
 
 public class SendMedical {
-    private String DrugsName;
-    private double DrugsPrice;
-    private double Amount;
-    private int delmark;
-    private String RealName;
-    private String PrescriptionName;
-    private Date date;
-    private int id;
+    private String DrugsName;//药品名
+    private double DrugsPrice;//单价
+    private double Amount;//数量
+    private int delmark;//药品状态
+    private String RealName;//医生名字
+    private String PrescriptionName;//处方名
+    private Date date;//开处方时间
+    private int id;//处方明细id
     public SendMedical() {
     }
 
