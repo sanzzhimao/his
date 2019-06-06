@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #panel {
+        position: absolute;
+        top: 80px;
+        left: 220px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+
+<body>
+    <div class="layui-tab-content">
+        <div class="layui-input-inline">
+            <input type="text" name="" required lay-verify="required" placeholder="请输入医技名称或助记码" autocomplete="off"
+                class="layui-input">
+        </div>
+        <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">查询医技</button>
+        <button class="layui-btn">新增医技</button>
+        <button class="layui-btn">导入医技</button>
+
+        <table class="layui-hide" id="yijiguanli"></table>
+    </div>
+
+    <script>
+        layui.use(['element', 'form', 'table'], function () {
+            var element = layui.element;
+            var form = layui.form;
+            var table = layui.table;
+
+            table.render({
+                elem: "#yijiguanli",
+                cellMinWidth: 200, //全局定义常规单元格的最小宽度
+                cols: [
+                    [{
+                        type: 'checkbox'
+                    }, {
+                        field: 'xiangmubianma',
+                        title: '项目编码',
+                    }, {
+                        field: 'mingcheng',
+                        title: '项目名称'
+                    }, {
+                        field: 'guige',
+                        title: '项目规格'
+                    }, {
+                        field: 'danjia',
+                        title: '项目单价'
+                    }, {
+                        field: 'pinyin',
+                        title: '拼音助记码'
+                    }, {
+                        fixed: 'right',
+                        title: '操作',
+                        toolbar: '#barDemo'
+                    }]
+                ],
+                data: [{
+                    "bianma": "120200001",
+                    "mingcheng": "大抢救",
+                    "guige": "日",
+                    "danjia": "200",
+                    "pinyin": "DQJ",
+                }]
+            })
+        })
+    </script>
+
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+</body>
+
+</html>

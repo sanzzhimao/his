@@ -8,97 +8,94 @@
     <title>药品管理</title>
     <link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../layui/layui.js"></script>
-    <link rel="stylesheet" href="../css/yaofangfayao.css">
 </head>
 
 <body>
     <form class="layui-form" action="">
         <table>
-                <td>
-                    <div class="layui-form-item">
-                        <div class="layui-input-block">
-                            <input type="text" id="binglinum" name="title" required lay-verify="required"
-                                placeholder="请输入药品助记码" autocomplete="off" class="layui-input">
-                        </div>
+            <td>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="text" id="binglinum" name="title" required lay-verify="required"
+                            placeholder="请输入药品助记码" autocomplete="off" class="layui-input">
                     </div>
-                </td>
-                <td>
-                    <div class="layui-form-item" class="yaopinbutton">
-                        <button class="layui-btn layui-btn-normal">查询药品</button>
-                    </div>
-                </td>
-                <td>
-                    <div class="layui-form-item" class="yaopinbutton">
-                        <button class="layui-btn layui-btn-normal">新增药品</button>
-                    </div>
-                </td>
-                <td>
-                    <div class="layui-form-item" class="yaopinbutton">
-                        <button class="layui-btn layui-btn-normal">导入药品</button>
-                    </div>
-                </td>
-            </form>
+                </div>
+            </td>
+            <td>
+                <div class="layui-form-item" class="yaopinbutton">
+                    <button class="layui-btn layui-btn-normal">查询药品</button>
+                </div>
+            </td>
+            <td>
+                <div class="layui-form-item" class="yaopinbutton">
+                    <button class="layui-btn layui-btn-normal">新增药品</button>
+                </div>
+            </td>
+            <td>
+                <div class="layui-form-item" class="yaopinbutton">
+                    <button class="layui-btn layui-btn-normal">导入药品</button>
+                </div>
+            </td>
+    </form>
 
-            <form class="layui-form" action="">
-                <table class="layui-table" lay-even lay-skin="nob">
-                  
-                    <thead>
-                        <tr>
-                            <th>
-                                <input type="checkbox" name="" title="" lay-skin="primary">
-                            </th>
-                            <th>药品编码</th>
-                            <th>药品名称</th>
-                            <th>药品规格</th>
-                            <th>药品单位</th>
-                            <th>药品单价</th>
-                            <th>药品剂型</th>
-                            <th>药品类型</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            
-                            <td>
-                                <button class="layui-btn layui-btn-normal" id="bianji">编辑</button>
-                                <button class="layui-btn layui-btn-danger">删除</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button class="layui-btn layui-btn-danger">批量删除</button>
-                            </td>
-                            <td>
-                                <h2><</h2>
-                            </td>
-                            <td>
-                                <h2>1</h2>
-                            </td>
-                            <td>
-                                <h2>2</h2>
-                            </td>
-                            <td>
-                                <h2>3</h2>
-                            </td>
-                            <td>
-                                <h2>></h2>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    <form class="layui-form" action="">
+        <table class="layui-table" lay-even lay-skin="nob">
 
-                <script>
-                    
-                </script>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" name="" title="" lay-skin="primary">
+                    </th>
+                    <th>药品编码</th>
+                    <th>药品名称</th>
+                    <th>药品规格</th>
+                    <th>药品单位</th>
+                    <th>药品单价</th>
+                    <th>药品剂型</th>
+                    <th>药品类型</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+
+                    <td>
+                        <button class="layui-btn layui-btn-normal" id="bianji">编辑</button>
+                        <button class="layui-btn layui-btn-danger">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="layui-btn layui-btn-danger">批量删除</button>
+                    </td>
+                    <td>
+                        <div id="demo1"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            layui.use(['laypage', 'layer'], function () {
+                var laypage = layui.laypage,
+                    layer = layui.layer;
+
+                laypage.render({
+                    elem: 'demo1',
+                    count: 50,
+                    prev: '<',
+                    next: '>'
+                });
+            });
+        </script>
 </body>
 
 </html>

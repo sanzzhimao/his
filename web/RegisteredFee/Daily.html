@@ -21,169 +21,89 @@
 </head>
 
 <body>
-    <header>东软云医院HIS系统</header>
-    <ul class="layui-nav layui-nav-tree layui-bg-#393D49" lay-filter="test">
-        <li class="layui-nav-item layui-nav-itemed">
-            <a>挂号收费</a>
-            <dl class="layui-nav-child">
-                <dd><a href="Register.html">现场挂号</a></dd>
-                <dd><a href="Signout.html">退号</a></dd>
-                <dd><a href="Charge.html">收费</a></dd>
-                <dd><a href="Refund.html">退费</a></dd>
-                <dd><a href="Makeup.html">发票补打</a></dd>
-                <dd><a href="Replay.html">发票重打</a></dd>
-                <dd><a href="Patient.html">患者费用查询</a></dd>
-                <dd><a href="Daily.html">日结*</a></dd>
-                <dd><a href="Daily2.html">日结查询*</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a>门诊医生</a>
-            <dl class="layui-nav-child">
-                <dd><a href="">门诊病历</a></dd>
-                <dd><a href="">医技模板管理</a></dd>
-                <dd><a href="">西药处方模板</a></dd>
-                <dd><a href="">中药处方模板</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a>医技处置*</a>
-            <dl class="layui-nav-child">
-                <dd><a href="">患者检验*</a></dd>
-                <dd><a href="">患者检查*</a></dd>
-                <dd><a href="">患者处置*</a></dd>
-                <dd><a href="">医技管理*</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a>药房管理</a>
-            <dl class="layui-nav-child">
-                <dd><a href="">药房发药</a></dd>
-                <dd><a href="">药房退药</a></dd>
-                <dd><a href="">药品管理</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a>财务管理</a>
-            <dl class="layui-nav-child">
-                <dd><a href="">门诊医生工作量统计*</a></dd>
-                <dd><a href="">开单科室工作量统计*</a></dd>
-                <dd><a href="">执行科室工作量统计*</a></dd>
-                <dd><a href="">费用科目管理</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a>系统信息</a>
-            <dl class="layui-nav-child">
-                <dd><a href="">常数类别管理</a></dd>
-                <dd><a href="">科室管理</a></dd>
-                <dd><a href="">用户管理</a></dd>
-                <dd><a href="">挂号级别管理</a></dd>
-                <dd><a href="">结算类别管理</a></dd>
-                <dd><a href="">诊断目录管理</a></dd>
-                <dd><a href="">非药品收费项目管理</a></dd>
-                <dd><a href="">医生排班管理</a></dd>
-            </dl>
-        </li>
-    </ul>
-
-    <div class="layui-tab layui-tab-card" lay-allowClose="true" id="panel">
-        <ul class="layui-tab-title">
-            <li class="layui-this">日结</li>
-        </ul>
-
-        <form class="layui-form" action="" style="padding-top: 20px">
-            <div class="layui-form-item layui-inline">
-                <label class="layui-form-label">*收款员：</label>
-                <div class="layui-input-inline">
-                    <select name="">
-                        <option>张三</option>
-                        <option>李四</option>
-                    </select>
-                </div>
+    <form class="layui-form" action="" style="padding-top: 20px">
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">*收款员：</label>
+            <div class="layui-input-inline">
+                <select name="">
+                    <option>张三</option>
+                    <option>李四</option>
+                </select>
             </div>
-            <div class="layui-form-item layui-inline">
-                <label class="layui-form-label">统计日期</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="2018-12-12 18:00:00"
-                        autocomplete="off" class="layui-input">
-                </div>
-                <label class="layui-form-label">至：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="&#xe637; 选择日期"
-                        autocomplete="off" class="layui-input layui-icon" id="dailyTime">
-                </div>
+        </div>
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">统计日期</label>
+            <div class="layui-input-inline">
+                <input type="text" name="" required lay-verify="required" placeholder="2018-12-12 18:00:00"
+                    autocomplete="off" class="layui-input">
             </div>
-            <div class="layui-form-item layui-inline">
-                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
-                    日结</button>
+            <label class="layui-form-label">至：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="" required lay-verify="required" placeholder="&#xe637; 选择日期" autocomplete="off"
+                    class="layui-input layui-icon" id="dailyTime">
             </div>
-            <div class="layui-form-item layui-inline">
-                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
-                    保存</button>
-            </div>
-        </form>
+        </div>
+        <div class="layui-form-item layui-inline">
+            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
+                日结</button>
+        </div>
+        <div class="layui-form-item layui-inline">
+            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;
+                保存</button>
+        </div>
+    </form>
 
-        <p>门诊收费日结单</p>
-        <table class="layui-table" border="1">
-            <tr>
-                <td>日结时间范围</td>
-                <td colspan="6">2018-12-12 18:00:00----2018-12-13 18:00:00</td>
-            </tr>
-            <tr>
-                <td>制表人</td>
-                <td>张三</td>
-                <td>收款员</td>
-                <td>张三</td>
-                <td>制表时间</td>
-                <td colspan="2">2018-12-30</td>
-            </tr>
-            <tr>
-                <td>起止发票号</td>
-                <td colspan="6">10001----83455</td>
-            </tr>
-            <tr>
-                <td>作废发票号</td>
-                <td colspan="6">10003 70048 81890</td>
-            </tr>
-            <tr>
-                <td>重打发票号</td>
-                <td colspan="6">12997</td>
-            </tr>
-            <tr>
-                <td>收费金额</td>
-                <td>挂号费</td>
-                <td>500.00</td>
-                <td>药费</td>
-                <td>1000.00</td>
-                <td>其他费用</td>
-                <td>30.00</td>
-            </tr>
-            <tr>
-                <td>共计</td>
-                <td>(大写)</td>
-                <td colspan="3">壹仟伍佰叁拾</td>
-                <td>(小写)</td>
-                <td>1530.00</td>
-            </tr>
-        </table>
-
-    </div>
+    <p>门诊收费日结单</p>
+    <table class="layui-table" border="1">
+        <tr>
+            <td>日结时间范围</td>
+            <td colspan="6">2018-12-12 18:00:00----2018-12-13 18:00:00</td>
+        </tr>
+        <tr>
+            <td>制表人</td>
+            <td>张三</td>
+            <td>收款员</td>
+            <td>张三</td>
+            <td>制表时间</td>
+            <td colspan="2">2018-12-30</td>
+        </tr>
+        <tr>
+            <td>起止发票号</td>
+            <td colspan="6">10001----83455</td>
+        </tr>
+        <tr>
+            <td>作废发票号</td>
+            <td colspan="6">10003 70048 81890</td>
+        </tr>
+        <tr>
+            <td>重打发票号</td>
+            <td colspan="6">12997</td>
+        </tr>
+        <tr>
+            <td>收费金额</td>
+            <td>挂号费</td>
+            <td>500.00</td>
+            <td>药费</td>
+            <td>1000.00</td>
+            <td>其他费用</td>
+            <td>30.00</td>
+        </tr>
+        <tr>
+            <td>共计</td>
+            <td>(大写)</td>
+            <td colspan="3">壹仟伍佰叁拾</td>
+            <td>(小写)</td>
+            <td>1530.00</td>
+        </tr>
+    </table>
 
     <script>
-        layui.use('form', function () {
-            var form = layui.form;
-            form.render();
-        });
-
-        //注意：导航依赖element模块，否则无法进行功能性操作
-        layui.use('element', function () {
+        layui.use(['element', 'form', 'laydate'], function () {
             var element = layui.element;
-        });
-
-        layui.use('laydate', function () {
+            var form = layui.form;
             var laydate = layui.laydate;
-            //执行一个laydate实例
+
+            form.render();
             laydate.render({
                 elem: '#dailyTime', //指定元素
                 type: 'datetime'

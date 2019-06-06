@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #panel {
+        position: absolute;
+        top: 80px;
+        left: 220px;
+        width: 100%;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+
+<body>
+    <div class="layui-tab-content">
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">患者名：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
+                    class="layui-input">
+            </div>
+            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615; 搜索</button>
+        </div>
+        <br>
+
+        <div class="layui-tab layui-tab-card layui-inline">
+            <ul class="layui-tab-title">
+                <li class="layui-this">处置</li>
+            </ul>
+
+            <div class="layui-tab-content">
+                <p>患者：</p>
+                <table class="layui-hide" id="huanzhechuzhi1"></table>
+            </div>
+        </div>
+    </div>
+
+    <div style="position: relative; top:-270px;left:450px;">
+        <span>处置明细信息：</span>
+        <button class="layui-btn">执行确认</button>
+        <button class="layui-btn">取消执行</button>
+        <button class="layui-btn">填写结果</button>
+        <h3>处置明细单</h3>
+        <hr>
+        <form action="" class="layui-form">
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">病历号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">患者姓名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">年龄：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <br>
+
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">结算类别：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">就诊科室：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">处方状态：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <br>
+
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">收费日期：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">开单医生：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">发票号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </form>
+        <p>处置项信息</p>
+        <table class="layui-hide" id="huanzhechuzhi2"></table>
+    </div>
+
+    <script>
+        layui.use(['element', 'table'], function () {
+            var element = layui.element;
+            var table = layui.table;
+
+            table.render({
+                elem: '#huanzhechuzhi1',
+                cols: [
+                    [{
+                        field: "1"
+                    }, {
+                        filed: "2"
+                    }, {
+                        filed: "3"
+                    }]
+                ],
+                data: [{
+                    "1": "01212124545",
+                    "2": "易辉单",
+                    "3": "3322"
+                }]
+            })
+
+            table.render({
+                elem: '#huanzhechuzhi2',
+                cols: [
+                    [{
+                            type: 'radio'
+                        },
+                        {
+                            field: "jianyanmingcheng",
+                            title: "处置项名称"
+                        }, {
+                            filed: "jianyanbuwei",
+                            title: "部位"
+                        }, {
+                            filed: "shuliang",
+                            title: "数量"
+                        }, {
+                            filed: "danwei",
+                            title: "单位"
+                        }, {
+                            filed: "danjia",
+                            title: "单价"
+                        }, {
+                            filed: "zongjine",
+                            title: "总金额"
+                        }, {
+                            filed: "zhuangtai",
+                            title: "状态"
+                        }
+                    ]
+                ],
+                data: [{
+                    "jianyanmingcheng": "血细胞分析",
+                    "shuliang": "1",
+                    "danwei": "次",
+                    "danjia": "12",
+                    "zongjine": "12",
+                    "zhuangtai": "未检"
+                }, {
+                    "jianyanmingcheng": "血细胞分析",
+                    "shuliang": "1",
+                    "danwei": "次",
+                    "danjia": "12",
+                    "zongjine": "12",
+                    "zhuangtai": "未检"
+                }]
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-    #panel {
+    /* #panel {
         float: left;
         position: absolute;
         top: 80px;
         left: 220px;
-    }
+    } */
 </style>
 
 <head>
@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <header>东软云医院HIS系统</header>
+    <!-- <header>东软云医院HIS系统</header>
     <ul class="layui-nav layui-nav-tree layui-bg-#393D49" lay-filter="test">
         <li class="layui-nav-item layui-nav-itemed">
             <a>挂号收费</a>
@@ -85,162 +85,164 @@
                 <dd><a href="">医生排班管理</a></dd>
             </dl>
         </li>
-    </ul>
+    </ul> -->
 
-    <div class="layui-tab layui-tab-card" lay-allowClose="true" id="panel">
+    <!-- <div class="layui-tab layui-tab-card" lay-allowClose="true" id="panel">
         <ul class="layui-tab-title">
             <li class="layui-this">现场挂号</li>
-        </ul>
+        </ul> -->
 
-        <form class="layui-form" action="" style="padding-top: 20px">
-            <div class="layui-form-item layui-inline">
-                <label class="layui-form-label">*发票号</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="6" autocomplete="off"
-                        class="layui-input">
-                </div>
-                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe6b2; 挂号</button>
-                <button type="reset" class="layui-btn layui-icon layui-btn-primary">&#xe669; 清空</button>
+        <div class="layui-tab-content">
+            <form class="layui-form" action="" style="padding-top: 20px">
+                <div class="layui-form-item layui-inline">
+                    <label class="layui-form-label">*发票号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="" required lay-verify="required" placeholder="6" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                    <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe6b2; 挂号</button>
+                    <button type="reset" class="layui-btn layui-icon layui-btn-primary">&#xe669; 清空</button>
 
-                <p>挂号信息</p>
-                <label class="layui-form-label">*病 历 号</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" value="600624" autocomplete="off"
-                        class="layui-input">
+                    <p>挂号信息</p>
+                    <label class="layui-form-label">*病 历 号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="" required lay-verify="required" value="600624" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                    <label class="layui-form-label">*姓 名：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                    <label class="layui-form-label">*性 别：</label>
+                    <div class="layui-input-inline">
+                        <select name="">
+                            <option value="" selected>男</option>
+                            <option value="">女</option>
+                        </select>
+                    </div>
+                    <label class="layui-form-label">*年 龄：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="" required lay-verify="required" placeholder="输入年龄" autocomplete="off"
+                            class="layui-input">
+                    </div>
                 </div>
-                <label class="layui-form-label">*姓 名：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
-                        class="layui-input">
+                <br>
+                <div class="layui-form-item layui-inline">
+                    <label class="layui-form-label">出生日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input layui-icon" id="birthDate" placeholder="&#xe637; 出生日期">
+                    </div>
+                    <label class="layui-form-label">身份证号：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="" required lay-verify="required" placeholder="再次输入身份证号"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                    <label class="layui-form-label">*家庭住址：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="" required lay-verify="required" placeholder="在此输入家庭住址"
+                            autocomplete="off" class="layui-input">
+                    </div>
                 </div>
-                <label class="layui-form-label">*性 别：</label>
-                <div class="layui-input-inline">
-                    <select name="">
-                        <option value="" selected>男</option>
-                        <option value="">女</option>
-                    </select>
+                <br>
+                <div class="layui-form-item layui-inline">
+                    <label class="layui-form-label">*结算类别</label>
+                    <div class="layui-input-inline">
+                        <select>
+                            <option selected>自费</option>
+                            <option>市医保</option>
+                        </select>
+                    </div>
+                    <label class="layui-form-label">*看诊日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input layui-icon" id="visitDate" placeholder="&#xe637; 看诊日期">
+                    </div>
+                    <label class="layui-form-label">*午 别：</label>
+                    <div class="layui-input-inline">
+                        <select name="">
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <label class="layui-form-label">挂号科室：</label>
+                    <div class="layui-input-inline">
+                        <select name="">
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
                 </div>
-                <label class="layui-form-label">*年 龄：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="输入年龄" autocomplete="off"
-                        class="layui-input">
+                <br>
+                <div class="layui-form-item layui-inline">
+                    <label class="layui-form-label">*号 别</label>
+                    <div class="layui-input-inline">
+                        <select name="">
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <label class="layui-form-label">*看诊医生</label>
+                    <div class="layui-input-inline">
+                        <select name="">
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <label class="layui-form-label">初始号额：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                    <label class="layui-form-label">已用号额：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="" required lay-verify="required" placeholder="已用号额" autocomplete="off"
+                            class="layui-input">
+                    </div>
                 </div>
-            </div>
-            <br>
-            <div class="layui-form-item layui-inline">
-                <label class="layui-form-label">出生日期</label>
-                <div class="layui-input-inline">
-                    <input type="text" class="layui-input layui-icon" id="birthDate" placeholder="&#xe637; 出生日期">
+                <br>
+                <div class="layui-form-item layui-inline">
+                    <label class="layui-form-label">病历本</label>
+                    <div class="layui-input-inline">
+                        <input type="checkbox" name="" lay-skin="primary">
+                    </div>
+                    <label class="layui-form-label">*应收金额：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                    <label class="layui-form-label">*收费方式：</label>
+                    <div class="layui-input-inline">
+                        <select name="">
+                            <option value="" selected>现金</option>
+                            <option value="">医保卡</option>
+                            <option value="">银行卡</option>
+                            <option value="">信用卡</option>
+                            <option value="">微信</option>
+                            <option value="">支付宝</option>
+                            <option value="">云闪付</option>
+                            <option value="">其他</option>
+                        </select>
+                    </div>
                 </div>
-                <label class="layui-form-label">身份证号：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="再次输入身份证号" autocomplete="off"
-                        class="layui-input">
-                </div>
-                <label class="layui-form-label">*家庭住址：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="在此输入家庭住址" autocomplete="off"
-                        class="layui-input">
-                </div>
-            </div>
-            <br>
-            <div class="layui-form-item layui-inline">
-                <label class="layui-form-label">*结算类别</label>
-                <div class="layui-input-inline">
-                    <select>
-                        <option selected>自费</option>
-                        <option>市医保</option>
-                    </select>
-                </div>
-                <label class="layui-form-label">*看诊日期</label>
-                <div class="layui-input-inline">
-                    <input type="text" class="layui-input layui-icon" id="visitDate" placeholder="&#xe637; 看诊日期">
-                </div>
-                <label class="layui-form-label">*午 别：</label>
-                <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                </div>
-                <label class="layui-form-label">挂号科室：</label>
-                <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                </div>
-            </div>
-            <br>
-            <div class="layui-form-item layui-inline">
-                <label class="layui-form-label">*号 别</label>
-                <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                </div>
-                <label class="layui-form-label">*看诊医生</label>
-                <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                </div>
-                <label class="layui-form-label">初始号额：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
-                        class="layui-input">
-                </div>
-                <label class="layui-form-label">已用号额：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="已用号额" autocomplete="off"
-                        class="layui-input">
-                </div>
-            </div>    
-            <br>
-            <div class="layui-form-item layui-inline">
-                <label class="layui-form-label">病历本</label>
-                <div class="layui-input-inline">
-                    <input type="checkbox" name="" lay-skin="primary">
-                </div>
-                <label class="layui-form-label">*应收金额：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
-                        class="layui-input">
-                </div>
-                <label class="layui-form-label">*收费方式：</label>
-                <div class="layui-input-inline">
-                    <select name="">
-                        <option value="" selected>现金</option>
-                        <option value="">医保卡</option>
-                        <option value="">银行卡</option>
-                        <option value="">信用卡</option>
-                        <option value="">微信</option>
-                        <option value="">支付宝</option>
-                        <option value="">云闪付</option>
-                        <option value="">其他</option>
-                    </select>
-                </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
+    <!-- </div> -->
 
-    <script>
-        layui.use(['element', 'form', 'laydate'], function () {
-            var element = layui.element;
-            var form = layui.form;
-            var laydate = layui.laydate;
+        <script>
+            layui.use(['element', 'form', 'laydate'], function () {
+                var element = layui.element;
+                var form = layui.form;
+                var laydate = layui.laydate;
 
-            form.render();
-            laydate.render({
-                elem: '#birthDate' //指定元素
+                form.render();
+                laydate.render({
+                    elem: '#birthDate' //指定元素
+                });
+                laydate.render({
+                    elem: '#visitDate' //指定元素
+                });
             });
-            laydate.render({
-                elem: '#visitDate' //指定元素
-            });
-        });
-    </script>
+        </script>
 </body>
 
 </html>
