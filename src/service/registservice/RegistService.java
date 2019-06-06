@@ -120,6 +120,7 @@ public class RegistService implements IRegistService{
         PatientCosts pc=new PatientCosts();
         pc.setRegisterID(register.getId());
         pc.setInvoiceID(iv.getId());
+        //暂时先写着
         pc.setItemID(1);
         pc.setItemType(1);
         pc.setName(register.getRealName());
