@@ -21,170 +21,87 @@
 </head>
 
 <body>
-    <header>东软云医院HIS系统</header>
-    <ul class="layui-nav layui-nav-tree layui-bg-#393D49" lay-filter="test">
-        <li class="layui-nav-item layui-nav-itemed">
-            <a>挂号收费</a>
-            <dl class="layui-nav-child">
-                <dd><a href="Register.html">现场挂号</a></dd>
-                <dd><a href="Signout.html">退号</a></dd>
-                <dd><a href="Charge.html">收费</a></dd>
-                <dd><a href="Refund.html">退费</a></dd>
-                <dd><a href="Makeup.html">发票补打</a></dd>
-                <dd><a href="Replay.html">发票重打</a></dd>
-                <dd><a href="Patient.html">患者费用查询</a></dd>
-                <dd><a href="Daily.html">日结*</a></dd>
-                <dd><a href="Daily2.html">日结查询*</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a>门诊医生</a>
-            <dl class="layui-nav-child">
-                <dd><a href="">门诊病历</a></dd>
-                <dd><a href="">医技模板管理</a></dd>
-                <dd><a href="">西药处方模板</a></dd>
-                <dd><a href="">中药处方模板</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a>医技处置*</a>
-            <dl class="layui-nav-child">
-                <dd><a href="">患者检验*</a></dd>
-                <dd><a href="">患者检查*</a></dd>
-                <dd><a href="">患者处置*</a></dd>
-                <dd><a href="">医技管理*</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a>药房管理</a>
-            <dl class="layui-nav-child">
-                <dd><a href="">药房发药</a></dd>
-                <dd><a href="">药房退药</a></dd>
-                <dd><a href="">药品管理</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a>财务管理</a>
-            <dl class="layui-nav-child">
-                <dd><a href="">门诊医生工作量统计*</a></dd>
-                <dd><a href="">开单科室工作量统计*</a></dd>
-                <dd><a href="">执行科室工作量统计*</a></dd>
-                <dd><a href="">费用科目管理</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a>系统信息</a>
-            <dl class="layui-nav-child">
-                <dd><a href="">常数类别管理</a></dd>
-                <dd><a href="">科室管理</a></dd>
-                <dd><a href="">用户管理</a></dd>
-                <dd><a href="">挂号级别管理</a></dd>
-                <dd><a href="">结算类别管理</a></dd>
-                <dd><a href="">诊断目录管理</a></dd>
-                <dd><a href="">非药品收费项目管理</a></dd>
-                <dd><a href="">医生排班管理</a></dd>
-            </dl>
-        </li>
-    </ul>
-
-    <div class="layui-tab layui-tab-card" lay-allowClose="true" id="panel">
-        <ul class="layui-tab-title">
-            <li class="layui-this">患者检验*</li>
-        </ul>
-
-        <div class="layui-tab-content">
-            <div class="layui-form-item layui-inline">
-                <label class="layui-form-label">患者名：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
-                        class="layui-input">
-                </div>
-                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615; 搜索</button>
+    <div class="layui-tab-content">
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">患者名：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
+                    class="layui-input">
             </div>
-            <br>
-
-            <div class="layui-tab layui-tab-card layui-inline">
-                <ul class="layui-tab-title">
-                    <li class="layui-this">医技检验</li>
-                </ul>
-
-                <div class="layui-tab-content">
-                    <p>患者：</p>
-                    <table class="layui-hide" id="yijijianyan1"></table>
-                </div>
-            </div>
+            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615; 搜索</button>
         </div>
+        <br>
 
-        <div style="position: relative; top:-270px;left:450px;">
-            <span>检验明细信息：</span>
-            <button class="layui-btn">执行确认</button>
-            <button class="layui-btn">取消执行</button>
-            <button class="layui-btn">填写结果</button>
-            <h3>检验明细单</h3>
-            <hr>
-            <form action="" class="layui-form">
-                <div class="layui-form-item layui-inline">
-                    <label class="layui-form-label">病历号：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
-                    </div>
-                    <label class="layui-form-label">患者姓名：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
-                    </div>
-                    <label class="layui-form-label">年龄：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
-                    </div>
-                </div>
-                <br>
+        <div class="layui-tab layui-tab-card layui-inline">
+            <ul class="layui-tab-title">
+                <li class="layui-this">医技检验</li>
+            </ul>
 
-                <div class="layui-form-item layui-inline">
-                    <label class="layui-form-label">结算类别：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
-                    </div>
-                    <label class="layui-form-label">就诊科室：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
-                    </div>
-                    <label class="layui-form-label">处方状态：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
-                    </div>
-                </div>
-                <br>
-
-                <div class="layui-form-item layui-inline">
-                    <label class="layui-form-label">收费日期：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
-                    </div>
-                    <label class="layui-form-label">开单医生：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
-                    </div>
-                    <label class="layui-form-label">发票号：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
-                    </div>
-                </div>
-            </form>
-            <p>检验信息</p>
-            <table class="layui-hide" id="yijijianyan2"></table>
-
+            <div class="layui-tab-content">
+                <p>患者：</p>
+                <table class="layui-hide" id="yijijianyan1"></table>
+            </div>
         </div>
     </div>
 
+    <div style="position: relative; top:-270px;left:450px;">
+        <span>检验明细信息：</span>
+        <button class="layui-btn">执行确认</button>
+        <button class="layui-btn">取消执行</button>
+        <button class="layui-btn">填写结果</button>
+        <h3>检验明细单</h3>
+        <hr>
+        <form action="" class="layui-form">
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">病历号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">患者姓名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">年龄：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <br>
+
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">结算类别：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">就诊科室：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">处方状态：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <br>
+
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">收费日期：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">开单医生：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <label class="layui-form-label">发票号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </form>
+        <p>检验信息</p>
+        <table class="layui-hide" id="yijijianyan2"></table>
+    </div>
 
     <script>
         layui.use(['element', 'table'], function () {
