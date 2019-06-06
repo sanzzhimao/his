@@ -23,7 +23,7 @@ public class ConstantTypeServiceTest {
         ConstantType c1=new ConstantType();
         c1.setId(1);
         c1.setConstantTypeCode("uio");
-        c1.setConstantTypeName("hejinhua ");
+        c1.setConstantTypeName("李徐坤");
         c1.setDelMark(1);
         System.out.println(c.addConstantType(c1));
     }
@@ -31,13 +31,13 @@ public class ConstantTypeServiceTest {
     @Test
     public void selectConstantType() {
         ConstantTypeService c=new ConstantTypeService();
-        System.out.println(c.selectConstantType("uio"));
+        System.out.println(c.selectConstantType("李徐坤"));
     }
 
     @Test
     public void selectAllConstantItem() {
         ConstantTypeService c=new ConstantTypeService();
-        System.out.println(c.selectAllConstantItem("内科好"));
+        System.out.println(c.selectAllConstantItem("WK"));
     }
 
     @Test
