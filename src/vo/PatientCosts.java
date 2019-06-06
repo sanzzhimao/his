@@ -182,4 +182,7 @@ public class PatientCosts {
                 ", backID=" + backID +
                 '}';
     }
+
+    public void getDeptID(int deptID) {
+    }
 }

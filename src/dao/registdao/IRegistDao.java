@@ -112,4 +112,11 @@ public interface IRegistDao {
      * @return int
      **/
     int selectUserIDByUserName(String name) throws SQLException;
+    /**
+     * @Author lym
+     * @Description:通过收费方式的名字找到其id
+     * @Param [constantName]
+     * @return int
+    **/
+    int selectConstantIDByConstantName(String constantName) throws  SQLException;
 }

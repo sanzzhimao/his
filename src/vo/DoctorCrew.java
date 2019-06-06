@@ -9,30 +9,24 @@ public class DoctorCrew {
     private int id;
     //排班日期
     private Date schedDate;
+    //科室ID
+    private int deptID;
     //科室名称
     private String deptName;
+    //医生ID
+    private int userID;
     //医生名称
     private String realName;
     //午别
     private String noon;
+    //挂号级别ID
+    private int registLeID;
     //挂号级别名称
-    private String registName;
+    private String registLeName;
     //挂号限额
-    private String registQuota;
-    //医生ID
-    private int userID;
-
-    public DoctorCrew() {
-    }
-
-    public DoctorCrew(Date schedDate, String deptName, String realName,String noon, String registName, String registQuota) {
-        this.schedDate = schedDate;
-        this.deptName = deptName;
-        this.realName = realName;
-        this.noon = noon;
-        this.registName = registName;
-        this.registQuota = registQuota;
-    }
+    private int registQuota;
+    //挂号费
+    private double registFee;
 
     public int getId() {
         return id;
@@ -50,6 +44,14 @@ public class DoctorCrew {
         this.schedDate = schedDate;
     }
 
+    public int getDeptID() {
+        return deptID;
+    }
+
+    public void setDeptID(int deptID) {
+        this.deptID = deptID;
+    }
+
     public String getDeptName() {
         return deptName;
     }
@@ -58,6 +60,13 @@ public class DoctorCrew {
         this.deptName = deptName;
     }
 
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
 
     public String getRealName() {
         return realName;
@@ -75,28 +84,36 @@ public class DoctorCrew {
         this.noon = noon;
     }
 
-    public String getRegistName() {
-        return registName;
+    public int getRegistLeID() {
+        return registLeID;
     }
 
-    public void setRegistName(String registName) {
-        this.registName = registName;
+    public void setRegistLeID(int registLeID) {
+        this.registLeID = registLeID;
     }
 
-    public String getRegistQuota() {
+    public String getRegistLeName() {
+        return registLeName;
+    }
+
+    public void setRegistLeName(String registLeName) {
+        this.registLeName = registLeName;
+    }
+
+    public int getRegistQuota() {
         return registQuota;
     }
 
-    public void setRegistQuota(String registQuota) {
+    public void setRegistQuota(int registQuota) {
         this.registQuota = registQuota;
     }
 
-    public int getUserID() {
-        return userID;
+    public double getRegistFee() {
+        return registFee;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setRegistFee(double registFee) {
+        this.registFee = registFee;
     }
 
     @Override
@@ -104,12 +121,15 @@ public class DoctorCrew {
         return "DoctorCrew{" +
                 "id=" + id +
                 ", schedDate=" + schedDate +
+                ", deptID=" + deptID +
                 ", deptName='" + deptName + '\'' +
+                ", userID=" + userID +
                 ", realName='" + realName + '\'' +
                 ", noon='" + noon + '\'' +
-                ", registName='" + registName + '\'' +
-                ", registQuota='" + registQuota + '\'' +
-                ", userID=" + userID +
+                ", registLeID=" + registLeID +
+                ", registLeName='" + registLeName + '\'' +
+                ", registQuota=" + registQuota +
+                ", registFee=" + registFee +
                 '}';
     }
 }

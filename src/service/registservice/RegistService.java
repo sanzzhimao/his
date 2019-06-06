@@ -6,6 +6,7 @@ import dao.informationdao.IDoctorCrewDao;
 import dao.registdao.IRegistDao;
 import dao.registdao.RegistDao;
 import org.omg.CORBA.INV_FLAG;
+import sun.security.krb5.internal.KDCReqBody;
 import util.JdbcUtil;
 import vo.*;
 
@@ -65,7 +66,7 @@ public class RegistService implements IRegistService{
     }
     /**
      * @Author lym
-     * @Description:通过日期查到一生的排班信息
+     * @Description:通过日期查到医生的排班信息
      * @Param [date]
      * @return java.util.List<vo.DoctorCrew>
     **/
@@ -85,7 +86,7 @@ public class RegistService implements IRegistService{
     }
     /**
      * @Author lym
-     * @Description
+     * @Description：通过医生名字和注册日期找到当前医生已经有多少人挂号
      * @Param [userName, visidate]
      * @return int
      **/
@@ -113,11 +114,30 @@ public class RegistService implements IRegistService{
      * @return boolean
      **/
     @Override
-    public boolean registered(Register register, DoctorCrew doctorCrew, Invoice iv, PatientCosts pc) {
+    public boolean registered(Register register, DoctorCrew doctorCrew, Invoice iv,String shouFeiFangShi) {
         IRegistDao registDao=new RegistDao();
         registDao.setConnection(con);
+        PatientCosts pc=new PatientCosts();
+        pc.setRegisterID(register.getId());
+        pc.setInvoiceID(iv.getId());
+        pc.setItemID(1);
+        pc.setItemType(1);
+        pc.setName(register.getRealName());
+        pc.setPrice(8);
+        pc.setAmount(1);
+        pc.setDeptID(doctorCrew.getDeptID());
+        pc.setCreateTime(iv.getCreationTime());
+        pc.setCreateOperID(iv.getUserID());
+        pc.setPayTime(iv.getCreationTime());
+        pc.setRegisterID(iv.getUserID());
+        try {
+            pc.setFeeType(registDao.selectConstantIDByConstantName(shouFeiFangShi));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        pc.setBackID(0);
         int num=0;
-        int num1=0;
+        int num1=doctorCrew.getRegistQuota();
         try {
             num=registDao.selectDoctorUsedId(register.getUserID(), (Date) doctorCrew.getSchedDate());
             if (num1<= num){
@@ -150,6 +170,8 @@ public class RegistService implements IRegistService{
             list=constantTypeDao.selectAllConstantItem("收费方式");
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
         }
         return list;
     }

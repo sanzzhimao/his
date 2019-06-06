@@ -14,5 +14,11 @@ import java.util.List;
 **/
 public interface ICostsDao {
     public void setCon(Connection con);
+    /**
+     * @Author lym
+     * @Description：通过患者的病历号找到患者的
+     * @Param [caseNumber]
+     * @return java.util.List<vo.PatientInfo>
+    **/
     List<PatientInfo> selectPatientInfoByCaseNumber(String caseNumber) throws SQLException;
 }

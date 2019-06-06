@@ -365,4 +365,18 @@ public class RegistDao implements IRegistDao {
         return  id;
     }
 
+    @Override
+    public int selectConstantIDByConstantName(String constantName) throws SQLException {
+       String sql="SELECT id FROM constantitem WHERE ConstantName=?";
+       PreparedStatement psmt=con.prepareStatement(sql);
+        psmt.setString(1,constantName);
+        ResultSet rs=psmt.executeQuery();
+        int constantID=0;
+        while (rs.next()){
+            constantID=rs.getInt(1);
+        }
+        JdbcUtil.release(null,psmt,rs);
+        return constantID;
+    }
+
 }
