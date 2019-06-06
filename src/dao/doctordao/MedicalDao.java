@@ -153,18 +153,11 @@ public class MedicalDao implements IMedicalDao {
                 "where F.ExpClassID = E.ID\n" +
                 "and F.DeptID = D.ID\n" +
                 "and F.DelMark=1\n" +
-                "and RecordType=?";
-        PreparedStatement pstmt=null;
+                "and RecordType='"+recordtype+"'";
         if(name!=null && name.length()!=0){
-            sql+="and (F.MnemonicCode like \"%\"?\"%\" or F.ItemName like \"%\"?\"%\")";
-            pstmt=con.prepareStatement(sql);
-            pstmt.setInt(1,recordtype);
-            pstmt.setString(2,name);
-            pstmt.setString(3,name);
-        }else {
-            pstmt=con.prepareStatement(sql);
-            pstmt.setInt(1,recordtype);
+            sql+="and (F.MnemonicCode like '%"+name+"%' or F.ItemName like '%"+name+"%')";
         }
+        PreparedStatement  pstmt=con.prepareStatement(sql);
         ResultSet rs=pstmt.executeQuery();
         List<NoDrug> list=new ArrayList<>();
         NoDrug nodrug=null;

@@ -2,20 +2,25 @@ package service.doctorservice;
 
 import org.junit.Test;
 
+import java.sql.SQLException;
+
 import static org.junit.Assert.*;
 
 public class MedicalServiceTest {
-
+    IMedicalService ims=new MedicalService();
     @Test
-    public void selectMedicalByUserID() {
+    public void selectMedicalByUserID() throws SQLException {
+        System.out.println(ims.selectMedicalByUserID(1));
     }
 
     @Test
-    public void selectMedicalByDeptID() {
+    public void selectMedicalByDeptID() throws SQLException {
+        System.out.println(ims.selectMedicalByDeptID(1));
     }
 
     @Test
     public void updateMedicalHome() {
+
     }
 
     @Test
@@ -23,11 +28,13 @@ public class MedicalServiceTest {
     }
 
     @Test
-    public void selectExamine() {
+    public void selectExamine() throws SQLException {
+        System.out.println(ims.selectExamine(1,"z"));
     }
 
     @Test
-    public void selectCheckApply() {
+    public void selectCheckApply() throws SQLException {
+        System.out.println(ims.selectCheckApply(2,2));
     }
 
     @Test
@@ -35,7 +42,8 @@ public class MedicalServiceTest {
     }
 
     @Test
-    public void selectPrescription() {
+    public void selectPrescription() throws SQLException {
+        System.out.println(ims.selectPrescription());
     }
 
     @Test
@@ -43,7 +51,8 @@ public class MedicalServiceTest {
     }
 
     @Test
-    public void selectPrescriptionDetailed() {
+    public void selectPrescriptionDetailed() throws SQLException {
+        System.out.println(ims.selectPrescriptionDetailed(1));
     }
 
     @Test
@@ -51,7 +60,8 @@ public class MedicalServiceTest {
     }
 
     @Test
-    public void selectHerbalPrescription() {
+    public void selectHerbalPrescription() throws SQLException {
+        System.out.println(ims.selectHerbalPrescription());
     }
 
     @Test
@@ -59,6 +69,7 @@ public class MedicalServiceTest {
     }
 
     @Test
-    public void selectPatientCosts() {
+    public void selectPatientCosts() throws SQLException {
+        System.out.println(ims.selectPatientCosts());
     }
 }
