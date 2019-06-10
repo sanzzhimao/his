@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    #panel {
-        float: left;
-        position: absolute;
-        top: 80px;
-        left: 220px;
-    }
-</style>
 
 <head>
     <meta charset="UTF-8">
@@ -74,54 +66,40 @@
         </div>
     </form>
     <p>患者发票信息</p>
-    <table class="layui-table" lay-even lay-skin="nob">
-        <thead>
-            <tr>
-                <th>病历号</th>
-                <th>姓名</th>
-                <th>消费名称</th>
-                <th>单价</th>
-                <th>数量</th>
-                <th>日期</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>123456</td>
-                <td>test</td>
-                <td>123456</td>
-                <td>123456</td>
-                <td>123456</td>
-                <td>123456</td>
-            </tr>
-            <tr>
-                <td>123456</td>
-                <td>test</td>
-                <td>123456</td>
-                <td>123456</td>
-                <td>123456</td>
-                <td>123456</td>
-            </tr>
-        </tbody>
-    </table>
+    <table class="layui-hide" id="xiaofeixinxi"></table>
     <span>总比数：0</span>
     <span>总金额：0</span>
     </div>
 
     <script>
-        $(function () {
-            layui.use(['element', 'form', 'laydate'], function () {
-                var element = layui.element;
-                var form = layui.form;
-                var laydate = layui.laydate;
-                form.render();
-                laydate.render({
-                    elem: '#startDate'
-                });
-                laydate.render({
-                    elem: '#endDate'
-                });
-            });
+        layui.use(['element', 'table'], function () {
+            var element = layui.element;
+            var table = layui.table;
+
+            table.render({
+                elem: "#xiaofeixinxi",
+                cols: [
+                    [{
+                        field: 'binglihao',
+                        title: '病历号'
+                    }, {
+                        field: 'xingming',
+                        title: '姓名',
+                    }, {
+                        field: 'xiaofeimingcheng',
+                        title: '消费名称',
+                    }, {
+                        field: 'danjia',
+                        title: '单价',
+                    }, {
+                        field: 'shuliang',
+                        title: '数量',
+                    }, {
+                        field: 'riqi',
+                        title: '日期'
+                    }]
+                ]
+            })
         })
     </script>
 </body>
