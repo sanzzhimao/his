@@ -8,17 +8,19 @@
   <component name="ChangeListManager">
     <list default="true" id="7e4a45e8-99ae-4f9f-b443-27d5a5fb995e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/informationdao/IRegistLevelDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/informationdao/IRegistLevelDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/informationdao/ISettleCategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/informationdao/ISettleCategoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/informationdao/IUserManagementDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/informationdao/IUserManagementDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/informationdao/UserManagementDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/informationdao/UserManagementDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/cost/cc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/cost/cc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/informationdao/IRegistLevelDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/informationdao/IRegistLevelDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/informationdao/ISettleCategoryDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/informationdao/IUserManagementDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/informationdao/IUserManagementDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/informationdao/SettleCategoryDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/informationdao/UserManagementDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/informationdao/UserManagementDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/UserManagementDaoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/his_war_exploded/1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/his_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DepartmentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/IDepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/IDepartmentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/informationservice/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/informationservice/DepartmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/UserManagementDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/UserManagementDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/SystemInformation/changshuleibie.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/SystemInformation/changshuleibie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/SystemInformation/feiyaopinshoufei.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/SystemInformation/feiyaopinshoufei.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/SystemInformation/guahaojibieguanli.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/SystemInformation/guahaojibieguanli.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/SystemInformation/jiesuanleibieguanli.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/SystemInformation/jiesuanleibieguanli.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/SystemInformation/keshiguanli.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/SystemInformation/keshiguanli.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/SystemInformation/yishengpaiban.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/SystemInformation/yishengpaiban.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/SystemInformation/yonghuguanli.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/SystemInformation/yonghuguanli.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,44 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/informationservice/UserManagementService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/HomePage.html">
+        <entry file="file://$PROJECT_DIR$/web/SystemInformation/zhenduanmuluguanli.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9472">
-              <caret line="256" column="17" selection-start-line="256" selection-start-column="17" selection-end-line="256" selection-end-column="17" />
-              <folding>
-                <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/informationservice/DepartmentService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/IDepartmentDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="185">
+              <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -93,17 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/dao/fmeditem/IPatientTestDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/drugstore/SendMedicalDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/information/SettleCategoryDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/information/RegistLevelDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/regist/CostAccountManagementDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/cost/CostAccountManagementDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/costdao/ICostAccountManagementDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/fmeditem/PatientEXaminationDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/fmeditem/PatientTestDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/IPatientTestDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/fmeditemdao/PatientTestDao.java" />
         <option value="$PROJECT_DIR$/src/service/costservice/a.java" />
         <option value="$PROJECT_DIR$/src/test/RegistDaoTest.java" />
         <option value="$PROJECT_DIR$/src/dao/drugstoredao/DrugDaoTest.java" />
@@ -143,7 +101,18 @@
         <option value="$PROJECT_DIR$/src/dao/informationdao/IRegistLevelDao.java" />
         <option value="$PROJECT_DIR$/src/servlet/information/NoDrugServlet.java" />
         <option value="$PROJECT_DIR$/src/dao/informationdao/UserManagementDao.java" />
+        <option value="$PROJECT_DIR$/web/SystemInformation/zhenduanmuluguanli.html" />
         <option value="$PROJECT_DIR$/src/service/informationservice/DepartmentService.java" />
+        <option value="$PROJECT_DIR$/web/SystemInformation/yonghuguanli.html" />
+        <option value="$PROJECT_DIR$/web/SystemInformation/yishengpaiban.html" />
+        <option value="$PROJECT_DIR$/web/SystemInformation/keshiguanli.html" />
+        <option value="$PROJECT_DIR$/web/SystemInformation/jiesuanleibieguanli.html" />
+        <option value="$PROJECT_DIR$/web/SystemInformation/guahaojibieguanli.html" />
+        <option value="$PROJECT_DIR$/web/SystemInformation/feiyaopinshoufei.html" />
+        <option value="$PROJECT_DIR$/web/SystemInformation/changshuleibie.html" />
+        <option value="$PROJECT_DIR$/src/test/UserManagementDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/dao/IDepartmentDao.java" />
+        <option value="$PROJECT_DIR$/src/dao/DepartmentDao.java" />
       </list>
     </option>
   </component>
@@ -203,19 +172,21 @@
             <path>
               <item name="his" type="b2602c69:ProjectViewProjectNode" />
               <item name="his" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="his" type="b2602c69:ProjectViewProjectNode" />
               <item name="his" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="PharmacyManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
+              <item name="information" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="his" type="b2602c69:ProjectViewProjectNode" />
               <item name="his" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="RegisteredFee" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="his" type="b2602c69:ProjectViewProjectNode" />
@@ -289,7 +260,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.HomePage.html">
+  <component name="RunManager" selected="JavaScript Debug.zhenduanmuluguanli.html">
     <configuration name="MedicalServiceTest.selectHerbalPrescription" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="his" />
       <extension name="coverage">
@@ -322,22 +293,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MedicalServiceTest.selectPrescription" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="his" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.doctorservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service.doctorservice" />
-      <option name="MAIN_CLASS_NAME" value="service.doctorservice.MedicalServiceTest" />
-      <option name="METHOD_NAME" value="selectPrescription" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MedicalServiceTest.selectPrescriptionDetailed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="his" />
       <extension name="coverage">
@@ -354,6 +309,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="zhenduanmuluguanli.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8888/his_war_exploded/SystemInformation/zhenduanmuluguanli.html">
+      <method v="2" />
+    </configuration>
     <configuration name="HomePage.html" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.40" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8888/HomePage.html" />
       <deployment>
@@ -363,7 +321,9 @@
           </settings>
         </artifact>
       </deployment>
-      <server-settings />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="HomePage_html_his" />
+      </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
       <predefined_log_file id="Tomcat Manager" />
@@ -468,11 +428,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.zhenduanmuluguanli.html" />
         <item itemvalue="Tomcat Server.HomePage.html" />
         <item itemvalue="JUnit.MedicalServiceTest.selectPatientCosts" />
         <item itemvalue="JUnit.MedicalServiceTest.selectHerbalPrescription" />
         <item itemvalue="JUnit.MedicalServiceTest.selectPrescriptionDetailed" />
-        <item itemvalue="JUnit.MedicalServiceTest.selectPrescription" />
       </list>
     </recent_temporary>
   </component>
@@ -503,7 +463,7 @@
       <workItem from="1559699335623" duration="18243000" />
       <workItem from="1559726615220" duration="3686000" />
       <workItem from="1559782808818" duration="5269000" />
-      <workItem from="1560128503731" duration="4611000" />
+      <workItem from="1560128503731" duration="6390000" />
     </task>
     <task id="LOCAL-00001" summary="0">
       <created>1559265885312</created>
@@ -659,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560128789991</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="SERVLET">
+      <created>1560134788179</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1560134788179</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -695,7 +662,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140360000" />
+    <option name="totallyTimeSpent" value="142139000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -707,20 +674,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.91830987" visible="true" weight="0.17963752" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.91615856" visible="true" weight="0.17963752" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" sideWeight="0.08169014" side_tool="true" visible="true" weight="0.17963752" />
+      <window_info id="Web" order="7" sideWeight="0.083841465" side_tool="true" visible="true" weight="0.17963752" />
       <window_info id="JRebel" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7366738" weight="0.28850326" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7361407" visible="true" weight="0.28850326" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -728,8 +696,8 @@
       <window_info anchor="bottom" id="Application Servers" order="7" sideWeight="0.49946696" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5026652" side_tool="true" visible="true" weight="0.22993493" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49733475" visible="true" weight="0.22993493" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.26385927" side_tool="true" visible="true" weight="0.28850326" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49520257" weight="0.22993493" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.49946696" weight="0.329718" />
@@ -807,78 +775,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="SERVLET" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/MedicalDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/informationservice/IDiagnosisService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-444">
-          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/DiagnosisServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1147">
-          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/informationdao/DiagnosisDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-703">
-          <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/informationdao/IDiagnosisDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-518">
-          <caret line="33" column="14" lean-forward="true" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/DrugServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/drugstoredao/DrugDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2664">
-          <caret line="37" column="60" lean-forward="true" selection-start-line="37" selection-start-column="60" selection-end-line="37" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/costdao/CostAccountManagementDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1961">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/DoctorCrewServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/drugstoredao/BackMedicalDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
@@ -1031,13 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/cc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/servlet/regist/cc.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1118,20 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/DepartmentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-962">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/information/NoDrugServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/service/informationservice/DiagnosisService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6210">
@@ -1173,27 +1048,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/IDepartmentDao.java">
+    <entry file="file://$PROJECT_DIR$/web/HomePage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/cc.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/information/NoDrugServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/SystemInformation/yishengpaiban.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/SystemInformation/keshiguanli.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/SystemInformation/jiesuanleibieguanli.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/SystemInformation/guahaojibieguanli.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/SystemInformation/feiyaopinshoufei.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/SystemInformation/changshuleibie.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/SystemInformation/yonghuguanli.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/UserManagementDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2621">
+          <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/informationservice/DepartmentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        <state relative-caret-position="333">
+          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/HomePage.html">
+    <entry file="file://$PROJECT_DIR$/src/dao/IDepartmentDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9472">
-          <caret line="256" column="17" selection-start-line="256" selection-start-column="17" selection-end-line="256" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="407">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/DepartmentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-259">
+          <caret line="82" column="27" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/SystemInformation/zhenduanmuluguanli.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
         </state>
       </provider>
     </entry>
