@@ -151,34 +151,34 @@
       <dl class="layui-nav-child">
         <dd>
           <a data-url="SystemInformation/changshuleibie.html" data-id="changshuleibie" class="site-demo-active"
-          data-type="tabAdd" data-title="常数类别管理">常数类别管理</a></dd>
+            data-type="tabAdd" data-title="常数类别管理">常数类别管理</a></dd>
         <dd>
-          <a data-url="SystemInformation/keshiguanli.html" data-id="keshi" class="site-demo-active"
-          data-type="tabAdd" data-title="科室管理">科室管理</a>
+          <a data-url="SystemInformation/keshiguanli.html" data-id="keshi" class="site-demo-active" data-type="tabAdd"
+            data-title="科室管理">科室管理</a>
         </dd>
         <dd>
-          <a data-url="SystemInformation/yonghuguanli.html" data-id="yonghu" class="site-demo-active"
-          data-type="tabAdd" data-title="用户管理">用户管理</a>
+          <a data-url="SystemInformation/yonghuguanli.html" data-id="yonghu" class="site-demo-active" data-type="tabAdd"
+            data-title="用户管理">用户管理</a>
         </dd>
         <dd>
           <a data-url="SystemInformation/guahaojibieguanli.html" data-id="guahaojibie" class="site-demo-active"
-          data-type="tabAdd" data-title="挂号级别管理">挂号级别管理</a>
+            data-type="tabAdd" data-title="挂号级别管理">挂号级别管理</a>
         </dd>
         <dd>
           <a data-url="SystemInformation/jiesuanleibieguanli.html" data-id="jiesuanleibie" class="site-demo-active"
-          data-type="tabAdd" data-title="结算类别管理">结算类别管理</a>
+            data-type="tabAdd" data-title="结算类别管理">结算类别管理</a>
         </dd>
         <dd>
           <a data-url="SystemInformation/zhenduanmuluguanli.html" data-id="zhenduanmulu" class="site-demo-active"
-          data-type="tabAdd" data-title="诊断目录管理">诊断目录管理</a>
+            data-type="tabAdd" data-title="诊断目录管理">诊断目录管理</a>
         </dd>
         <dd>
           <a data-url="SystemInformation/feiyaopinshoufei.html" data-id="feiyaopinshoufei" class="site-demo-active"
-          data-type="tabAdd" data-title="非药品收费项目管理">非药品收费项目管理</a>
+            data-type="tabAdd" data-title="非药品收费项目管理">非药品收费项目管理</a>
         </dd>
         <dd>
           <a data-url="SystemInformation/yishengpaiban.html" data-id="yishengpaiban" class="site-demo-active"
-          data-type="tabAdd" data-title="医生排班管理">医生排班管理</a>
+            data-type="tabAdd" data-title="医生排班管理">医生排班管理</a>
         </dd>
       </dl>
     </li>
@@ -187,11 +187,11 @@
   <!--右侧主体内容区-->
   <div class="layui-body layui-tab layui-tab-card" lay-filter="test" lay-allowClose="true" id="panel">
     <ul class="layui-tab-title">
-      <li>现场挂号</li>
+      <li class="layui-this"></li>
     </ul>
     <div class="layui-tab-content">
       <div class="layui-tab-item">
-        <iframe src="RegisteredFee/Register.html" scrolling="no" frameborder="0"></iframe>
+        <iframe scrolling="no" frameborder="0" src=""></iframe>
       </div>
     </div>
   </div>
@@ -207,12 +207,12 @@
           //新增一个Tab项 传入三个参数，分别对应其标题，tab页面的地址，还有一个规定的id，是标签中data-id的属性值
           //新增一个Tab项
           element.tabAdd('test', {
-              title: name,
-              content: '<iframe data-frameid="' + id + '" scrolling="no" frameborder="0" src="' +
-                url +
-                '" style="width:100%;height:600px;""></iframe>',
-              id: id //规定好的id
-            }),
+            title: name,
+            content: '<iframe data-frameid="' + id + '" scrolling="no" frameborder="0" src="' +
+              url + '" style="width:100%;height:600px;""></iframe>',
+            // content: ' <div class="layui-body layui-tab layui-tab-card" lay-filter="test" lay-allowClose="true" id="panel"> ',
+            id: id //规定好的id
+          }),
             element.render('tab'); //重新对tab选项卡进行初始化渲染
         },
 
@@ -248,6 +248,15 @@
         //最后不管是否新增tab，最后都转到要打开的选项页面上
         active.tabChange(dataid.attr("data-id"));
       });
+
+      // 获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+      var layid = location.hash.replace(/^#test=/, '');
+      element.tabChange('test', layid);
+      //监听Tab切换，以改变地址hash值
+      element.on('tab(test)', function (elem) {
+        location.hash = 'test=' + $(this).attr('lay-id');
+      });
+
     })
   </script>
 </body>

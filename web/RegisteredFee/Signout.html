@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    #panel {
-        float: left;
-        position: absolute;
-        top: 80px;
-        left: 220px;
-    }
-</style>
 
 <head>
     <meta charset="UTF-8">
@@ -53,55 +45,47 @@
             <label class="layui-form-label">家庭住址：</label>
             <div class="layui-input-inline">
                 <input type="text" name="" required lay-verify="required" placeholder="家庭住址" autocomplete="off"
-                    class="layui-input">
+                    class="layui-input" style="width:300px">
             </div>
         </div>
     </form>
 
     <p>患者挂号信息</p>
-    <table class="layui-table" lay-even lay-skin="nob">
-        <thead>
-            <tr>
-                <th>病历号</th>
-                <th>姓名</th>
-                <th>身份证号</th>
-                <th>挂号日期</th>
-                <th>挂号午别</th>
-                <th>看诊科室</th>
-                <th>看诊状态</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>123456</td>
-                <td>test</td>
-                <td>123456</td>
-                <td>2019-06-01</td>
-                <td>上午</td>
-                <td>内科</td>
-                <td>已看诊</td>
-                <td>哈哈</td>
-            </tr>
-            <tr>
-                <td>123456</td>
-                <td>test</td>
-                <td>123456</td>
-                <td>2019-06-01</td>
-                <td>上午</td>
-                <td>内科</td>
-                <td>已看诊</td>
-                <td>哈哈</td>
-            </tr>
-        </tbody>
+    <table class="layui-hide" id="guahaoxinxi"></table>
     </table>
 
     <script>
-        //注意：导航依赖element模块，否则无法进行功能性操作
-        layui.use('element', function () {
+        layui.use(['element', 'table'], function () {
             var element = layui.element;
+            var table = layui.table;
 
-            //…
+            table.render({
+                elem: "#guahaoxinxi",
+                cols: [
+                    [{
+                        field: 'binglihao',
+                        title: '病历号'
+                    }, {
+                        field: 'xingming',
+                        title: '姓名',
+                    }, {
+                        field: 'shenfenzhenghao',
+                        title: '身份证号',
+                    }, {
+                        field: 'guahaoriqi',
+                        title: '挂号日期',
+                    }, {
+                        field: 'guahaowubie',
+                        title: '挂号午别',
+                    }, {
+                        field: 'kanzhenkeshi',
+                        title: '看诊状态',
+                    }, {
+                        field: 'caozuo',
+                        title: '操作'
+                    }]
+                ]
+            })
         });
     </script>
 </body>

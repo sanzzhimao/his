@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    #panel {
-        float: left;
-        position: absolute;
-        top: 80px;
-        left: 220px;
-    }
-</style>
 
 <head>
     <meta charset="UTF-8">
@@ -42,45 +34,10 @@
                 <div class="layui-tab-content">
                     <div class="layui-form-item" style="margin-top:20px;">
                         <p>未诊患者:</p>
-                        <table class="layui-table layui-input-inline" lay-even lay-skin="nob">
-                            <tr>
-                                <td>暂无数据</td>
-                            </tr>
-                        </table>
+                        <table class="layui-hide" id="weizhenhuanzhe"></table>
                         <hr style="width: 280px">
                         <p>已诊患者:</p>
-                        <table class="layui-table layui-input-inline" lay-even lay-skin="nob">
-                            <tr>
-                                <td>600603</td>
-                                <td>张三</td>
-                                <td>11</td>
-                            </tr>
-                            <tr>
-                                <td>600603</td>
-                                <td>李四</td>
-                                <td>11</td>
-                            </tr>
-                            <tr>
-                                <td>600603</td>
-                                <td>王五</td>
-                                <td>11</td>
-                            </tr>
-                            <tr>
-                                <td>600603</td>
-                                <td>张三</td>
-                                <td>11</td>
-                            </tr>
-                            <tr>
-                                <td>600603</td>
-                                <td>李四</td>
-                                <td>11</td>
-                            </tr>
-                            <tr>
-                                <td>600603</td>
-                                <td>王五</td>
-                                <td>11</td>
-                            </tr>
-                        </table>
+                        <table class="layui-hide" id="yizhenhuanzhe"></table>
                     </div>
                 </div>
             </div>
@@ -215,7 +172,7 @@
                         </table>
                         <br>
 
-                        <p>本处方那个金额合计:0.00元</p>
+                        <p>本处方金额合计:0.00元</p>
                         <table class="layui-table" lay-even lay-skin="nob">
                             <thead>
                                 <tr>
@@ -260,6 +217,20 @@
 
             form.render();
             //方法渲染
+            table.render({
+                elem:"#weizhenhuanzhe",
+                cols:[
+
+                ]
+            })
+
+            table.render({
+                elem:"#yizhenhuanzhe",
+                cols:[
+
+                ]
+            })
+
             table.render({
                 elem: "#binglishouye1",
                 cols: [
