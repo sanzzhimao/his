@@ -22,7 +22,7 @@ public class UserManagementDaoTest {
         user.setPassword("123456");
         user.setDocTileID(1);
         UserManagementDao um =new UserManagementDao();
-        um.setCon(JdbcUtil.getConnection());
+        um.setConnection(JdbcUtil.getConnection());
         um.addUSer(user);
     }
 
@@ -30,7 +30,7 @@ public class UserManagementDaoTest {
     public void delUser() throws SQLException {
         String name="lym";
         UserManagementDao um =new UserManagementDao();
-        um.setCon(JdbcUtil.getConnection());
+        um.setConnection(JdbcUtil.getConnection());
         um.delUser(name);
     }
 
@@ -42,14 +42,14 @@ public class UserManagementDaoTest {
         user.setPassword("123456");
         user.setDocTileID(1);
         UserManagementDao um =new UserManagementDao();
-        um.setCon(JdbcUtil.getConnection());
+        um.setConnection(JdbcUtil.getConnection());
         um.changeUser(user);
     }
 
     @Test
     public void selectUser() throws SQLException {
         UserManagementDao um =new UserManagementDao();
-        um.setCon(JdbcUtil.getConnection());
+        um.setConnection(JdbcUtil.getConnection());
         List<User> users=um.selectUser("扁鹊");
         System.out.println(users);
     }
@@ -77,7 +77,7 @@ public class UserManagementDaoTest {
     @Test
     public void reName() throws SQLException {
         UserManagementDao um =new UserManagementDao();
-        um.setCon(JdbcUtil.getConnection());
+        um.setConnection(JdbcUtil.getConnection());
         System.out.println(um.reName("c"));
 
     }

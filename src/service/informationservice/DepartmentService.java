@@ -20,7 +20,7 @@ public class DepartmentService implements IDepartmentService {
             con.setAutoCommit(false);
             IDepartmentDao idep=new DepartmentDao();
             idep.setConnection(con);
-            dep= idep.selectDepartment(sting);
+            dep= idep.selectDepartment(sting,sting);
             con.commit();
         } catch (SQLException e) {
             con.rollback();
