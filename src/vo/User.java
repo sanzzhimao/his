@@ -25,8 +25,6 @@ public class User {
     //删除编号
     private int delMark;
 
-
-
     public User() {
     }
 
