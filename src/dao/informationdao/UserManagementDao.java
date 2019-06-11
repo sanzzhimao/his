@@ -318,8 +318,4 @@ public class UserManagementDao implements IUserManagementDao {
         return list;
     }
 
-    @Override
-    public void setConnection(Connection con) {
-        this.con = con;
-    }
 }
