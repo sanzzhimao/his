@@ -204,9 +204,8 @@
           //新增一个Tab项
           element.tabAdd('test', {
               title: name,
-              content: '<iframe data-frameid="' + id + '" scrolling="no" frameborder="0" src="' +
-                url + '" style="width:100%;height:600px;""></iframe>',
-              // content: ' <div class="layui-body layui-tab layui-tab-card" lay-filter="test" lay-allowClose="true" id="panel"> ',
+              content: '<iframe data-frameid="' + id + '" frameborder="0" src="' +
+                url + '" style="width:100%;height:700px;""></iframe>',
               id: id //规定好的id
             }),
             element.render('tab'); //重新对tab选项卡进行初始化渲染
