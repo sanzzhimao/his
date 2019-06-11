@@ -27,10 +27,9 @@ public class MedicalDao implements IMedicalDao {
      * @throws SQLException
      */
     @Override
-    public List<MedicalRecord> selectMedicalByUserID(int userid) throws SQLException {
-        String sql="select m.*,r.RealName,r.Gender,r.Age from register r,medicalrecord m where m.RegistID=r.ID and r.UserID=?";
+    public List<MedicalRecord> selectMedical() throws SQLException {
+        String sql="select m.*,r.RealName,r.Gender,r.Age from register r,medicalrecord m where m.RegistID=r.ID";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,userid);
         ResultSet rs=pstmt.executeQuery();
         List<MedicalRecord> list=new ArrayList<>();
         MedicalRecord mr=null;

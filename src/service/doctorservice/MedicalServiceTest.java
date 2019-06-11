@@ -10,7 +10,7 @@ public class MedicalServiceTest {
     IMedicalService ims=new MedicalService();
     @Test
     public void selectMedicalByUserID() throws SQLException {
-        System.out.println(ims.selectMedicalByUserID(1));
+        System.out.println(ims.selectMedical());
     }
 
     @Test

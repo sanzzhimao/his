@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IMedicalService {
     //通过医生ID查病历
-    List<MedicalRecord> selectMedicalByUserID(int userid) throws SQLException;
+    List<MedicalRecord> selectMedical() throws SQLException;
 
     //通过科室ID查病历
     List<MedicalRecord> selectMedicalByDeptID(int deptid) throws SQLException;

@@ -17,7 +17,7 @@ public class MedicalService implements IMedicalService{
      * @throws SQLException
      */
     @Override
-    public List<MedicalRecord> selectMedicalByUserID(int userid) throws SQLException {
+    public List<MedicalRecord> selectMedical() throws SQLException {
         List<MedicalRecord> list=null;
         Connection con=null;
         try {
@@ -25,7 +25,7 @@ public class MedicalService implements IMedicalService{
             con.setAutoCommit(false);
             IMedicalDao idd=new MedicalDao();
             idd.setConnection(con);
-            list=idd.selectMedicalByUserID(userid);
+            list=idd.selectMedical();
             con.commit();
             return list;
         } catch (SQLException e) {

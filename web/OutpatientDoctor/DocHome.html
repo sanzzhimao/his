@@ -18,10 +18,10 @@
             <!-- <p>患者选择：</p> -->
             <!-- <button type="reset" class="layui-btn layui-icon layui-btn-primary">&#xe669;</button> -->
 
-            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;</button>
+            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo" id="select">&#xe615;</button>
             <label class="layui-form-label">患者名:</label>
             <div class="layui-input-inline">
-                <input type="text" name="" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
+                <input type="text" name="select" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
                     class="layui-input">
             </div>
 
@@ -263,7 +263,12 @@
             var element = layui.element;
             var form = layui.form;
             var table = layui.table;
-
+            $.post(
+                'doctor/find1',
+                function (res,status,xhr) {
+                    console.log(res);
+                }
+            )
             form.render();
             //方法渲染
             table.render({
@@ -272,14 +277,12 @@
 
                 ]
             })
-
             table.render({
                 elem: "#yizhenhuanzhe",
                 cols: [
 
                 ]
             })
-
             table.render({
                 elem: "#binglishouye1",
                 cols: [
@@ -302,7 +305,6 @@
                     "fabingshijian": "2019-03-26 9:28"
                 }]
             })
-
             table.render({
                 elem: "#binglishouye2",
                 cols: [
@@ -325,10 +327,6 @@
                     "fabingshijian": "2019-03-26 9:28"
                 }]
             })
-
-
-
-
             table.render({
                 elem: '#jianchashenqing1',
                 cols: [
@@ -364,7 +362,6 @@
                     "jianchajieguo": "123"
                 }]
             });
-
             table.render({
                 elem: '#jianchashenqing2',
                 cols: [
@@ -401,7 +398,6 @@
                     "jianchajieguo": "123"
                 }]
             });
-
             table.render({
                 elem: '#feiyongchaxun',
                 cols: [
@@ -442,6 +438,7 @@
                     "shoufeizhuangtai": "123"
                 }]
             });
+
         })
     </script>
 </body>
