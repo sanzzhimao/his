@@ -87,9 +87,7 @@
                 </div>
                 <label class="layui-form-label">挂号科室：</label>
                 <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
+                    <select name="dep">
                     </select>
                 </div>
             </div>
@@ -97,27 +95,24 @@
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label">*号 别</label>
                 <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
+                    <select name="haobie">
                     </select>
                 </div>
                 <label class="layui-form-label">*看诊医生</label>
                 <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
+                    <select name="doc">
+
                     </select>
                 </div>
                 <label class="layui-form-label">初始号额：</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
-                        class="layui-input">
+                    <input type="text" name="quto" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                        class="layui-input" id="quto1">
                 </div>
                 <label class="layui-form-label">已用号额：</label>
                 <div class="layui-input-inline">
                     <input type="text" name="" required lay-verify="required" placeholder="已用号额" autocomplete="off"
-                        class="layui-input">
+                        class="layui-input" id="yiyong">
                 </div>
             </div>
             <br>
@@ -128,8 +123,8 @@
                 </div>
                 <label class="layui-form-label">*应收金额：</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
-                        class="layui-input">
+                    <input type="text" name="fee" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                        class="layui-input" id="fee1">
                 </div>
                 <label class="layui-form-label">*收费方式：</label>
                 <div class="layui-input-inline">
@@ -161,7 +156,7 @@
             laydate.render({
                 elem: '#visitDate'
             });
-
+            var decew;
             $.post("regist/fir",{name:"root"},function (resp,status,xhr) {
                 console.log(resp);
                 var casenum=$("input[name='casenum']").val();
@@ -190,16 +185,60 @@
                 var casenum=$("input[name='casenum']").val();
                 $.post("regist/thr",{visitdate:$(this).val()},function (resp,status,xhr) {
                     console.log(resp);
-                    var htmlcen;
+                    decew=resp;
                     $("select[name='noon']").html("");
-                    for (var i=0;i<resp.length;i++){
-                           htmlContent='<option value='+resp[i].id+'>'+resp[i].noon+'</option>';
-                           $("select[name='noon']").append(htmlContent);
-
+                    htmlContent='<option value='+resp[0].noon+'>'+resp[0].noon+'</option>';
+                    $("select[name='noon']").append(htmlContent);
+                    htmlContent1='<option value='+resp[0].deptID+'>'+resp[0].deptName+'</option>';
+                    $("select[name='dep']").append(htmlContent1);
+                    htmlContent3='<option value='+resp[0].registLeName+'>'+resp[0].registLeName+'</option>';
+                    $("select[name='haobie']").append(htmlContent3);
+                    htmlContent2='<option value='+resp[0].realName+'>'+resp[0].realName+'</option>';
+                    $("select[name='doc']").append(htmlContent2);
+                    for (var i=1;i<resp.length;i++){
+                       for (var j=1;i<=i;j++){
+                           if (resp[j].noon!=resp[j-1].noon){
+                               htmlContent='<option value='+resp[j].noon+'>'+resp[j].noon+'</option>';
+                               $("select[name='noon']").append(htmlContent);
+                           }
+                        }
+                        for (var j=1;i<=i;j++){
+                            if (resp[j].deptName!=resp[j-1].deptName){
+                                htmlContent1='<option value='+resp[j].deptID+'>'+resp[j].deptName+'</option>';
+                                $("select[name='dep']").append(htmlContent1);
+                            }
+                        }
+                        for (var j=1;i<=i;j++){
+                            if (resp[j].realName!=resp[j-1].realName){
+                                htmlContent3='<option value='+resp[j].registLeName+'>'+resp[j].registLeName+'</option>';
+                                $("select[name='dep']").append(htmlContent2);
+                            }
+                        }
+                        for (var j=1;i<=i;j++){
+                            if (resp[j].realName!=resp[j-1].realName){
+                                htmlContent2='<option value='+resp[j].userID+'>'+resp[j].realName+'</option>';
+                                $("select[name='dep']").append(htmlContent2);
+                            }
+                        }
                     }
+
                 },'json')
             });
+            $("select[name='doc']").blur(function () {
+                console.log(decew);
+                $.post('regist/foth',{name:$("select[name='doc']").val(),visitdate:$("#visitDate").val()},function (resp,status,shr) {
+                    console.log(resp);
+                    $("#yiyong").val(resp);
 
+                });
+                for (var i=0;i<decew.length;i++){
+                    if (decew[i].realName==$("select[name='doc']").val()){
+                         $("#quto1").val(decew[i].registQuota);
+                         $("#fee1").val(decew[i].registFee);
+                    }
+                }
+
+            })
 
 
         });

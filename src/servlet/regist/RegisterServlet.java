@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @WebServlet("/RegisteredFee/regist/*")
@@ -56,6 +56,14 @@ public class RegisterServlet extends HttpServlet {
             System.out.println(list);
             String st=mapper.writeValueAsString(list);
             pw.println(st);
+        }if (check2.equals("foth")){
+           String name=request.getParameter("name");
+            System.out.println(name);
+            String visitdate=request.getParameter("visitdate");
+            System.out.println(visitdate);
+            int ss=service.findUsedQuto(name, Date.valueOf(visitdate));
+            System.out.println(ss);
+            pw.println(ss);
         }
         //
 

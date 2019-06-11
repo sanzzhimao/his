@@ -27,7 +27,7 @@ public class DoctorCrewDao implements IDoctorCrewDao {
      */
     @Override
     public List<DoctorCrew> selectDoctorCrew(Date starttime, Date endtime)  throws SQLException {
-        String sql="select S.ID,S.SchedDate,S.Noon,D.DeptName,s.UserID,U.RealName,R.RegistName,R.RegistQuota\n" +
+        String sql="select S.ID,S.SchedDate,S.Noon,S.DeptID,D.DeptName,s.UserID,U.RealName,S.RuleID,R.RegistName,R.RegistQuota,R.RegistFee\n" +
                 "FROM Scheduling S,Department D,User U,RegistLevel R\n" +
                 "where S.DeptID = D.ID\n" +
                 "and S.UserID = U.ID\n" +
@@ -46,11 +46,14 @@ public class DoctorCrewDao implements IDoctorCrewDao {
             doc.setId(rs.getInt(1));
             doc.setSchedDate(rs.getDate(2));
             doc.setNoon(rs.getString(3));
-            doc.setDeptName(rs.getString(4));
-            doc.setUserID(rs.getInt(5));
-            doc.setRealName(rs.getString(6));
-           // doc.setRegistName(rs.getString(7));
-           // doc.setRegistQuota(rs.getString(8));
+            doc.setDeptID(rs.getInt(4));
+            doc.setDeptName(rs.getString(5));
+            doc.setUserID(rs.getInt(6));
+            doc.setRealName(rs.getString(7));
+            doc.setRegistLeID(rs.getInt(8));
+            doc.setRegistLeName(rs.getString(9));
+            doc.setRegistQuota(rs.getInt(10));
+            doc.setRegistFee(rs.getDouble(11));
             docs.add(doc);
         }
         JdbcUtil.release(null,pstmt,rs);
