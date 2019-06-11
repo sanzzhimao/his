@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-  #panel {
-    float: left;
-    position: absolute;
-    top: 80px;
-    left: 220px;
-  }
-</style>
 
 <head>
   <meta charset="UTF-8">
@@ -185,21 +177,25 @@
   </ul>
 
   <!--右侧主体内容区-->
-  <div class="layui-body layui-tab layui-tab-card" lay-filter="test" lay-allowClose="true" id="panel">
-    <ul class="layui-tab-title">
-      <li class="layui-this" lay-id="xianchangguahao">现场挂号</li>
-    </ul>
-    <div class="layui-tab-content">
-      <div class="layui-tab-item layui-show">
-        <iframe src="RegisteredFee/Register.html" scrolling="no" frameborder="0" style="width: 100%;height: 600px;"></iframe>
+  <div class="layui-body" style="position:absolute; top: 80px; left: 230px;">
+    <div class="layui-tab layui-tab-card" lay-filter="test" lay-allowClose="true">
+      <ul class="layui-tab-title">
+        <li class="layui-this" lay-id="xianchangguahao">现场挂号</li>
+      </ul>
+      <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+          <iframe src="RegisteredFee/Register.html" scrolling="no" frameborder="0"
+            style="width: 100%;height: 800px;"></iframe>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    layui.use('element', function () {
+    layui.use(['element', 'table'], function () {
       var element = layui.element;
       var $ = layui.jquery;
+      var table = layui.table;
 
       //触发事件
       var active = {
@@ -207,12 +203,12 @@
           //新增一个Tab项 传入三个参数，分别对应其标题，tab页面的地址，还有一个规定的id，是标签中data-id的属性值
           //新增一个Tab项
           element.tabAdd('test', {
-            title: name,
-            content: '<iframe data-frameid="' + id + '" scrolling="no" frameborder="0" src="' +
-              url + '" style="width:100%;height:600px;""></iframe>',
-            // content: ' <div class="layui-body layui-tab layui-tab-card" lay-filter="test" lay-allowClose="true" id="panel"> ',
-            id: id //规定好的id
-          }),
+              title: name,
+              content: '<iframe data-frameid="' + id + '" scrolling="no" frameborder="0" src="' +
+                url + '" style="width:100%;height:600px;""></iframe>',
+              // content: ' <div class="layui-body layui-tab layui-tab-card" lay-filter="test" lay-allowClose="true" id="panel"> ',
+              id: id //规定好的id
+            }),
             element.render('tab'); //重新对tab选项卡进行初始化渲染
         },
 
