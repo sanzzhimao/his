@@ -18,7 +18,7 @@ import java.util.List;
 public class UserManagementDao implements IUserManagementDao {
    Connection con;
 
- public void setCon(Connection con) {
+ public void setConnection(Connection con) {
   this.con = con;
  }
 /**
@@ -317,4 +317,5 @@ public class UserManagementDao implements IUserManagementDao {
         JdbcUtil.release(null,ptmt,rs);
         return list;
     }
+
 }

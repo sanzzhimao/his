@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DepartmentDao implements IDepartmentDao {
     Connection con=null;
@@ -16,12 +18,13 @@ public class DepartmentDao implements IDepartmentDao {
     }
 
     @Override
-    public Department selectDepartment(String deptCode, String deptName) throws SQLException {
+    public List<Department> selectDepartment(String deptCode, String deptName) throws SQLException {
         String sql="select * from department where DeptCode=? or DeptName=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setString(1,deptCode);
         pstmt.setString(2,deptName);
         ResultSet rs=pstmt.executeQuery();
+        List<Department> list=new ArrayList<>();
         Department depart=null;
         while (rs.next()){
             depart=new Department();
@@ -31,9 +34,10 @@ public class DepartmentDao implements IDepartmentDao {
             depart.setDeptCategoryID(rs.getInt(4));
             depart.setDeptType(rs.getInt(5));
             depart.setDelMark(rs.getInt(6));
+            list.add(depart);
         }
         JdbcUtil.release(null,pstmt,null);
-        return depart;
+        return list;
     }
     //依据ID查询科室信息
     @Override
@@ -61,7 +65,7 @@ public class DepartmentDao implements IDepartmentDao {
     }
     //从常熟表中读取所有科室分类
     @Override
-    public ConstantItem getConstantItem() throws SQLException {
+    public List<ConstantItem> selectConstantItem() throws SQLException {
         String sql="select C2.ID,C2.ConstantCode,C2.ConstantName \n" +
                 "from ConstantType C1,ConstantItem C2\n" +
                 "where C2.ConstantTypeID=C1.ID\n" +
@@ -70,13 +74,15 @@ public class DepartmentDao implements IDepartmentDao {
         con= JdbcUtil.getConnection();
         PreparedStatement ps=con.prepareStatement(sql);
         ResultSet rs=ps.executeQuery();
+        List<ConstantItem> list=new ArrayList<>();
         ConstantItem user=null;
         while(rs.next()){
             user.setId(rs.getInt(1));
             user.setContantCode(rs.getString(2));
             user.setConstantName(rs.getString(3));
+            list.add(user);
         }
-        return user;
+        return list;
     }
 
 

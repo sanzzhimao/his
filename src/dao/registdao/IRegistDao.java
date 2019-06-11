@@ -3,6 +3,7 @@ package dao.registdao;
 import vo.*;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -69,7 +70,13 @@ public interface IRegistDao {
      * @return java.util.List<vo.User>
     **/
     List<User>selectDoctorInfo(Register register)throws SQLException;
-     int selectDoctorUsedId(Register reg) throws SQLException;
+    /**
+     * @Author lym
+     * @Description:通过医生的id和看诊的时间查找已经用去的名额
+     * @Param [userID, date]
+     * @return int
+    **/
+     int selectDoctorUsedId(int userID, Date date) throws SQLException;
      /**
       * @Author lym
       * @Description:插入一个挂号病人
@@ -79,7 +86,7 @@ public interface IRegistDao {
      Boolean addRegist(Register reg) throws SQLException;
      /**
       * @Author lym
-      * @Description：记录使用的发票
+      * @Description：记录使用的发票(加入)
       * @Param [iv]
       * @return boolean
      **/
@@ -98,6 +105,18 @@ public interface IRegistDao {
      * @return vo.Register
     **/
     Register reRegisterByCaseNumber(String caseNumber) throws SQLException;
-    void changeByCaseNumber(String caseNumber) throws SQLException;
-    void changeByCaseNumber(int id) throws SQLException;
+    /**
+     * @Author lym
+     * @Description：通过医生名字（登录名）找到id
+     * @Param [name]
+     * @return int
+     **/
+    int selectUserIDByUserName(String name) throws SQLException;
+    /**
+     * @Author lym
+     * @Description:通过收费方式的名字找到其id
+     * @Param [constantName]
+     * @return int
+    **/
+    int selectConstantIDByConstantName(String constantName) throws  SQLException;
 }

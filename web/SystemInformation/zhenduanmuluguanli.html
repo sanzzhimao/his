@@ -13,19 +13,23 @@
 </head>
 
 <body>
-    <form class="layui-form" action="">
+    <form class="layui-form" action="" method="post">
         <table class="layui-table" lay-skin="nob">
             <td>
                 <div class="layui-form-item layui-inline">
                     <div class="layui-input-inline">
-                        <input type="text" id="binglinum" name="title" required lay-verify="required"
+                        <input type="text" id="binglinum" name="title" lay-verify="required"
                             placeholder="请输入疾病分类编码或名称" autocomplete="off" class="layui-input">
                     </div>
                 </div>
             </td>
             <td>
                 <div class="layui-form-item layui-inline">
+<<<<<<< HEAD
                     <button class="layui-btn">查询疾病分类</button>
+=======
+                    <button class="layui-btn layui-btn-normal" id="selectdisecategory">查询疾病分类</button>
+>>>>>>> 632a21a732c354fa42215a3236b666343f9c5019
                 </div>
             </td>
             <td>
@@ -93,7 +97,22 @@
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
 
+    <script>
+        layui.use(['form','layer'],function () {
+            var $ = layui.jquery,
+                form = layui.form,
+                layer = layui.layer;
+            $("#selectdisecategory").click(function () {
 
+                alert($("#binglinum").val());
+                $.post(
+                    'test/find1',
+                    {name:$("#binglinum").val()}
+
+                )
+            })
+        })
+    </script>
 
 
 

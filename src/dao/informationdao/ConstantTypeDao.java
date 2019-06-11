@@ -71,10 +71,10 @@ public class ConstantTypeDao implements IConstantTypeDao {
         return constantType;
     }
 
-    //查询所有常数项  通过常数项名字   中文乱码
+    //查询所有常数项
     @Override
     public ArrayList<ConstantItem> selectAllConstantItem(String string) throws SQLException {
-        String sql="select a.* from constantitem a,constanttype b where a.constanttypeid=b.id and b.constanttypename=? and a.delmark=1";
+        String sql="select a.* from constantitem a,constanttype b where a.constanttypeid=b.id and b.constanttypename=? and delmark=1";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setString(1,string);
         ResultSet rs=pstmt.executeQuery();
@@ -92,10 +92,10 @@ public class ConstantTypeDao implements IConstantTypeDao {
         JdbcUtil.release(null,pstmt,rs);
         return alci;
     }
-//模糊查询常数项  传入编码中的字母或常数类别名称中的字。中文乱码
+
     @Override
     public ArrayList<ConstantItem> selectConstantItem(String string) throws SQLException {
-        String sql="select * from constantitem where (ConstantCode like concat('%',?,'%') or ConstantName like concat('%',?,'%')) and delmark=1";
+        String sql="select * from constantitem where (ConstantCode=? or ConstantName=?) and delmark=1";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setString(1,string);
         pstmt.setString(2,string);
@@ -127,7 +127,7 @@ public class ConstantTypeDao implements IConstantTypeDao {
         pstmt.executeUpdate();
         JdbcUtil.release(null,pstmt,null);
     }
-//修改常数项  通过id
+//修改常数项
     @Override
     public void modifyConstantItem(ConstantItem constantItem) throws SQLException {
         String sql="update constantitem set constantcode=?,constantname=?,constanttypeid=? where id=?";
@@ -142,22 +142,15 @@ public class ConstantTypeDao implements IConstantTypeDao {
 //删除常数项
     @Override
     public void delectConstantItem(ConstantItem constantItem) throws SQLException {
-        String sql="update constantitem set delmark=0 where id=?";
+        String sql="update constantitem set delmark=? where id=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,constantItem.getId());
-        pstmt.executeUpdate();
+        pstmt.setInt(1,0);
+        pstmt.setInt(2,constantItem.getId());
         JdbcUtil.release(null,pstmt,null);
     }
 //批量删除常数项
     @Override
-    public void delectDuoConstantItem(ArrayList arrayList) throws SQLException {
-        String sql="update constantitem set delmark=0 where id=?";
-        PreparedStatement pstmt=con.prepareStatement(sql);
-        for (int i=0;i<arrayList.size();i++){
-            pstmt.setInt(1, (Integer) arrayList.get(i));
-            pstmt.executeUpdate();
-        }
-        JdbcUtil.release(null,pstmt,null);
+    public void delectDuoConstantItem() {
 
     }
 }
