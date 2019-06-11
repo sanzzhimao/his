@@ -15,7 +15,8 @@
 <body>
     <div class="layui-tab-content">
         <div class="layui-form-item" style="margin-top:20px;">
-            <p>患者选择：</p>
+            <!-- <p>患者选择：</p> -->
+            <!-- <button type="reset" class="layui-btn layui-icon layui-btn-primary">&#xe669;</button> -->
 
             <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;</button>
             <label class="layui-form-label">患者名:</label>
@@ -23,9 +24,8 @@
                 <input type="text" name="" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
                     class="layui-input">
             </div>
-            <button type="reset" class="layui-btn layui-icon layui-btn-primary">&#xe669;</button>
 
-            <div class="layui-tab">
+            <div class="layui-tab" style="width: 300px">
                 <ul class="layui-tab-title">
                     <li class="layui-this">本人</li>
                     <li>科室*</li>
@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <div class="layui-tab" style="margin-left: 300px;margin-top: -460px;">
+            <div class="layui-tab" style="margin-left: 380px;margin-top: -190px;">
                 <ul class="layui-tab-title">
                     <li class="layui-this">病历首页</li>
                     <li>检查申请</li>
@@ -62,7 +62,7 @@
                             <button type="reset" class="layui-btn layui-icon layui-btn-primary">清空</button>
                             <br><br>
 
-                            <p>病史内容</p>
+                            <p>病史内容：</p>
                             <br>
                             <label class="layui-form-label">主 诉</label>
                             <div class="layui-input-block">
@@ -146,7 +146,56 @@
                         <table class="layui-hide" id="jianchashenqing2"></table>
                     </div>
 
-                    <div class="layui-tab-item"></div>
+                    <div class="layui-tab-item">
+                        <label class="layui-form-label">病历号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                class="layui-input">
+                        </div>
+                        <br>
+                        <label class="layui-form-label">患者姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                class="layui-input">
+                        </div>
+                        <br>
+                        <label class="layui-form-label">性别</label>
+                        <div class="layui-input-block">
+                            <select>
+                                <option value="">男</option>
+                                <option value="">女</option>
+                            </select>
+                        </div>
+                        <br>
+                        <label class="layui-form-label">年龄</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                class="layui-input">
+                        </div>
+                        <br>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">检查</label>
+                            <div class="layui-input-block">
+                                <textarea name="desc" placeholder="请输入检查结果" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">诊断</label>
+                            <div class="layui-input-block">
+                                <textarea name="desc" placeholder="请输入诊断结果" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">处理意见</label>
+                            <div class="layui-input-block">
+                                <textarea name="desc" placeholder="请输入处理意见" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
                     <div class="layui-tab-item"></div>
                     <div class="layui-tab-item">
                         <p>门诊诊断:xxxxxxxxxxx</p>
@@ -218,15 +267,15 @@
             form.render();
             //方法渲染
             table.render({
-                elem:"#weizhenhuanzhe",
-                cols:[
+                elem: "#weizhenhuanzhe",
+                cols: [
 
                 ]
             })
 
             table.render({
-                elem:"#yizhenhuanzhe",
-                cols:[
+                elem: "#yizhenhuanzhe",
+                cols: [
 
                 ]
             })

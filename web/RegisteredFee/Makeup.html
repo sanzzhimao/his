@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    #panel {
-        float: left;
-        position: absolute;
-        top: 80px;
-        left: 220px;
-    }
-</style>
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,46 +51,41 @@
     </form>
 
     <p>患者发票信息</p>
-    <table class="layui-table" lay-even lay-skin="nob">
-        <thead>
-            <tr>
-                <th>病历号</th>
-                <th>发票号</th>
-                <th>姓名</th>
-                <th>金额</th>
-                <th>发票状态</th>
-                <th>看诊日期</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>123456</td>
-                <td>test</td>
-                <td>张三</td>
-                <td>1500</td>
-                <td>123456</td>
-                <td>2019-06-01</td>
-                <td>啊哈哈哈</td>
-            </tr>
-            <tr>
-                <td>123456</td>
-                <td>test</td>
-                <td>张三</td>
-                <td>1500</td>
-                <td>123456</td>
-                <td>2019-06-01</td>
-                <td>啊哈哈哈</td>
-            </tr>
-    </table>
+    <table class="layui-hide" id="fapiaoxinxi"></table>
 
     <script>
-        //注意：导航依赖element模块，否则无法进行功能性操作
-        layui.use('element', function () {
+        layui.use(['element', 'table'], function () {
             var element = layui.element;
+            var table = layui.table;
 
-            //…
-        });
+            table.render({
+                elem: "#fapiaoxinxi",
+                cols: [
+                    [{
+                        field: 'binglihao',
+                        title: '病历号'
+                    }, {
+                        field: 'fapiaohao',
+                        title: '发票号',
+                    }, {
+                        field: 'xingming',
+                        title: '姓名',
+                    }, {
+                        field: 'jine',
+                        title: '金额',
+                    }, {
+                        field: 'fapiaozhuangtai',
+                        title: '发票状态',
+                    }, {
+                        field: 'kanzhenriqi',
+                        title: '看诊日期',
+                    }, {
+                        field: 'caozuo',
+                        title: '操作'
+                    }]
+                ]
+            })
+        })
     </script>
 </body>
 
