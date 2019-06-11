@@ -114,33 +114,30 @@ public class RegistService implements IRegistService{
      * @return boolean
      **/
     @Override
-    public boolean registered(Register register, DoctorCrew doctorCrew, Invoice iv,String shouFeiFangShi) {
+    public boolean registered(Register register, Invoice iv,int quto) {
         IRegistDao registDao=new RegistDao();
         registDao.setConnection(con);
         PatientCosts pc=new PatientCosts();
         pc.setRegisterID(register.getId());
         pc.setInvoiceID(iv.getId());
+        //暂时先写着
         pc.setItemID(1);
         pc.setItemType(1);
         pc.setName(register.getRealName());
-        pc.setPrice(8);
+        pc.setPrice(iv.getMoney());
         pc.setAmount(1);
-        pc.setDeptID(doctorCrew.getDeptID());
+        pc.setDeptID(register.getDeptID());
         pc.setCreateTime(iv.getCreationTime());
         pc.setCreateOperID(iv.getUserID());
         pc.setPayTime(iv.getCreationTime());
         pc.setRegisterID(iv.getUserID());
-        try {
-            pc.setFeeType(registDao.selectConstantIDByConstantName(shouFeiFangShi));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        pc.setFeeType(iv.getFeeType());
         pc.setBackID(0);
         int num=0;
-        int num1=doctorCrew.getRegistQuota();
+        int num1=quto;
         try {
-            num=registDao.selectDoctorUsedId(register.getUserID(), (Date) doctorCrew.getSchedDate());
-            if (num1<= num){
+            num=registDao.selectDoctorUsedId(register.getUserID(),new Date(register.getVisitDate().getTime()) );
+            if (num1>= num){
                 registDao.addRegist(register);
                 registDao.addInvoice(iv);
                 registDao.addPatientCosts(pc);

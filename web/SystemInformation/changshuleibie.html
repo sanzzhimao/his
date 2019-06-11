@@ -35,48 +35,32 @@
                     <button class="layui-btn layui-btn-normal">常数项管理</button>
                 </div>
             </td>
+            <tr>
+                <td>类别编码</td>
+                <td>类别名称</td>
+                <td>ID</td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+
         </table>
     </form>
 
-
-
-   
-    <table class="layui-hide" id="test"></table>
     <div id="demo0"></div>
 
-    <script>
-        layui.use(['table', 'element'], function () {
-            var element = layui.element;
-            var table = layui.table;
-
-
-            table.render({
-                elem: '#test',
-                // url: '/demo/table/user/',
-                cellMinWidth: 80,//全局定义常规单元格的最小宽度
-                cols: [[
-                    // { type: 'checkbox' },
-                    { field: 'xiangmubianma', title: '类别编码', },
-                    { field: 'xiangmumingcheng', title: '类别名称' }, //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
-                    { field: 'xiangmuleixing', title: 'ID', },
-                   
-                ]],
-                data: [{
-                    "xiangmubianma": "10001",
-                    "xiangmumingcheng": "杜甫",
-                    "xiangmuleixing": "111",
-                 
-
-                }],
-            });
-            page: true
-        });
-    </script>
     <script>
         layui.use(['laypage', 'layer'], function () {
             var laypage = layui.laypage,
                 layer = layui.layer;
-
+    
             laypage.render({
                 elem: 'demo0',
                 count: 100,

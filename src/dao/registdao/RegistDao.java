@@ -219,8 +219,8 @@ public class RegistDao implements IRegistDao {
     **/
     @Override
     public Boolean addRegist(Register reg) throws SQLException {
-        String sql="insert into register(casenumber,realname,gender,idnumber,birthday,age,agetype," +
-                "homeaddress,visidate,noon,deptid,userid,registleid,settleid,isbook," +
+        String sql="insert into register(casenumber,realname,gender,idnumber,birthdate,age,agetype," +
+                "homeaddress,visitdate,noon,deptid,userid,registleid,settleid,isbook," +
                 "registtime,registerid,visitstate) " +
                 "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,1)";
         PreparedStatement pstm=con.prepareStatement(sql);
@@ -264,7 +264,7 @@ public class RegistDao implements IRegistDao {
     **/
     @Override
     public boolean addInvoice(Invoice iv) throws SQLException {
-        String sql="insert into invoice(invoicenum,money,state,creationtime,userid,registid,freetype,back,dailystate)" +
+        String sql="insert into invoice(invoicenum,money,state,creationtime,userid,registid,feetype,back,dailystate)" +
                 "values(?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstm=con.prepareStatement(sql);
         pstm.setString(1,iv.getInvoiceNum());

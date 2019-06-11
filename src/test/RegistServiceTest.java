@@ -3,8 +3,11 @@ package test;
 import org.junit.Test;
 import service.registservice.IRegistService;
 import service.registservice.RegistService;
+import vo.Invoice;
+import vo.Register;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,5 +52,37 @@ public class RegistServiceTest {
         IRegistService registService=new RegistService();
         System.out.println(registService.fianShouFeiFangShi());
 
+    }
+    @Test
+    public void fapiao() throws SQLException, ParseException {
+        IRegistService registService=new RegistService();
+        Register register=new Register();
+        register.setId(1001);
+        register.setRealName("lym");
+        register.setCaseNumber("600620");
+        register.setGender(1);
+        register.setIdNumber("5131281112554");
+        register.setAge(24);
+        register.setBirthDate(new Date(new Date().getTime()-21*3600000));
+        register.setAgeTpye("岁");
+        DateFormat af=new SimpleDateFormat("yyyy-MM-dd");
+        String da1="2019-05-22";
+        Date dataStr=af.parse(da1);
+        register.setVisitDate(dataStr);
+        register.setNoon("am");
+        register.setDeptID(1);
+        register.setUserID(1);
+        register.setRegistTime(new Date());
+        register.setVisitState(1);
+        register.setIsBook("否");
+        Invoice iv=new Invoice();
+        iv.setId(1001);
+        iv.setInvoiceNum("1235645");
+        iv.setMoney(8);
+        iv.setState(1);
+        iv.setCreationTime(new Date());
+        iv.setUserID(1);
+        iv.setRegistID(1);
+        System.out.println(registService.registered(register, iv, 12));
     }
 }

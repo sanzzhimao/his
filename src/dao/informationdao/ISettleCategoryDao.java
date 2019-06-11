@@ -2,6 +2,7 @@ package dao.informationdao;
 
 import vo.SettleCategory;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface ISettleCategoryDao {
     void changeSettleCategory(SettleCategory settleCategory) throws SQLException;
     List<SettleCategory> selectSettleCategory(String settle) throws SQLException;
     List<SettleCategory> selectSettleCategory() throws SQLException;
+
+    void setCon(Connection con);
 }

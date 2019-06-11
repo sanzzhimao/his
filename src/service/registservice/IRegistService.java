@@ -43,7 +43,7 @@ public interface IRegistService {
      * @Param [register]
      * @return boolean
     **/
-    boolean registered(Register register, DoctorCrew doctorCrew, Invoice iv,String shouFeiFangShi);
+    boolean registered(Register register, Invoice iv,int quto);
     /**
      * @Author lym
      * @Description：收费方式有多少种--！！！！

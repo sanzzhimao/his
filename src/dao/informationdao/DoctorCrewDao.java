@@ -49,8 +49,8 @@ public class DoctorCrewDao implements IDoctorCrewDao {
             doc.setDeptName(rs.getString(4));
             doc.setUserID(rs.getInt(5));
             doc.setRealName(rs.getString(6));
-            doc.setRegistName(rs.getString(7));
-            doc.setRegistQuota(rs.getString(8));
+           // doc.setRegistName(rs.getString(7));
+           // doc.setRegistQuota(rs.getString(8));
             docs.add(doc);
         }
         JdbcUtil.release(null,pstmt,rs);
