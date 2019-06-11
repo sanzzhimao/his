@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IRegistLevelDao {
+    void setCon(Connection con) throws SQLException;
     void addRegistLevel(RegistLevel registLevel) throws SQLException;
     void delRegistLevel(int sequenceNo) throws SQLException;
     void changeRegistLevel(RegistLevel registLevel) throws SQLException;

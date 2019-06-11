@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IUserManagementDao {
+    void setConnection(Connection con) throws SQLException;
     void addUSer(User user) throws SQLException;
     void delUser(String userName) throws SQLException;
     void delUser(int id) throws SQLException;

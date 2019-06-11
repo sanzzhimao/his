@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-    #panel {
-        float: left;
-        position: absolute;
-        top: 80px;
-        left: 220px;
-    }
 </style>
 
 <head>
@@ -58,44 +52,43 @@
         </div>
     </form>
     <p>患者消费信息</p>
-    <table class="layui-table" lay-even lay-skin="nob">
-        <thead>
-            <tr>
-                <th>病历号</th>
-                <th>姓名</th>
-                <th>项目名称</th>
-                <th>单价</th>
-                <th>数量</th>
-                <th>开立时间</th>
-                <th>状态</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>123456</td>
-                <td>test</td>
-                <td>123456</td>
-                <td>1500</td>
-                <td>12</td>
-                <td>2019-06-01</td>
-                <td>已开立</td>
-            </tr>
-            <tr>
-                <td>123456</td>
-                <td>test</td>
-                <td>123456</td>
-                <td>1500</td>
-                <td>12</td>
-                <td>2019-06-01</td>
-                <td>已开立</td>
-            </tr>
-    </table>
-    </form>
+    <table class="layui-hide" id="xiaofeixinxi"></table>
 
     <script>
-        layui.use('element', function () {
+        layui.use(['element', 'table'], function () {
             var element = layui.element;
-        });
+            var table = layui.table;
+
+            table.render({
+                elem: "#xiaofeixinxi",
+                cols: [
+                    [{
+                        type:'checkbox'
+                    },{
+                        field: 'binglihao',
+                        title: '病历号'
+                    }, {
+                        field: 'xingming',
+                        title: '姓名',
+                    }, {
+                        field: 'shenfenzhenghao',
+                        title: '身份证号',
+                    }, {
+                        field: 'guahaoriqi',
+                        title: '挂号日期',
+                    }, {
+                        field: 'guahaowubie',
+                        title: '挂号午别',
+                    }, {
+                        field: 'kanzhenkeshi',
+                        title: '看诊状态',
+                    }, {
+                        field: 'caozuo',
+                        title: '操作'
+                    }]
+                ]
+            })
+        })
     </script>
 </body>
 
