@@ -19,4 +19,6 @@ public interface IUserManagementDao {
     List<User> selectUser() throws SQLException;
     List<ConstantItem>selectDoc() throws SQLException;
     List<RegistLevel> selectRegistLevel() throws SQLException;
+
+    void setConnection(Connection con);
 }

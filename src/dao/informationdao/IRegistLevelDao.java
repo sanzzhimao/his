@@ -15,4 +15,6 @@ public interface IRegistLevelDao {
     List<RegistLevel> selectRegistLevel() throws SQLException;
     List<RegistLevel> selectRegistLevel(int id) throws SQLException;
     int reRegistLevelID(String registCode) throws SQLException;
+
+    void setCon(Connection con);
 }

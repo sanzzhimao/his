@@ -20,11 +20,11 @@ public class DoctorCrewServiceTest {
         public void selectDoctor() throws ParseException, SQLException {
             SimpleDateFormat fo=new SimpleDateFormat("yyyy-MM-dd");
             Date d1=fo.parse("2019-03-28");
-            Date d2=fo.parse("2019-03-29");
+            Date d2=fo.parse("2019-04-5");
             java.sql.Date da1=new java.sql.Date(d1.getTime());
             java.sql.Date da2=new java.sql.Date(d2.getTime());
             IDoctorCrewService idcd=new DoctorCrewService();
-            System.out.println(idcd.selectDoctor(da1,da2));
+            System.out.println(idcd.selectDoctor(da1,da1));
         }
 
         @Test
@@ -42,13 +42,13 @@ public class DoctorCrewServiceTest {
         @Test
         public void selectUser() throws SQLException {
             IDoctorCrewService idcd=new DoctorCrewService();
-            System.out.println(idcd.selectUser(1,0) );
+            System.out.println(idcd.selectUser(1,1) );
         }
 
         @Test
         public void selectRule() throws SQLException {
             IDoctorCrewService idcd=new DoctorCrewService();
-            System.out.println(idcd.selectRule(0));
+            System.out.println(idcd.selectRule(1));
         }
 
         @Test

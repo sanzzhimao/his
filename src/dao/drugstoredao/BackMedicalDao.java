@@ -11,10 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class BackMedicalDao implements IBackMedicalDao{
@@ -25,21 +22,17 @@ public class BackMedicalDao implements IBackMedicalDao{
     }
 //根据病历号查询药品名字，单价，数量，药品状态，开立医生，处方名字，开立时间   处方明细状态为4-已开药
     @Override
-    public List<SendMedical> backMedical(String st,String date) throws SQLException, ParseException {
-        String sql="select distinct d.DrugsName,d.DrugsPrice,pd.Amount,d.DelMark,u.RealName,p.PrescriptionName,p.PrescriptionTime,pd.id " +
+    public List<SendMedical> sendMedical(String st) throws SQLException {
+        String sql="select distinct d.DrugsName,d.DrugsPrice,pd.Amount,d.DelMark,u.RealName,p.PrescriptionName,p.PrescriptionTime pd.id " +
                 "from drugs d,prescriptiondetailed pd,user u,prescription p,MedicalRecord m " +
                 "where m.ID=p.MedicalID " +
                 "and p.UserID=u.ID " +
                 "and pd.DrugsID=d.ID " +
                 "and pd.PrescriptionID=p.id " +
                 "and pd.state=4 " +
-                "and m.CaseNumber=? and p.PrescriptionTime=?";
+                "and m.CaseNumber=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date1=simpleDateFormat.parse(date);
-        java.sql.Date date2=new java.sql.Date(date1.getTime());//date2转换缺失时分秒，查不出
         pstmt.setString(1,st);
-        pstmt.setDate(2,date2);
         ResultSet rs=pstmt.executeQuery();
         List<SendMedical> list=new ArrayList<>();
         SendMedical sm=null;

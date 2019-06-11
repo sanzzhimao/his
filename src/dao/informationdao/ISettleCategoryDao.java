@@ -18,4 +18,6 @@ public interface ISettleCategoryDao {
     void changeSettleCategory(SettleCategory settleCategory) throws SQLException;
     List<SettleCategory> selectSettleCategory(String settle) throws SQLException;
     List<SettleCategory> selectSettleCategory() throws SQLException;
+
+    void setCon(Connection con);
 }

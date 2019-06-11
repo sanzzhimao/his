@@ -8,10 +8,7 @@ import util.JdbcUtil;
 import vo.SendMedical;
 
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class SendMedicalDao implements ISendMedicalDao {
@@ -19,22 +16,17 @@ public class SendMedicalDao implements ISendMedicalDao {
     public void setConnection(Connection con) {
         this.con=con;
     }
-    //查询处方明细表状态为已缴费的信息  传入病例号和时间
-    public List<SendMedical> sendMedical(String st, String date) throws SQLException, ParseException {
-        String sql="select distinct d.DrugsName,d.DrugsPrice,pd.Amount,d.DelMark,u.RealName,p.PrescriptionName,p.PrescriptionTime,pd.id " +
+    public List<SendMedical> sendMedical(String st) throws SQLException {
+        String sql="select distinct d.DrugsName,d.DrugsPrice,pd.Amount,d.DelMark,u.RealName,p.PrescriptionName,p.PrescriptionTime pd.id " +
                 "from drugs d,prescriptiondetailed pd,user u,prescription p,MedicalRecord m " +
                 "where m.ID=p.MedicalID " +
                 "and p.UserID=u.ID " +
                 "and pd.DrugsID=d.ID " +
                 "and pd.PrescriptionID=p.id " +
                 "and pd.state=3 " +
-                "and m.CaseNumber=? and p.PrescriptionTime=?";
+                "and m.CaseNumber=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date1=simpleDateFormat.parse(date);
-        java.sql.Date date2=new java.sql.Date(date1.getTime());//date2转换缺失时分秒，查不出
         pstmt.setString(1,st);
-        pstmt.setDate(2,date2);
         ResultSet rs=pstmt.executeQuery();
         List<SendMedical> list=new ArrayList<>();
         SendMedical sm=null;
@@ -53,7 +45,7 @@ public class SendMedicalDao implements ISendMedicalDao {
         JdbcUtil.release(null,pstmt,rs);
         return list;
     }
-//发药  修改处方明细表状态为已发药
+
     @Override
     public void modifyStatus(int id) throws SQLException {
         String sql="update PrescriptionDetailed set state=4 where id=?";
