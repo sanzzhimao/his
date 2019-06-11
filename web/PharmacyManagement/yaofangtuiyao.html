@@ -15,8 +15,9 @@
     <table>
       <tr>
         <td>
+
           <div class="layui-form-item">
-            <label class="layui-form-label"><span>*</span>病历号</label>
+            <label class="layui-form-label">病历号</label>
             <div class="layui-input-block">
               <input type="text" id="binglinum" name="title" required lay-verify="required" placeholder="请输入病历号"
                 autocomplete="off" class="layui-input">
@@ -33,52 +34,57 @@
         </td>
         <td>
           <div class="layui-form-item" id="chaxunbutton">
-            <button class="layui-btn layui-btn-normal">查询</button>
+            <button class="layui-btn">查询</button>
           </div>
         </td>
       </tr>
-    </table>
+  </table>
   </form>
+</body>
 
 
-  <table class="layui-hide" id="test"></table>
-
-  <script>
-    layui.use(['table', 'element'], function () {
-      var element = layui.element;
-      var table = layui.table;
 
 
-      table.render({
-        elem: '#test',
-        // url: '/demo/table/user/',
-        cellMinWidth: 80,//全局定义常规单元格的最小宽度
-        cols: [[
-          { type: 'checkbox' },
-          { field: 'yaopinmingcheng', title: '药品名称', },
-          { field: 'danjia', title: '单价' }, //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
-          { field: 'shuliang', title: '数量', },
-          { field: 'yaopinzhuangtai', title: '药品状态', },
-          { field: 'kailiyisheng', title: '开立医生', },
-          { field: 'chufangshijian', title: '处方名称', },
-          { field: 'kailishijian', title: '开立时间', },
-        ]],
-        data: [{
-          "yaopinmingcheng": "10001",
-          "danjia": "杜甫",
-          "shuliang": "111",
-          "yaopinzhuangtai": "10001",
-          "kailiyisheng": "10001",
-          "chufangmingcheng": "10001",
-          "kailishijian": "10001",
 
 
-        }],
-      });
-      page: true
-    });
 
-  </script>
+
+
+
+
+
+
+
+
+  <table class="layui-table">
+    <colgroup>
+      <col width="150">
+      <col width="200">
+      <col>
+    </colgroup>
+    <thead>
+      <tr>
+        <th>药品名称</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>药品状态</th>
+        <th>开立医生</th>
+        <th>处方名称</th>
+        <th>开立时间</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <script>

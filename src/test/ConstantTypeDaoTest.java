@@ -7,7 +7,6 @@ import vo.ConstantItem;
 import vo.ConstantType;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class ConstantTypeDaoTest {
 
@@ -54,7 +53,7 @@ public class ConstantTypeDaoTest {
     public void selectConstantItem() throws SQLException {
         ConstantTypeDao c1=new ConstantTypeDao();
         c1.setConnection(JdbcUtil.getConnection());
-        System.out.println(c1.selectConstantItem("W"));
+        System.out.println(c1.selectConstantItem("WX"));
     }
 
     @Test
@@ -71,18 +70,5 @@ public class ConstantTypeDaoTest {
 
     @Test
     public void modifyConstantItem() {
-    }
-
-    @Test
-    public void delectDuoConstantItem() throws SQLException {
-        ConstantTypeDao c1=new ConstantTypeDao();
-        c1.setConnection(JdbcUtil.getConnection());
-        ArrayList list=new ArrayList();
-        list.add(21);
-        list.add(22);
-        list.add(23);
-        c1.delectDuoConstantItem(list);
-
-
     }
 }

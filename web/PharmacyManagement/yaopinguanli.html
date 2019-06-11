@@ -12,105 +12,110 @@
 
 <body>
     <form class="layui-form" action="">
-            <table class="layui-table" lay-skin="nob">
+        <table>
+            <td>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="text" id="binglinum" name="title" required lay-verify="required"
+                            placeholder="请输入药品助记码" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="layui-form-item" class="yaopinbutton">
+                    <button class="layui-btn layui-btn-normal">查询药品</button>
+                </div>
+            </td>
+            <td>
+                <div class="layui-form-item" class="yaopinbutton">
+                    <button class="layui-btn layui-btn-normal">新增药品</button>
+                </div>
+            </td>
+            <td>
+                <div class="layui-form-item" class="yaopinbutton">
+                    <button class="layui-btn layui-btn-normal">导入药品</button>
+                </div>
+            </td>
+        </table>
+    </form>
+
+    <form class="layui-form" action="">
+        <table class="layui-table" lay-even lay-skin="nob">
+
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" name="" title="" lay-skin="primary">
+                    </th>
+                    <th>药品编码</th>
+                    <th>药品名称</th>
+                    <th>药品规格</th>
+                    <th>药品单位</th>
+                    <th>药品单价</th>
+                    <th>药品剂型</th>
+                    <th>药品类型</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+
                     <td>
-                        <div class="layui-form-item layui-inline">
-                            <div class="layui-input-inline">
-                                <input type="text" id="binglinum" name="title" required lay-verify="required"
-                                    placeholder="请输入药品助记码" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
+                        <button class="layui-btn layui-btn-normal" id="bianji">编辑</button>
+                        <button class="layui-btn layui-btn-danger">删除</button>
                     </td>
+                </tr>
+                <tr>
                     <td>
+<<<<<<< HEAD
                         <div class="layui-form-item layui-inline">
-                            <button class="layui-btn layui-btn-normal">查询药品</button>
+                            <button class="layui-btn">查询药品</button>
                         </div>
                     </td>
                     <td>
                         <div class="layui-form-item">
-                            <button class="layui-btn layui-btn-normal">新增药品</button>
+                            <button class="layui-btn">新增药品</button>
                         </div>
                     </td>
                     <td>
                             <div class="layui-form-item">
-                                <button class="layui-btn layui-btn-normal">导入药品</button>
+                                <button class="layui-btn">导入药品</button>
                             </div>
                         </td>
                   
         
                 </table>
+=======
+                        <button class="layui-btn layui-btn-danger">批量删除</button>
+                    </td>
+                    <td>
+                        <div id="demo1"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+>>>>>>> 632a21a732c354fa42215a3236b666343f9c5019
     </form>
+        <script>
+            layui.use(['laypage', 'layer'], function () {
+                var laypage = layui.laypage,
+                    layer = layui.layer;
 
-    <table class="layui-hide" id="test"></table>
-    <div id="keshiguanli"></div>
-
-    <script>
-        layui.use(['table', 'element'], function () {
-            var element = layui.element;
-            var table = layui.table;
-
-
-            table.render({
-                elem: '#test',
-                // url: '/demo/table/user/',
-                cellMinWidth: 80,//全局定义常规单元格的最小宽度
-                cols: [[
-                    { type: 'checkbox' },
-                    { field: 'riqi', title: '药品编码', },
-                    { field: 'keshi', title: '药品名称' }, //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
-                    { field: 'yisheng', title: '药品规格', },
-                    { field: 'wubie', title: '药品单位', },
-                    { field: 'guahaojibie', title: '药品单价', },
-                    { field: 'guahaoxiane', title: '药品剂型', },
-                    { field: 'guahaoxiane', title: '药品类型', },
-                    { fixed: 'right', title: '操作', toolbar: '#barDemo' },
-                ]],
-                data: [{
-                    "riqi": "10001",
-                    "keshi": "杜甫",
-                    "yisheng": "xianxin@layui.com",
-                    "wubie": "10001",
-                    "guahaojibie": "10001",
-                    "guahaoxiane": "10001",
-
-
-                }],
+                laypage.render({
+                    elem: 'demo1',
+                    count: 50,
+                    prev: '<',
+                    next: '>'
+                });
             });
-            page: true
-        });
-
-        layui.use(['laypage', 'layer'], function () {
-            var laypage = layui.laypage,
-                layer = layui.layer;
-
-            laypage.render({
-                elem: 'keshiguanli',
-                count: 100,
-                prev: '<',
-                next: '>'
-            });
-        });
-    </script>
-
-    <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-    </script>
-
-
-    <script>
-        layui.use(['laypage', 'layer'], function () {
-            var laypage = layui.laypage,
-                layer = layui.layer;
-
-            laypage.render({
-                elem: 'demo1',
-                count: 50,
-                prev: '<',
-                next: '>'
-            });
-        });
-    </script>
+        </script>
 </body>
-
 </html>

@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * 医生排班管理业务类（所有select已测试）
+ * 医生排班管理业务类
  */
 public class DoctorCrewService implements IDoctorCrewService {
     /**

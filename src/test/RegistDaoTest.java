@@ -12,6 +12,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+
 public class RegistDaoTest {
     @Test
     public void selectMaxInvoiceNum() throws SQLException {
@@ -74,11 +76,9 @@ public class RegistDaoTest {
         System.out.println(registDao.reRegisterByCaseNumber("600616"));
     }
     @Test
-    public void changeByCaseNumber() throws SQLException {
+    public void selectID() throws SQLException {
         RegistDao registDao=new RegistDao();
         registDao.setConnection(JdbcUtil.getConnection());
-        registDao.changeByCaseNumber("600618");
-        JdbcUtil.release(JdbcUtil.getConnection(),null,null);
+        System.out.println(registDao.selectUserIDByUserName("root"));
     }
-
 }

@@ -143,34 +143,34 @@
       <dl class="layui-nav-child">
         <dd>
           <a data-url="SystemInformation/changshuleibie.html" data-id="changshuleibie" class="site-demo-active"
-            data-type="tabAdd" data-title="常数类别管理">常数类别管理</a></dd>
+          data-type="tabAdd" data-title="常数类别管理">常数类别管理</a></dd>
         <dd>
-          <a data-url="SystemInformation/keshiguanli.html" data-id="keshi" class="site-demo-active" data-type="tabAdd"
-            data-title="科室管理">科室管理</a>
+          <a data-url="SystemInformation/keshiguanli.html" data-id="keshi" class="site-demo-active"
+          data-type="tabAdd" data-title="科室管理">科室管理</a>
         </dd>
         <dd>
-          <a data-url="SystemInformation/yonghuguanli.html" data-id="yonghu" class="site-demo-active" data-type="tabAdd"
-            data-title="用户管理">用户管理</a>
+          <a data-url="SystemInformation/yonghuguanli.html" data-id="yonghu" class="site-demo-active"
+          data-type="tabAdd" data-title="用户管理">用户管理</a>
         </dd>
         <dd>
           <a data-url="SystemInformation/guahaojibieguanli.html" data-id="guahaojibie" class="site-demo-active"
-            data-type="tabAdd" data-title="挂号级别管理">挂号级别管理</a>
+          data-type="tabAdd" data-title="挂号级别管理">挂号级别管理</a>
         </dd>
         <dd>
           <a data-url="SystemInformation/jiesuanleibieguanli.html" data-id="jiesuanleibie" class="site-demo-active"
-            data-type="tabAdd" data-title="结算类别管理">结算类别管理</a>
+          data-type="tabAdd" data-title="结算类别管理">结算类别管理</a>
         </dd>
         <dd>
           <a data-url="SystemInformation/zhenduanmuluguanli.html" data-id="zhenduanmulu" class="site-demo-active"
-            data-type="tabAdd" data-title="诊断目录管理">诊断目录管理</a>
+          data-type="tabAdd" data-title="诊断目录管理">诊断目录管理</a>
         </dd>
         <dd>
           <a data-url="SystemInformation/feiyaopinshoufei.html" data-id="feiyaopinshoufei" class="site-demo-active"
-            data-type="tabAdd" data-title="非药品收费项目管理">非药品收费项目管理</a>
+          data-type="tabAdd" data-title="非药品收费项目管理">非药品收费项目管理</a>
         </dd>
         <dd>
           <a data-url="SystemInformation/yishengpaiban.html" data-id="yishengpaiban" class="site-demo-active"
-            data-type="tabAdd" data-title="医生排班管理">医生排班管理</a>
+          data-type="tabAdd" data-title="医生排班管理">医生排班管理</a>
         </dd>
       </dl>
     </li>
@@ -243,15 +243,6 @@
         //最后不管是否新增tab，最后都转到要打开的选项页面上
         active.tabChange(dataid.attr("data-id"));
       });
-
-      // 获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
-      var layid = location.hash.replace(/^#test=/, '');
-      element.tabChange('test', layid);
-      //监听Tab切换，以改变地址hash值
-      element.on('tab(test)', function (elem) {
-        location.hash = 'test=' + $(this).attr('lay-id');
-      });
-
     })
   </script>
 </body>

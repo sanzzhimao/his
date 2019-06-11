@@ -16,7 +16,7 @@ public class SendMedicalDaoTest {
         SendMedicalDao c1=new SendMedicalDao();
         c1.setConnection(JdbcUtil.getConnection());
 //        System.out.println(c1.sendMedical("600601"));
-        List<SendMedical> list=c1.sendMedical("600601","2019-06-05 09:48:13");
+        List<SendMedical> list=c1.sendMedical("600601");
         for (SendMedical l:list
              ) {
             System.out.println(l);
