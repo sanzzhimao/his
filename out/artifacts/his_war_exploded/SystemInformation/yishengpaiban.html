@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>药房发药</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../layui/layui.js"></script>
+    <!-- <link rel="stylesheet" href="../css/yaofangfayao.css"> -->
+</head>
+
+<body>
+    <form class="layui-form" action="" method="post">
+        <table>
+            <tr>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">开始时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input layui-icon" id="birthDate"
+                                placeholder="&#xe637; 选择日期">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">结束时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input layui-icon" id="birthDate1"
+                                placeholder="&#xe637; 选择日期">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="layui-form-item" id="chaxunbutton">
+                        <button class="layui-btn">查询医生排班</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="layui-form-item" id="chaxunbutton">
+                        <button class="layui-btn">新增排班规则</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="layui-form-item" id="chaxunbutton">
+                        <button class="layui-btn">查询排班规则（生成排班计划）</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        layui.use('laydate', function () {
+          var laydate = layui.laydate;
+          //执行一个laydate实例
+          laydate.render({
+            elem: '#birthDate' //指定元素
+          });
+        });
+
+        layui.use('laydate', function () {
+          var laydate = layui.laydate;
+          //执行一个laydate实例
+          laydate.render({
+            elem: '#birthDate1' //指定元素
+          });
+        });
+      </script>
+
+
+<table class="layui-hide" id="test"></table>
+    <div id="keshiguanli"></div>
+
+    <script>
+        layui.use(['table', 'element'], function () {
+            var element = layui.element;
+            var table = layui.table;
+
+
+            table.render({
+                elem: '#test',
+                // url: '/demo/table/user/',
+                cellMinWidth: 80,//全局定义常规单元格的最小宽度
+                cols: [[
+                    { type: 'checkbox' },
+                    { field: 'riqi', title: '日期', },
+                    { field: 'keshi', title: '科室' }, //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                    { field: 'yisheng', title: '医生', },
+                    { field: 'wubie', title: '午别', },
+                    { field: 'guahaojibie', title: '挂号级别', },
+                    { field: 'guahaoxiane', title: '挂号限额', },
+                ]],
+                data: [{
+                    "riqi": "10001",
+                     "keshi": "杜甫",
+                     "yisheng": "xianxin@layui.com",
+                     "wubie": "10001",
+                     "guahaojibie": "10001",
+                     "guahaoxiane": "10001",
+                    
+
+                }],
+            });
+            page: true
+        });
+
+        layui.use(['laypage', 'layer'], function () {
+            var laypage = layui.laypage,
+                layer = layui.layer;
+
+            laypage.render({
+                elem: 'keshiguanli',
+                count: 100,
+                prev: '<',
+                next: '>'
+            });
+        });
+    </script>
+
+
+  
+
+
+    </body>

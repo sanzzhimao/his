@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+
+<body>
+    <div class="layui-tab-content">
+        <form class="layui-form" action="">
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">*发票号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="invoicenum" required lay-verify="required" placeholder="6" autocomplete="off"
+                        class="layui-input">
+                </div>
+                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe6b2; 挂号</button>
+                <button type="reset" class="layui-btn layui-icon layui-btn-primary">&#xe669; 清空</button>
+                <br>
+
+                <p>挂号信息</p>
+                <label class="layui-form-label">*病 历 号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="casenum" required lay-verify="required" value="600624" autocomplete="off"
+                        class="layui-input">
+                </div>
+                <label class="layui-form-label">*姓 名：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="username" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                        class="layui-input">
+                </div>
+                <label class="layui-form-label">*性 别：</label>
+                <div class="layui-input-inline">
+                    <select name="sex">
+                        <option value="1" selected>男</option>
+                        <option value="0">女</option>
+                    </select>
+                </div>
+                <label class="layui-form-label">*年 龄：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="age" required lay-verify="required" placeholder="输入年龄" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <br>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">出生日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input layui-icon" id="birthDate" placeholder="&#xe637; 出生日期">
+                </div>
+                <label class="layui-form-label">身份证号：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="再次输入身份证号" autocomplete="off"
+                        class="layui-input">
+                </div>
+                <label class="layui-form-label">*家庭住址：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="在此输入家庭住址" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <br>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">*结算类别</label>
+                <div class="layui-input-inline">
+                    <select name="settle">
+                        <option selected value="1">自费</option>
+                        <option value="2">市医保</option>
+                    </select>
+                </div>
+                <label class="layui-form-label">*看诊日期</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input layui-icon" id="visitDate" placeholder="&#xe637; 看诊日期">
+                </div>
+                <label class="layui-form-label">*午 别：</label>
+                <div class="layui-input-inline">
+                    <select name="noon">
+
+                    </select>
+                </div>
+                <label class="layui-form-label">挂号科室：</label>
+                <div class="layui-input-inline">
+                    <select name="">
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">*号 别</label>
+                <div class="layui-input-inline">
+                    <select name="">
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <label class="layui-form-label">*看诊医生</label>
+                <div class="layui-input-inline">
+                    <select name="">
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <label class="layui-form-label">初始号额：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                        class="layui-input">
+                </div>
+                <label class="layui-form-label">已用号额：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="已用号额" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <br>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">病历本</label>
+                <div class="layui-input-inline">
+                    <input type="checkbox" name="" lay-skin="primary">
+                </div>
+                <label class="layui-form-label">*应收金额：</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                        class="layui-input">
+                </div>
+                <label class="layui-form-label">*收费方式：</label>
+                <div class="layui-input-inline">
+                    <select name="">
+                        <option value="" selected>现金</option>
+                        <option value="">医保卡</option>
+                        <option value="">银行卡</option>
+                        <option value="">信用卡</option>
+                        <option value="">微信</option>
+                        <option value="">支付宝</option>
+                        <option value="">云闪付</option>
+                        <option value="">其他</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        layui.use(['element', 'form', 'laydate'], function () {
+            var element = layui.element;
+            var form = layui.form;
+            var laydate = layui.laydate;
+
+            form.render();
+            laydate.render({
+                elem: '#birthDate' //指定元素
+            });
+            laydate.render({
+                elem: '#visitDate'
+            });
+
+            $.post("regist/fir",{name:"root"},function (resp,status,xhr) {
+                console.log(resp);
+                var casenum=$("input[name='casenum']").val();
+                $("input[name='invoicenum']").val(resp[0]);
+                $("input[name='casenum']").val(resp[1]);
+            },'json')
+            $("input[name='casenum']").blur(function () {
+                var casenum=$("input[name='casenum']").val();
+                console.log(casenum);
+                $.post("regist/sed",{case:casenum},function (resp,status,xhr) {
+                    console.log(resp);
+                    if (resp!=null){
+                        $("input[name='username']").val(resp.realName);
+                        console.log(resp.realName);
+                        $("input[name='age']").val(resp.age);
+                        if (resp.gender==71) {
+                            $("select[name='sex']").val("0")
+                        }else{
+                            $("select[name='sex']").val("1")
+                        }
+                    }
+                },'json')
+            });
+
+            $("#visitDate").blur(function () {
+                var casenum=$("input[name='casenum']").val();
+                $.post("regist/thr",{visitdate:$(this).val()},function (resp,status,xhr) {
+                    console.log(resp);
+                    var htmlcen;
+                    $("select[name='noon']").html("");
+                    for (var i=0;i<resp.length;i++){
+                           htmlContent='<option value='+resp[i].id+'>'+resp[i].noon+'</option>';
+                           $("select[name='noon']").append(htmlContent);
+
+                    }
+                },'json')
+            });
+
+
+
+        });
+    </script>
+</body>
+
+</html>

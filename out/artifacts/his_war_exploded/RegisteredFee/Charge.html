@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>东软云医院HIS系统</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../layui/layui.js"></script>
+</head>
+
+<body>
+    <form class="layui-form" action="" style="padding-top: 20px">
+        <p>患者信息查询</p>
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">*病 历 号：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="" required lay-verify="required" placeholder="病历号" autocomplete="off"
+                    class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item layui-inline">
+            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615; 搜索</button>
+        </div>
+
+        <p>患者信息确认</p>
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">姓 名：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="" required lay-verify="required" placeholder="姓名" autocomplete="off"
+                    class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">身份证号：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="" required lay-verify="required" placeholder="身份证号" autocomplete="off"
+                    class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item layui-inline">
+            <label class="layui-form-label">家庭住址：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="" required lay-verify="required" placeholder="家庭住址" autocomplete="off"
+                    class="layui-input">
+            </div>
+        </div>
+    </form>
+    <p>患者消费信息</p>
+    <table class="layui-hide" id="xiaofeixinxi"></table>
+
+    <script>
+        layui.use(['element', 'table'], function () {
+            var element = layui.element;
+            var table = layui.table;
+
+            table.render({
+                elem: "#xiaofeixinxi",
+                cols: [
+                    [{
+                        type:'checkbox'
+                    },{
+                        field: 'binglihao',
+                        title: '病历号'
+                    }, {
+                        field: 'xingming',
+                        title: '姓名',
+                    }, {
+                        field: 'shenfenzhenghao',
+                        title: '身份证号',
+                    }, {
+                        field: 'guahaoriqi',
+                        title: '挂号日期',
+                    }, {
+                        field: 'guahaowubie',
+                        title: '挂号午别',
+                    }, {
+                        field: 'kanzhenkeshi',
+                        title: '看诊状态',
+                    }, {
+                        field: 'caozuo',
+                        title: '操作'
+                    }]
+                ]
+            })
+        })
+    </script>
+</body>
+
+</html>

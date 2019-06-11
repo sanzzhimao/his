@@ -1,0 +1,36 @@
+.login-main{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+}
+header{
+    position: relative;
+    left:130px;
+    top:20px;
+    font-size: 20px;
+    font-style: "微软黑体";
+}
+#username{
+    position: relative;
+    left: 50px;
+    top: 50px;
+}
+#password{
+    position: relative;
+    left: 0px;
+    top: 20px;
+}
+#loginbtn{
+    position: relative;
+    left:-130px;
+    top: 130px
+}
+#checkbox1{
+    position: relative;
+    left: 0px;
+    top: 30px;
+}
