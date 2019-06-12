@@ -12,7 +12,7 @@ import java.util.List;
 public class MedicalService implements IMedicalService{
     /**
      *通过医生ID查病历
-     * @param userid
+     * @param
      * @return
      * @throws SQLException
      */
@@ -39,20 +39,20 @@ public class MedicalService implements IMedicalService{
 
     /**
      * 通过科室ID查病历
-     * @param deptid
+     * @param
      * @return
      * @throws SQLException
      */
     @Override
-    public List<MedicalRecord> selectMedicalByDeptID(int deptid) throws SQLException {
-        List<MedicalRecord> list=null;
+    public MedicalRecord selectMedicalByID(int id) throws SQLException {
+        MedicalRecord list=null;
         Connection con=null;
         try {
             con= JdbcUtil.getConnection();
             con.setAutoCommit(false);
             IMedicalDao idd=new MedicalDao();
             idd.setConnection(con);
-            list=idd.selectMedicalByDeptID(deptid);
+            list=idd.selectMedicalByID(id);
             con.commit();
             return list;
         } catch (SQLException e) {
@@ -88,7 +88,7 @@ public class MedicalService implements IMedicalService{
     }
 
     @Override
-    public void updaMedical(MedicalRecord me) throws SQLException {
+    public void updateMedical(MedicalRecord me) throws SQLException {
         Connection con=null;
         try {
             con= JdbcUtil.getConnection();

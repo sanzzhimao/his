@@ -9,14 +9,14 @@ public interface IMedicalService {
     //通过医生ID查病历
     List<MedicalRecord> selectMedical() throws SQLException;
 
-    //通过科室ID查病历
-    List<MedicalRecord> selectMedicalByDeptID(int deptid) throws SQLException;
+    //通过ID查病历
+    MedicalRecord selectMedicalByID(int id) throws SQLException;
 
     //修改病历首页
     void updateMedicalHome(MedicalRecord me) throws SQLException;
 
     //修改病历其他内容
-    void updaMedical(MedicalRecord me) throws SQLException;
+    void updateMedical(MedicalRecord me) throws SQLException;
 
     //查询检查、检验、处置医技
     List<NoDrug> selectExamine(int recordtype, String name) throws  SQLException;

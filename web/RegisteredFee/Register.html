@@ -77,12 +77,12 @@
                 </div>
                 <label class="layui-form-label">*看诊日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" class="layui-input layui-icon" id="visitDate" placeholder="&#xe637; 看诊日期">
+                    <input type="date" class="layui-input layui-icon" id="visitDate" placeholder="&#xe637; 看诊日期">
                 </div>
                 <label class="layui-form-label">*午 别：</label>
                 <div class="layui-input-inline">
                     <select name="noon">
-
+                        <option>111</option>
                     </select>
                 </div>
                 <label class="layui-form-label">挂号科室：</label>
@@ -103,6 +103,7 @@
                     <select name="doc">
 
                     </select>
+
                 </div>
                 <label class="layui-form-label">初始号额：</label>
                 <div class="layui-input-inline">
@@ -148,13 +149,11 @@
             var element = layui.element;
             var form = layui.form;
             var laydate = layui.laydate;
+            var $ = layui.jquery;
 
             form.render();
             laydate.render({
                 elem: '#birthDate' //指定元素
-            });
-            laydate.render({
-                elem: '#visitDate'
             });
             var decew;
             $.post("regist/fir",{name:"root"},function (resp,status,xhr) {
@@ -183,7 +182,11 @@
 
             $("#visitDate").blur(function () {
                 var casenum=$("input[name='casenum']").val();
-                $.post("regist/thr",{visitdate:$(this).val()},function (resp,status,xhr) {
+                console.log($("#visitDate").val());
+                $.post(
+                    'regist/thr',
+                    {visitdate:$("#visitDate").val()},
+                    function (resp,status,xhr) {
                     console.log(resp);
                     decew=resp;
                     $("select[name='noon']").html("");
@@ -196,25 +199,25 @@
                     htmlContent2='<option value='+resp[0].realName+'>'+resp[0].realName+'</option>';
                     $("select[name='doc']").append(htmlContent2);
                     for (var i=1;i<resp.length;i++){
-                       for (var j=1;i<=i;j++){
+                       for (var j=0;j<i;j++){
                            if (resp[j].noon!=resp[j-1].noon){
                                htmlContent='<option value='+resp[j].noon+'>'+resp[j].noon+'</option>';
                                $("select[name='noon']").append(htmlContent);
                            }
                         }
-                        for (var j=1;i<=i;j++){
+                        for (var j=1;j<=i;j++){
                             if (resp[j].deptName!=resp[j-1].deptName){
                                 htmlContent1='<option value='+resp[j].deptID+'>'+resp[j].deptName+'</option>';
                                 $("select[name='dep']").append(htmlContent1);
                             }
                         }
-                        for (var j=1;i<=i;j++){
+                        for (var j=1;j<=i;j++){
                             if (resp[j].realName!=resp[j-1].realName){
                                 htmlContent3='<option value='+resp[j].registLeName+'>'+resp[j].registLeName+'</option>';
                                 $("select[name='dep']").append(htmlContent2);
                             }
                         }
-                        for (var j=1;i<=i;j++){
+                        for (var j=1;j<=i;j++){
                             if (resp[j].realName!=resp[j-1].realName){
                                 htmlContent2='<option value='+resp[j].userID+'>'+resp[j].realName+'</option>';
                                 $("select[name='dep']").append(htmlContent2);
@@ -224,7 +227,7 @@
 
                 },'json')
             });
-            $("select[name='doc']").blur(function () {
+            $("select[name='doc']").click(function () {
                 console.log(decew);
                 $.post('regist/foth',{name:$("select[name='doc']").val(),visitdate:$("#visitDate").val()},function (resp,status,shr) {
                     console.log(resp);

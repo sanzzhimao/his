@@ -13,7 +13,7 @@ public interface IMedicalDao {
     List<MedicalRecord> selectMedical() throws SQLException;
 
     //通过科室ID查病历
-    List<MedicalRecord> selectMedicalByDeptID(int deptid) throws SQLException;
+    MedicalRecord selectMedicalByID(int id) throws SQLException;
 
     //修改病历首页
     void updateMedicalHome(MedicalRecord me) throws SQLException;

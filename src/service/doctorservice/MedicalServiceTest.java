@@ -15,7 +15,7 @@ public class MedicalServiceTest {
 
     @Test
     public void selectMedicalByDeptID() throws SQLException {
-        System.out.println(ims.selectMedicalByDeptID(1));
+        System.out.println(ims.selectMedicalByID(1));
     }
 
     @Test
@@ -71,5 +71,10 @@ public class MedicalServiceTest {
     @Test
     public void selectPatientCosts() throws SQLException {
         System.out.println(ims.selectPatientCosts());
+    }
+
+    @Test
+    public void selectMedicalByID() throws SQLException {
+        System.out.println(ims.selectMedicalByID(3));
     }
 }
