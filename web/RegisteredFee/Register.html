@@ -18,7 +18,7 @@
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label">*发票号</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="6" autocomplete="off"
+                    <input type="text" name="invoicenum" required lay-verify="required" placeholder="6" autocomplete="off"
                         class="layui-input">
                 </div>
                 <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe6b2; 挂号</button>
@@ -28,24 +28,24 @@
                 <p>挂号信息</p>
                 <label class="layui-form-label">*病 历 号</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" value="600624" autocomplete="off"
+                    <input type="text" name="casenum" required lay-verify="required" value="600624" autocomplete="off"
                         class="layui-input">
                 </div>
                 <label class="layui-form-label">*姓 名：</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                    <input type="text" name="username" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
                         class="layui-input">
                 </div>
                 <label class="layui-form-label">*性 别：</label>
                 <div class="layui-input-inline">
-                    <select name="">
-                        <option value="" selected>男</option>
-                        <option value="">女</option>
+                    <select name="sex">
+                        <option value="1" selected>男</option>
+                        <option value="0">女</option>
                     </select>
                 </div>
                 <label class="layui-form-label">*年 龄：</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="输入年龄" autocomplete="off"
+                    <input type="text" name="age" required lay-verify="required" placeholder="输入年龄" autocomplete="off"
                         class="layui-input">
                 </div>
             </div>
@@ -70,9 +70,9 @@
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label">*结算类别</label>
                 <div class="layui-input-inline">
-                    <select>
-                        <option selected>自费</option>
-                        <option>市医保</option>
+                    <select name="settle">
+                        <option selected value="1">自费</option>
+                        <option value="2">市医保</option>
                     </select>
                 </div>
                 <label class="layui-form-label">*看诊日期</label>
@@ -81,16 +81,13 @@
                 </div>
                 <label class="layui-form-label">*午 别：</label>
                 <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
+                    <select name="noon">
+
                     </select>
                 </div>
                 <label class="layui-form-label">挂号科室：</label>
                 <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
+                    <select name="dep">
                     </select>
                 </div>
             </div>
@@ -98,27 +95,24 @@
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label">*号 别</label>
                 <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
+                    <select name="haobie">
                     </select>
                 </div>
                 <label class="layui-form-label">*看诊医生</label>
                 <div class="layui-input-inline">
-                    <select name="">
-                        <option value=""></option>
-                        <option value=""></option>
+                    <select name="doc">
+
                     </select>
                 </div>
                 <label class="layui-form-label">初始号额：</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
-                        class="layui-input">
+                    <input type="text" name="quto" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                        class="layui-input" id="quto1">
                 </div>
                 <label class="layui-form-label">已用号额：</label>
                 <div class="layui-input-inline">
                     <input type="text" name="" required lay-verify="required" placeholder="已用号额" autocomplete="off"
-                        class="layui-input">
+                        class="layui-input" id="yiyong">
                 </div>
             </div>
             <br>
@@ -129,8 +123,8 @@
                 </div>
                 <label class="layui-form-label">*应收金额：</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
-                        class="layui-input">
+                    <input type="text" name="fee" required lay-verify="required" placeholder="输入姓名" autocomplete="off"
+                        class="layui-input" id="fee1">
                 </div>
                 <label class="layui-form-label">*收费方式：</label>
                 <div class="layui-input-inline">
@@ -162,6 +156,91 @@
             laydate.render({
                 elem: '#visitDate'
             });
+            var decew;
+            $.post("regist/fir",{name:"root"},function (resp,status,xhr) {
+                console.log(resp);
+                var casenum=$("input[name='casenum']").val();
+                $("input[name='invoicenum']").val(resp[0]);
+                $("input[name='casenum']").val(resp[1]);
+            },'json')
+            $("input[name='casenum']").blur(function () {
+                var casenum=$("input[name='casenum']").val();
+                console.log(casenum);
+                $.post("regist/sed",{case:casenum},function (resp,status,xhr) {
+                    console.log(resp);
+                    if (resp!=null){
+                        $("input[name='username']").val(resp.realName);
+                        console.log(resp.realName);
+                        $("input[name='age']").val(resp.age);
+                        if (resp.gender==71) {
+                            $("select[name='sex']").val("0")
+                        }else{
+                            $("select[name='sex']").val("1")
+                        }
+                    }
+                },'json')
+            });
+
+            $("#visitDate").blur(function () {
+                var casenum=$("input[name='casenum']").val();
+                $.post("regist/thr",{visitdate:$(this).val()},function (resp,status,xhr) {
+                    console.log(resp);
+                    decew=resp;
+                    $("select[name='noon']").html("");
+                    htmlContent='<option value='+resp[0].noon+'>'+resp[0].noon+'</option>';
+                    $("select[name='noon']").append(htmlContent);
+                    htmlContent1='<option value='+resp[0].deptID+'>'+resp[0].deptName+'</option>';
+                    $("select[name='dep']").append(htmlContent1);
+                    htmlContent3='<option value='+resp[0].registLeName+'>'+resp[0].registLeName+'</option>';
+                    $("select[name='haobie']").append(htmlContent3);
+                    htmlContent2='<option value='+resp[0].realName+'>'+resp[0].realName+'</option>';
+                    $("select[name='doc']").append(htmlContent2);
+                    for (var i=1;i<resp.length;i++){
+                       for (var j=1;i<=i;j++){
+                           if (resp[j].noon!=resp[j-1].noon){
+                               htmlContent='<option value='+resp[j].noon+'>'+resp[j].noon+'</option>';
+                               $("select[name='noon']").append(htmlContent);
+                           }
+                        }
+                        for (var j=1;i<=i;j++){
+                            if (resp[j].deptName!=resp[j-1].deptName){
+                                htmlContent1='<option value='+resp[j].deptID+'>'+resp[j].deptName+'</option>';
+                                $("select[name='dep']").append(htmlContent1);
+                            }
+                        }
+                        for (var j=1;i<=i;j++){
+                            if (resp[j].realName!=resp[j-1].realName){
+                                htmlContent3='<option value='+resp[j].registLeName+'>'+resp[j].registLeName+'</option>';
+                                $("select[name='dep']").append(htmlContent2);
+                            }
+                        }
+                        for (var j=1;i<=i;j++){
+                            if (resp[j].realName!=resp[j-1].realName){
+                                htmlContent2='<option value='+resp[j].userID+'>'+resp[j].realName+'</option>';
+                                $("select[name='dep']").append(htmlContent2);
+                            }
+                        }
+                    }
+
+                },'json')
+            });
+            $("select[name='doc']").blur(function () {
+                console.log(decew);
+                $.post('regist/foth',{name:$("select[name='doc']").val(),visitdate:$("#visitDate").val()},function (resp,status,shr) {
+                    console.log(resp);
+                    $("#yiyong").val(resp);
+
+                });
+                for (var i=0;i<decew.length;i++){
+                    if (decew[i].realName==$("select[name='doc']").val()){
+                         $("#quto1").val(decew[i].registQuota);
+                         $("#fee1").val(decew[i].registFee);
+                    }
+                }
+
+            })
+
+
         });
     </script>
 </body>
