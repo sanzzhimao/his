@@ -30,6 +30,26 @@ public class BackMedicalService implements IBackMedicalService {
        }
         return list;
     }
+
+    @Override
+    public List<SendMedical> selectSendMedicalService2(String st) throws SQLException, ParseException {
+        List<SendMedical> list=null;
+        try{
+            con=JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            BackMedicalDao bmd=new BackMedicalDao();
+            bmd.setConnection(con);
+            list=bmd.backMedical2(st);
+            con.commit();
+        }catch (SQLException e){
+            con.rollback();
+            e.printStackTrace();
+        }  finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return list;
+    }
+
     //更改成功返回true  失败返回false
     @Override
     public boolean modifyState(int id) throws SQLException {

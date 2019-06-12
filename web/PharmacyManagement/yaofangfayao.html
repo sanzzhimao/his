@@ -8,6 +8,7 @@
   <title>药房发药</title>
   <link rel="stylesheet" href="../layui/css/layui.css">
   <script src="../layui/layui.js"></script>
+  <script src="../js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
@@ -32,8 +33,8 @@
           </div>
         </td>
         <td>
-          <div class="layui-form-item" id="chaxunbutton">
-            <button class="layui-btn layui-btn-normal">查询</button>
+          <div >
+            <button type="button" id="check">查询</button><button type="button" id="send">发药</button>
           </div>
         </td>
       </tr>
@@ -41,12 +42,90 @@
   </form>
 
 
-  <table class="layui-hide" id="test"></table>
+  <table  class="layui-table" id="test" border="1">
+    <tr id="head">
+      <td><input type="checkbox"></td>
+      <td>药品名称</td>
+      <td>单价</td>
+      <td>数量</td>
+      <td>药品状态</td>
+      <td>开立医生</td>
+      <td>处方名称</td>
+      <td>开立时间</td>
+    </tr>
+  </table>
+  <div id="qwe"></div>
 
   <script>
+
+
     layui.use(['table', 'element'], function () {
       var element = layui.element;
       var table = layui.table;
+      var $=layui.jquery;
+      var respone;
+      $("#check").click(function(){
+        $("#head").siblings().hide();
+        var binlinum=$("#binglinum").val()
+        $.post("drug/fir",
+                {binglihao:binlinum},
+                function (resp,status,xhr) {
+                  var i=0;
+                   for (var i=0;i<resp.length;i++){
+                     var date=new Date(resp[i].date);
+                     year=date.getFullYear();
+                     month=date.getMonth()+1;
+                     day=date.getDate();
+                     respone=resp[0];
+                     var todate=year+"-"+month+"-"+day;
+                     console.log(resp[i])
+                     var str="<tr>"+
+                             "<td><input type='checkbox' value="+resp[i].id+" name=\"check\"></td>"+
+                             "<td>"+resp[i].drugsName+"</td>"+
+                             "<td>"+resp[i].drugsPrice+"</td>"+
+                             "<td>"+resp[i].amount+"</td>"+
+                             "<td>"+resp[i].delmark+"</td>"+
+                             "<td>"+resp[i].realName+"</td>"+
+                             "<td>"+resp[i].prescriptionName+"</td>"+
+                             "<td>"+todate+"</td>"+
+                             "</tr>";
+                     $("#test").append(str);
+                   }
+                },'json')
+      })
+        $("#send").click(function () {
+          var checked_value="";
+          $("input[name='check']:checked").each(function () {
+            checked_value+=($(this).val()+",");
+            console.log($(this).val());
+          })
+          alert(checked_value);
+          $.post("drug/two",{ids:checked_value},function (resp,status,xhr) {
+            // if (resp==1){
+              $("input[name='check']:checked").each(function () {
+                $(this).parent().parent().remove();
+                checked_value="";
+              })
+            // }
+          })
+        })
+        // $.ajax({
+        //   type:"post",
+        //   url:"drug/fir",
+        //   date:{
+        //     "binlihao":$("#binglinum").val(),
+        //     "date":$("#birthDate").val()
+        //   },
+        //   success:function (res) {
+        //     console.log(res);
+        //     $("#a").html(46)
+        //
+        //   },
+        //   error:function () {
+        //     alert("错误")
+        //   }
+        // },'json');
+
 
 
       table.render({
@@ -64,7 +143,7 @@
           { field: 'kailishijian', title: '开立时间', },
         ]],
         data: [{
-          "yaopinmingcheng": "10001",
+          "yaopinmingcheng":"1001",
           "danjia": "杜甫",
           "shuliang": "111",
           "yaopinzhuangtai": "10001",

@@ -30,7 +30,27 @@ public class SendMedicalService implements ISendMedicalService {
        }
         return list;
     }
-//更改成功返回true  失败返回false
+
+    @Override
+    public List<SendMedical> selectSendMedicalService2(String st) throws SQLException, ParseException {
+        List<SendMedical> list=null;
+        try{
+            SendMedicalDao smd=new SendMedicalDao();
+            con=JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            smd.setConnection(con);
+            list=smd.sendMedical2(st);
+            con.commit();
+        }catch (SQLException e){
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return list;
+    }
+
+    //更改成功返回true  失败返回false
     @Override
     public boolean modifyState(int id) throws SQLException {
         boolean check=true;
