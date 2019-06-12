@@ -234,7 +234,7 @@ public class RegistDao implements IRegistDao {
         pstm.setDate(5,date);
         pstm.setInt(6,reg.getAge());
         //年龄类型？？？
-        pstm.setString(7, reg.getAgeTpye());
+        pstm.setString(7,"s");
         pstm.setString(8,reg.getHomeAddress());
         //看诊日期
         Date vistiDate=new Date(reg.getVisitDate().getTime());
@@ -289,7 +289,7 @@ public class RegistDao implements IRegistDao {
     **/
     @Override
     public boolean addPatientCosts(PatientCosts pc) throws SQLException {
-        String sql="insert into patientCosts(registid,invoiceid,itemid,itemtype,name,price,amount,deptid,createtime,createoperid,paytime,registerid,freetype,backid)" +
+        String sql="insert into patientCosts(registid,invoiceid,itemid,itemtype,name,price,amount,deptid,createtime,createoperid,paytime,registerid,feetype,backid)" +
                 " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstm = con.prepareStatement(sql);
         pstm.setInt(1,pc.getRegistID());
@@ -308,6 +308,7 @@ public class RegistDao implements IRegistDao {
         pstm.setInt(12,pc.getRegisterID());
         pstm.setInt(13,pc.getFeeType());
         pstm.setInt(14,pc.getBackID());
+        pstm.executeUpdate();
         JdbcUtil.release(null,pstm,null);
         return true;
     }
@@ -377,6 +378,22 @@ public class RegistDao implements IRegistDao {
         }
         JdbcUtil.release(null,psmt,rs);
         return constantID;
+    }
+
+    @Override
+    public int selectRegistID(String caseNum, String  visitDate) throws SQLException {
+        String sql="select id from register where CaseNumber=? and VisitDate=?";
+        PreparedStatement psmt=con.prepareStatement(sql);
+        psmt.setString(1,caseNum);
+        psmt.setString(2,visitDate);
+        ResultSet rs=psmt.executeQuery();
+        int id=0;
+        while (rs.next()){
+            id=rs.getInt(1);
+        }
+        JdbcUtil.release(null,psmt,rs);
+        return id;
+
     }
 
 }

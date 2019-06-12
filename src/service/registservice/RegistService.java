@@ -13,6 +13,8 @@ import vo.*;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -118,11 +120,19 @@ public class RegistService implements IRegistService{
         IRegistDao registDao=new RegistDao();
         registDao.setConnection(con);
         PatientCosts pc=new PatientCosts();
+        DateFormat df=new  SimpleDateFormat("yyyy-MM-dd");
+        int resID=0;
+        try {
+            resID = registDao.selectRegistID(register.getCaseNumber(),df.format(register.getVisitDate()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        iv.setRegistID(resID);
         pc.setRegisterID(register.getId());
         pc.setInvoiceID(iv.getId());
         //暂时先写着
-        pc.setItemID(1);
-        pc.setItemType(1);
+        pc.setItemID(51);
+        pc.setItemType(5);
         pc.setName(register.getRealName());
         pc.setPrice(iv.getMoney());
         pc.setAmount(1);
@@ -140,7 +150,8 @@ public class RegistService implements IRegistService{
             if (num1>= num){
                 registDao.addRegist(register);
                 registDao.addInvoice(iv);
-                registDao.addPatientCosts(pc);
+                System.out.println(pc);
+                System.out.println(registDao.addPatientCosts(pc));
                 return  true;
             }else{
                 return  false;
@@ -171,6 +182,21 @@ public class RegistService implements IRegistService{
             JdbcUtil.release(con,null,null);
         }
         return list;
+    }
+
+    @Override
+    public int findRrgisteID(String caseNum, String visitdate) {
+        IRegistDao registDao=new RegistDao();
+        registDao.setConnection(con);
+        int id=0;
+        try {
+            id = registDao.selectRegistID(caseNum,visitdate);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return id;
     }
 
 }

@@ -1,9 +1,11 @@
 package servlet.regist;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dao.informationdao.INoDrugDao;
 import dao.registdao.RegistDao;
 import org.hamcrest.Condition;
 import service.registservice.RegistService;
+import vo.Invoice;
 import vo.Register;
 
 import javax.servlet.ServletException;
@@ -64,6 +66,81 @@ public class RegisterServlet extends HttpServlet {
             int ss=service.findUsedQuto(name, Date.valueOf(visitdate));
             System.out.println(ss);
             pw.println(ss);
+        }if (check2.equals("fith")){
+
+            String casenum=request.getParameter("casenum");
+
+            String realname=request.getParameter("realname");
+
+            String gender=request.getParameter("gender");
+
+            String idNumber=request.getParameter("idNumber");
+
+            String birthday=request.getParameter("birthday");
+
+            String age=request.getParameter("age");
+
+            String homeAddress=request.getParameter("homeAddress");
+
+            String visidate=request.getParameter("visidate");
+
+            String noon=request.getParameter("noon");
+
+            String deptID=request.getParameter("deptID");
+
+            String registeLeID=request.getParameter("registLeID");
+            System.out.println(registeLeID);
+            String settleID=request.getParameter("settleID");
+            System.out.println(settleID);
+            String isBook=request.getParameter("isBook");
+
+            String deptName=request.getParameter("deptName");
+            String invoicenum=request.getParameter("invoceNum");
+
+            String money=request.getParameter("money");
+
+            String feetype=request.getParameter("feeType");
+
+            String quto=request.getParameter("quto");
+            Register register=new Register();
+            Invoice iv=new Invoice();
+            register.setCaseNumber(casenum);
+            register.setRealName(realname);
+            register.setGender(Integer.parseInt(gender));
+            register.setIdNumber(idNumber);
+            register.setUserID(1);
+
+            register.setRegistTime(new java.util.Date());
+
+            register.setBirthDate(Date.valueOf(birthday));
+
+            register.setAge(Integer.parseInt(age));
+            register.setAgeTpye("岁");
+            register.setHomeAddress(homeAddress);
+
+            register.setVisitDate(Date.valueOf(visidate));
+
+            register.setNoon(noon);
+
+            register.setDeptID(Integer.parseInt(deptID));
+
+            register.setRegistLeID(Integer.parseInt(registeLeID));
+
+            register.setSettLeID(Integer.parseInt(settleID));
+            register.setIsBook(isBook);
+            register.setDeptName(deptName);
+            iv.setInvoiceNum(invoicenum);
+            iv.setMoney(Double.parseDouble(money));
+            System.out.println(feetype);
+            iv.setFeeType(Integer.parseInt(feetype));
+            iv.setState(1);
+            iv.setCreationTime(new java.util.Date());
+            iv.setUserID(1);
+
+            System.out.println(register);
+            System.out.println(iv);
+            System.out.println(service.registered(register, iv, Integer.parseInt(quto)));
+
         }
         //
 

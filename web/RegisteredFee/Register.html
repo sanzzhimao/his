@@ -18,10 +18,10 @@
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label">*发票号</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="invoicenum" required lay-verify="required" placeholder="6" autocomplete="off"
-                        class="layui-input">
+                    <input type="text" name="invoicenum" required lay-verify="required" placeholder="100000" autocomplete="off"
+                        class="layui-input" id="iv">
                 </div>
-                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe6b2; 挂号</button>
+                <button type="button" class="layui-btn layui-icon" lay-submit lay-filter="formDemo" id="guahao">&#xe6b2; 挂号</button>
                 <button type="reset" class="layui-btn layui-icon layui-btn-primary">&#xe669; 清空</button>
                 <br>
 
@@ -57,12 +57,12 @@
                 </div>
                 <label class="layui-form-label">身份证号：</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="再次输入身份证号" autocomplete="off"
+                    <input type="text" name="idNumber" required lay-verify="required" placeholder="再次输入身份证号" autocomplete="off"
                         class="layui-input">
                 </div>
                 <label class="layui-form-label">*家庭住址：</label>
                 <div class="layui-input-inline">
-                    <input type="text" name="" required lay-verify="required" placeholder="在此输入家庭住址" autocomplete="off"
+                    <input type="text" name="address" required lay-verify="required" placeholder="在此输入家庭住址" autocomplete="off"
                         class="layui-input">
                 </div>
             </div>
@@ -77,12 +77,12 @@
                 </div>
                 <label class="layui-form-label">*看诊日期</label>
                 <div class="layui-input-inline">
-                    <input type="date" class="layui-input layui-icon" id="visitDate" placeholder="&#xe637; 看诊日期">
+                    <input type="text" class="layui-input layui-icon" id="visitDate" placeholder="&#xe637; 看诊日期">
                 </div>
                 <label class="layui-form-label">*午 别：</label>
                 <div class="layui-input-inline">
                     <select name="noon">
-                        <option>111</option>
+
                     </select>
                 </div>
                 <label class="layui-form-label">挂号科室：</label>
@@ -103,7 +103,6 @@
                     <select name="doc">
 
                     </select>
-
                 </div>
                 <label class="layui-form-label">初始号额：</label>
                 <div class="layui-input-inline">
@@ -129,15 +128,15 @@
                 </div>
                 <label class="layui-form-label">*收费方式：</label>
                 <div class="layui-input-inline">
-                    <select name="">
-                        <option value="" selected>现金</option>
-                        <option value="">医保卡</option>
-                        <option value="">银行卡</option>
-                        <option value="">信用卡</option>
-                        <option value="">微信</option>
-                        <option value="">支付宝</option>
-                        <option value="">云闪付</option>
-                        <option value="">其他</option>
+                    <select name="feetype">
+                        <option value="1" selected>现金</option>
+                        <option value="2">医保卡</option>
+                        <option value="3">银行卡</option>
+                        <option value="4">信用卡</option>
+                        <option value="5">微信</option>
+                        <option value="6">支付宝</option>
+                        <option value="7">云闪付</option>
+                        <option value="8">其他</option>
                     </select>
                 </div>
             </div>
@@ -149,11 +148,13 @@
             var element = layui.element;
             var form = layui.form;
             var laydate = layui.laydate;
-            var $ = layui.jquery;
 
             form.render();
             laydate.render({
                 elem: '#birthDate' //指定元素
+            });
+            laydate.render({
+                elem: '#visitDate'
             });
             var decew;
             $.post("regist/fir",{name:"root"},function (resp,status,xhr) {
@@ -182,52 +183,65 @@
 
             $("#visitDate").blur(function () {
                 var casenum=$("input[name='casenum']").val();
-                console.log($("#visitDate").val());
-                $.post(
-                    'regist/thr',
-                    {visitdate:$("#visitDate").val()},
-                    function (resp,status,xhr) {
+                $.post("regist/thr",{visitdate:$(this).val()},function (resp,status,xhr) {
                     console.log(resp);
                     decew=resp;
-                    $("select[name='noon']").html("");
                     htmlContent='<option value='+resp[0].noon+'>'+resp[0].noon+'</option>';
                     $("select[name='noon']").append(htmlContent);
                     htmlContent1='<option value='+resp[0].deptID+'>'+resp[0].deptName+'</option>';
                     $("select[name='dep']").append(htmlContent1);
-                    htmlContent3='<option value='+resp[0].registLeName+'>'+resp[0].registLeName+'</option>';
+                    htmlContent3='<option value='+resp[0].registLeID+'>'+resp[0].registLeName+'</option>';
                     $("select[name='haobie']").append(htmlContent3);
                     htmlContent2='<option value='+resp[0].realName+'>'+resp[0].realName+'</option>';
                     $("select[name='doc']").append(htmlContent2);
                     for (var i=1;i<resp.length;i++){
-                       for (var j=0;j<i;j++){
-                           if (resp[j].noon!=resp[j-1].noon){
-                               htmlContent='<option value='+resp[j].noon+'>'+resp[j].noon+'</option>';
-                               $("select[name='noon']").append(htmlContent);
+                        var num=0;
+                       for (var j=i;j>=1;j--){
+                           if (resp[i].noon==resp[j-1].noon){
+                               num=1;
                            }
                         }
-                        for (var j=1;j<=i;j++){
-                            if (resp[j].deptName!=resp[j-1].deptName){
-                                htmlContent1='<option value='+resp[j].deptID+'>'+resp[j].deptName+'</option>';
-                                $("select[name='dep']").append(htmlContent1);
+                       if (num==0){
+                           htmlContent='<option value='+resp[i].noon+'>'+resp[i].noon+'</option>';
+                           $("select[name='noon']").append(htmlContent);
+                       }
+                        num=0;
+                        for (var j=i;j>=1;j--){
+                            if (resp[i].registLeName==resp[j-1].registLeName){
+                                num=1;
                             }
                         }
-                        for (var j=1;j<=i;j++){
-                            if (resp[j].realName!=resp[j-1].realName){
-                                htmlContent3='<option value='+resp[j].registLeName+'>'+resp[j].registLeName+'</option>';
-                                $("select[name='dep']").append(htmlContent2);
+                        if (num==0) {
+                            htmlContent1='<option value='+resp[i].deptID+'>'+resp[i].deptName+'</option>';
+                            $("select[name='dep']").append(htmlContent1);
+                        }
+                        num=0;
+                        for (var j=i;j>=1;j--){
+                            if (resp[i].registLeName==resp[j-1].registLeName){
+                                num=1;
                             }
                         }
-                        for (var j=1;j<=i;j++){
-                            if (resp[j].realName!=resp[j-1].realName){
-                                htmlContent2='<option value='+resp[j].userID+'>'+resp[j].realName+'</option>';
-                                $("select[name='dep']").append(htmlContent2);
-                            }
+                        if (num==0) {
+                            htmlContent3='<option value='+resp[i].registLeID+'>'+resp[i].registLeName+'</option>';
+                            $("select[name='haobie']").append(htmlContent3);
                         }
+                        num=0;
+                            for (var j=i;j>=1;j--){
+                                if (resp[i].realName==resp[j-1].realName){
+                                    num=1;
+                                }
+                            }
+
+                        if (num==0){
+                            htmlContent2='<option value='+resp[i].userID+'>'+resp[i].realName+'</option>';
+                            $("select[name='doc']").append(htmlContent2);
+                        }
+                        num=0;
                     }
 
                 },'json')
             });
-            $("select[name='doc']").click(function () {
+            $("select[name='doc']").blur(function () {
                 console.log(decew);
                 $.post('regist/foth',{name:$("select[name='doc']").val(),visitdate:$("#visitDate").val()},function (resp,status,shr) {
                     console.log(resp);
@@ -242,7 +256,36 @@
                 }
 
             })
+        $("#guahao").click(function () {
+            console.log($("#iv").val());
+            $.post('regist/fith',
+                {
+                    casenum:$("input[name='casenum']").val(),
+                    realname:$("input[name='username']").val(),
+                    gender:1,
+                    idNumber:$("input[name='idNumber']").val(),
+                    birthday:"1993-03-09",
+                    age:$("input[name='age']").val(),
+                    agetype:"岁",
+                    homeAddress:$("input[name='address']").val(),
+                    visidate:$("#visitDate").val(),
+                    noon:$("select[name='noon']").val(),
+                    deptID:$("select[name='dep']").val(),
+                    registLeID:$("select[name='haobie']").val(),
+                    settleID:$("select[name='settle']").val(),
+                    isBook:"否",
+                    visitstate:1,
+                    deptName:$("input[name='dsp']").find("option:selected").text(),
+                    invoceNum:$("#iv").val(),
+                    money:$("input[name='fee']").val(),
+                    feeType:$("select[name='feetype']").val(),
+                    quto:$("input[name='quto']").val()
+                },
+                function (resp,status,xhr){
 
+                console.log(status);
+            })
+        })
 
         });
     </script>
