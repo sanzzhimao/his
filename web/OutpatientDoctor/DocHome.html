@@ -44,8 +44,8 @@
             </div>
             <div style="position:absolute;top:30px;left:400px">
                 <div>
-                    <span id="patient">请选择患者</span>
-                    <span id="end" style="float: right;cursor: pointer;color:#009688">诊毕</span>
+                    <span id="patient" style="background:#009688;color: white;padding: 2px ">请选择患者</span>
+                    <span id="end" style="float: right;cursor: pointer;color:#009688;display:none">诊毕</span>
                 </div>
                 <div class="layui-tab"   name="message">
                 <ul class="layui-tab-title">
@@ -309,9 +309,11 @@
                         if(res.caseState!="1"){
                             $("#homepage textarea").attr('disabled',true).css({"background":"white","opacity":"0.5"});
                             $("#submit").attr('disabled',true).css({"opacity":"0.5"});
+                            $("#end").css({"display":"inline"});
                         }else {
                             $("#homepage textarea").attr('disabled',false).css({"background":"white","opacity":"1"});
-                            $("#submit").attr('disabled',false).css({"opacity":"1"});;
+                            $("#submit").attr('disabled',false).css({"opacity":"1"});
+                            $("#end").css({"display":"none"});
                         }
                         $("textarea[name=readme]").val(res.readme);
                         $("textarea[name=present]").val(res.present);
@@ -349,8 +351,9 @@
                         careful:$("textarea[name=careful]").val(),
                         id:$("div[name=message]").attr('id')
                     }
+
                 )
-                userlist();
+                window.location.reload()
             })
             $("#save").hover(function () {
                 $(this).css({"opacity":"0.7","cursor":"pointer"});
@@ -371,9 +374,10 @@
             //诊毕点击事件
             $("#end").click(function () {
                 $.post(
-                    'doctor/end'
+                    'doctor/end',
+                    {id:$("div[name=message]").attr('id')}
                 )
-                userlist();
+                window.location.reload();
             })
 
             form.render();

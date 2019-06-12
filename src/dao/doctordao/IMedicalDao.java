@@ -15,6 +15,9 @@ public interface IMedicalDao {
     //通过科室ID查病历
     MedicalRecord selectMedicalByID(int id) throws SQLException;
 
+    //诊毕
+    void updateCaseState(int id)throws SQLException;
+
     //修改病历首页
     void updateMedicalHome(MedicalRecord me) throws SQLException;
 

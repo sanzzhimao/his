@@ -98,6 +98,20 @@ public class MedicalDao implements IMedicalDao {
     }
 
     /**
+     * 诊毕
+     * @param id
+     * @throws SQLException
+     */
+    @Override
+    public void updateCaseState(int id) throws SQLException {
+        String sql="update medicalrecord set CaseState=3 where RegistID=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setInt(1,id);
+        pstmt.executeUpdate();
+        JdbcUtil.release(null,pstmt,null);
+    }
+
+    /**
      * 修改病历首页
      * @param me
      * @throws SQLException

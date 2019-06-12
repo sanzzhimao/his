@@ -64,6 +64,24 @@ public class MedicalService implements IMedicalService{
         return null;
     }
 
+    @Override
+    public void updateCaseState(int id) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IMedicalDao idd=new MedicalDao();
+            idd.setConnection(con);
+            idd.updateCaseState(id);
+            con.commit();
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+    }
+
     /**
      *
      * @param me

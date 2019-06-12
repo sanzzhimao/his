@@ -93,9 +93,15 @@ public class DoctorHomeServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        //诊毕
         if(kind.equals("end")){
             System.out.println("诊毕");
-
+            int id=Integer.parseInt(request.getParameter("id"));
+            try {
+                ims.updateCaseState(id);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
