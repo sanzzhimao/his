@@ -8,6 +8,7 @@
     <title>常数类别管理</title>
     <link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../layui/layui.all.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
@@ -27,12 +28,12 @@
             </td>
             <td>
                 <div class="layui-form-item">
-                    <button class="layui-btn">新增常数类别</button>
+                    <button type="button" class="layui-btn" id="xinzeng">新增常数类别</button>
                 </div>
             </td>
             <td>
                 <div class="layui-form-item">
-                    <button class="layui-btn">常数项管理</button>
+                    <button type="button" class="layui-btn" id="guanli">常数项管理</button>
                 </div>
             </td>
             <tr>
@@ -57,18 +58,40 @@
     <div id="demo0"></div>
 
     <script>
-        layui.use(['laypage', 'layer'], function () {
-            var laypage = layui.laypage,
-                layer = layui.layer;
-    
-            laypage.render({
-                elem: 'demo0',
-                count: 100,
-                prev: '<',
-                next: '>'
+            layui.use(['laypage', 'layer', 'element', 'form', 'table'], function () {
+                var element = layui.element;
+                var laypage = layui.laypage;
+                var layer = layui.layer;
+                var form = layui.form;
+                var table = layui.table;
+
+
+                laypage.render({
+                    elem: 'demo1',
+                    count: 50,
+                    prev: '<',
+                    next: '>'
+                });
             });
-        });
-    </script>
+
+            $('#xinzeng').on('click', function () {
+                layer.open({
+                    type: 2,
+                    title: '新增常数类别',
+                    area: ['800px', '400px'],
+                    content: '../layer/xinzengchangshuleibie.html'
+                });
+            });
+
+            $('#guanli').on('click', function () {
+                layer.open({
+                    type: 2,
+                    title: '新增常数类别',
+                    area: ['800px', '400px'],
+                    content: '../layer/changshuxiangliebiao.html'
+                });
+            });
+        </script>
 </body>
 
 </html>

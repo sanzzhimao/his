@@ -1,113 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<tb>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>药品管理</title>
     <link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../layui/layui.js"></script>
-</head>
+    <script src="../js/jquery-3.3.1.min.js"></script>
 
-<body>
-    <form class="layui-form" action="">
-        <table>
-            <td>
-                <div class="layui-form-item">
-                    <div class="layui-input-block">
-                        <input type="text" id="binglinum" name="title" required lay-verify="required"
-                            placeholder="请输入药品助记码" autocomplete="off" class="layui-input">
+    <body>
+        <form class="layui-form" action="">
+            <table>
+                <td>
+                    <div>
+                        <div class="layui-input-block">
+                            <input type="text" id="binglinum" name="title" lay-verify="required" placeholder="请输入药品助记码"
+                                autocomplete="off" class="layui-input">
+                        </div>
                     </div>
-                </div>
-            </td>
-            <td>
-                <div class="layui-form-item" class="yaopinbutton">
-                    <button class="layui-btn layui-btn-normal">查询药品</button>
-                </div>
-            </td>
-            <td>
-                <div class="layui-form-item" class="yaopinbutton">
-                    <button class="layui-btn layui-btn-normal">新增药品</button>
-                </div>
-            </td>
-            <td>
-                <div class="layui-form-item" class="yaopinbutton">
-                    <button class="layui-btn layui-btn-normal">导入药品</button>
-                </div>
-            </td>
-        </table>
-    </form>
+                </td>
+                <td>
+                    <div>
+                        <button class="layui-btn layui-btn-normal">查询药品</button>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button type="button" class="layui-btn layui-btn-normal" id="xinzeng">新增药品</button>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button class="layui-btn layui-btn-normal">导入药品</button>
+                    </div>
+                </td>
+            </table>
+        </form>
 
-    <form class="layui-form" action="">
-        <table class="layui-table" lay-even lay-skin="nob">
+        <form class="layui-form" action="">
+            <table class="layui-table" lay-even lay-skin="nob">
 
-            <thead>
-                <tr>
-                    <th>
-                        <input type="checkbox" name="" title="" lay-skin="primary">
-                    </th>
-                    <th>药品编码</th>
-                    <th>药品名称</th>
-                    <th>药品规格</th>
-                    <th>药品单位</th>
-                    <th>药品单价</th>
-                    <th>药品剂型</th>
-                    <th>药品类型</th>
-                    <th>操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
-                    <td> </td>
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" name="" title="" lay-skin="primary">
+                        </th>
+                        <th>药品编码</th>
+                        <th>药品名称</th>
+                        <th>药品规格</th>
+                        <th>药品单位</th>
+                        <th>药品单价</th>
+                        <th>药品剂型</th>
+                        <th>药品类型</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
 
-                    <td>
-                        <button class="layui-btn layui-btn-normal" id="bianji">编辑</button>
-                        <button class="layui-btn layui-btn-danger">删除</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-<<<<<<< HEAD
-                        <div class="layui-form-item layui-inline">
-                            <button class="layui-btn">查询药品</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="layui-form-item">
-                            <button class="layui-btn">新增药品</button>
-                        </div>
-                    </td>
-                    <td>
-                            <div class="layui-form-item">
-                                <button class="layui-btn">导入药品</button>
-                            </div>
+                        <td>
+                            <button class="layui-btn layui-btn-normal" id="bianji">编辑</button>
+                            <button class="layui-btn layui-btn-danger">删除</button>
                         </td>
-                  
-        
-                </table>
-=======
-                        <button class="layui-btn layui-btn-danger">批量删除</button>
-                    </td>
-                    <td>
-                        <div id="demo1"></div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
->>>>>>> 632a21a732c354fa42215a3236b666343f9c5019
-    </form>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="layui-btn layui-btn-danger">批量删除</button>
+
+
+            <div id="demo1"></div>
+
+
+
+
+        </form>
+
+
         <script>
-            layui.use(['laypage', 'layer'], function () {
-                var laypage = layui.laypage,
-                    layer = layui.layer;
+            layui.use(['laypage', 'layer', 'element', 'form', 'table'], function () {
+                var element = layui.element;
+                var laypage = layui.laypage;
+                var layer = layui.layer;
+                var form = layui.form;
+                var table = layui.table;
+
 
                 laypage.render({
                     elem: 'demo1',
@@ -116,6 +103,16 @@
                     next: '>'
                 });
             });
+
+            $('#xinzeng').on('click', function () {
+                layer.open({
+                    type: 2,
+                    title: '新增药品',
+                    area: ['800px', '520px'],
+                    content: '../layer/xinzengyaopin.html'
+                });
+            });
         </script>
-</body>
+    </body>
+
 </html>
