@@ -133,13 +133,13 @@
                     </div>
 
                     <div class="layui-tab-item">
-                        <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">新增项目</button>
+                        <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo" id="xinzengxiangmu1">新增项目</button>
                         <p>本项目金额合计:0元</p>
                         <table class="layui-hide" id="jianchashenqing1"></table>
                     </div>
 
                     <div class="layui-tab-item">
-                        <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">新增项目</button>
+                        <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo" id="xinzengxiangmu2">新增项目</button>
                         <p>本项目金额合计:0元</p>
                         <table class="layui-hide" id="jianchashenqing2"></table>
                     </div>
@@ -263,10 +263,30 @@
     </div>
 
     <script>
-        layui.use(['element', 'form', 'laydate', 'table'], function () {
+        layui.use(['element', 'form', 'laydate', 'table','layer'], function () {
             var element = layui.element;
             var form = layui.form;
             var table = layui.table;
+            var layer=layui.layer;
+
+            $('#xinzengxiangmu1').on('click', function () {
+                layer.open({
+                    type: 2,
+                    title: '新增医技',
+                    area: ['800px', '500px'],
+                    content: '../layer/xinzengyiji.html'
+                })
+            })
+
+            $('#xinzengxiangmu2').on('click', function () {
+                layer.open({
+                    type: 2,
+                    title: '新增医技',
+                    area: ['800px', '500px'],
+                    content: '../layer/xinzengyiji.html'
+                })
+            })
+
             function userlist(){
                 $("#yizhenhuanzhe").empty();
                 $("#weizhenhuanzhe").empty();
@@ -379,6 +399,7 @@
                 )
                 window.location.reload();
             })
+
 
             form.render();
             //方法渲染
