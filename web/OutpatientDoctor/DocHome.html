@@ -19,7 +19,7 @@
             <!-- <button type="reset" class="layui-btn layui-icon layui-btn-primary">&#xe669;</button> -->
 
             <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo" id="select">&#xe615;</button>
-            <label class="layui-form-label">患者名:</label>
+            <label class="layui-form-label" style="margin-left: -45px">患者名:</label>
             <div class="layui-input-inline">
                 <input type="text" name="select" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
                     class="layui-input">
@@ -33,18 +33,21 @@
 
                 <div class="layui-tab-content" >
                     <div class="layui-form-item " style="margin-top:20px;" id="user">
-                        <p style="background: #1E9FFF;color: white;font-size: 16px;">未诊患者:</p>
+                        <p style="background:#009688;color: white;font-size:16px;padding:2px">未诊患者:</p>
                         <table class="" id="weizhenhuanzhe" style="width: 280px">
-                            <tr><td >15615</td></tr>
                         </table>
                         <hr style="width: 280px">
-                        <p style="background: #1E9FFF;color: white;font-size: 16px;">已诊患者:</p>
+                        <p style="background:#009688;color: white;font-size:16px;padding:2px">已诊患者:</p>
                         <table class="" id="yizhenhuanzhe" style="width: 280px"></table>
                     </div>
                 </div>
             </div>
-
-            <div class="layui-tab" style="margin-left: 380px;margin-top: -190px;float: left" id="" name="message">
+            <div style="position:absolute;top:30px;left:400px">
+                <div>
+                    <span id="patient">请选择患者</span>
+                    <span id="end" style="float: right;cursor: pointer;color:#009688">诊毕</span>
+                </div>
+                <div class="layui-tab"   name="message">
                 <ul class="layui-tab-title">
                     <li class="layui-this">病历首页</li>
                     <li>检查申请</li>
@@ -59,10 +62,10 @@
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show" id="homepage">
                         <form action="">
-                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">暂存</button>
-                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">提交</button>
-                            <button type="reset" class="layui-btn layui-icon layui-btn-primary">清空</button>
-                            <br><br>
+<!--                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">暂存</button>-->
+<!--                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">提交</button>-->
+<!--                            <button type="reset" class="layui-btn layui-icon layui-btn-primary">清空</button>-->
+<!--                            <br><br>-->
 
                             <p>病史内容：</p>
                             <br>
@@ -142,10 +145,11 @@
                     </div>
 
                     <div class="layui-tab-item">
-                        <p style="background: #01AAED; color:white">
+                        <p style="background:#009688; color:white;padding: 2px">
                             <span style="padding-right: 400px">患者病历填写</span>
                             <span id="save">保存</span>
                         </p>
+                        <br>
                         <label class="layui-form-label">病历号</label>
                         <div class="layui-input-block">
                             <input type="text" name="casenumber" required lay-verify="required" autocomplete="off"
@@ -254,6 +258,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
     </div>
 
@@ -262,36 +267,40 @@
             var element = layui.element;
             var form = layui.form;
             var table = layui.table;
-            $.post(
-                'doctor/all',
-                function (res) {
-                    console.log(res);
-                    var msg;
-                    for(var i=0;i<res.length;i++){
-                        msg='<tr id='+res[i].registerID+'><td>'+res[i].caseNumber+'</td><td>'+res[i].realName+'</td><td>'+res[i].age+'</td></tr>';
-                        if(res[i].caseState==3){
-                            $("#yizhenhuanzhe").append(msg);
-                        }else{
-                            $("#weizhenhuanzhe").append(msg);
+            function userlist(){
+                $("#yizhenhuanzhe").empty();
+                $("#weizhenhuanzhe").empty();
+                $.post(
+                    'doctor/all',
+                    function (res) {
+                        console.log(res);
+                        var msg;
+                        for(var i=0;i<res.length;i++){
+                            msg='<tr id='+res[i].registerID+'><td>'+res[i].caseNumber+'</td><td>'+res[i].realName+'</td><td>'+res[i].age+'</td></tr>';
+                            if(res[i].caseState==2){
+                                $("#yizhenhuanzhe").append(msg);
+                            }
+                            if(res[i].caseState==1){
+                                $("#weizhenhuanzhe").append(msg);
+                            }
                         }
+                    },
+                    'json'
+                );
+            }
+            userlist();
 
-                    }
-                },
-                'json'
-            );
-
-
-            $(document).on("mouseover","tr",function () {
+            $("#user").on("mouseover","tr",function () {
                 $(this).css({"cursor":"pointer","opacity":"0.5"});
             });
 
-            $(document).on("mouseout","tr",function () {
+            $("#user").on("mouseout","tr",function () {
                 $(this).css({"cursor":"default","opacity":"1"});
             });
 
             $("#user").on("click","tr",function () {
                 $("#user").find("tr").css({"background":"white","color":"black"});
-                $(this).css({"background":"deepskyblue","color":"white"});
+                $(this).css({"background":"darkgray","color":"white"});
                 $.post(
                     'doctor/byid',
                     {id:$(this).attr('id')},
@@ -319,7 +328,8 @@
                         $("input[name=casenumber]").val(res.caseNumber);
                         $("input[name=age]").val(res.age);
                         $("select[name=sex]").val(res.gender);
-                        $("div[name=message]").attr('id',res.registerID)
+                        $("div[name=message]").attr('id',res.registerID);
+                        $("#patient").html("患者姓名："+res.realName+"  病历号："+res.caseNumber+"  年龄："+res.age);
                     },
                     'json'
                 )
@@ -340,6 +350,7 @@
                         id:$("div[name=message]").attr('id')
                     }
                 )
+                userlist();
             })
             $("#save").hover(function () {
                 $(this).css({"opacity":"0.7","cursor":"pointer"});
@@ -357,7 +368,13 @@
                     }
                 )
             })
-
+            //诊毕点击事件
+            $("#end").click(function () {
+                $.post(
+                    'doctor/end'
+                )
+                userlist();
+            })
 
             form.render();
             //方法渲染

@@ -93,6 +93,10 @@ public class DoctorHomeServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        if(kind.equals("end")){
+            System.out.println("诊毕");
+
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
