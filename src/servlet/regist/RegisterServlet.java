@@ -140,7 +140,7 @@ public class RegisterServlet extends HttpServlet {
             System.out.println(register);
             System.out.println(iv);
             System.out.println(service.registered(register, iv, Integer.parseInt(quto)));
-
+            pw.close();
         }
         //
 

@@ -143,6 +143,9 @@ public class RegistService implements IRegistService{
         pc.setRegisterID(iv.getUserID());
         pc.setFeeType(iv.getFeeType());
         pc.setBackID(0);
+        MedicalRecord mr=new MedicalRecord();
+        mr.setCaseNumber(register.getCaseNumber());
+        mr.setRegisterID(resID);
         int num=0;
         int num1=quto;
         try {
@@ -150,6 +153,7 @@ public class RegistService implements IRegistService{
             if (num1>= num){
                 registDao.addRegist(register);
                 registDao.addInvoice(iv);
+                registDao.addmedical(mr);
                 System.out.println(pc);
                 System.out.println(registDao.addPatientCosts(pc));
                 return  true;
