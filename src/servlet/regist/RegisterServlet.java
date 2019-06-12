@@ -41,6 +41,7 @@ public class RegisterServlet extends HttpServlet {
             String regiseinfo=request.getParameter("name");
             String maxIn=mapper.writeValueAsString(service.MaxInvoceAndCaseNumber(regiseinfo));
             pw.println(maxIn);
+            pw.close();
         }
         if (check2.equals("sed")){
             String casenum=request.getParameter("case");
@@ -50,6 +51,7 @@ public class RegisterServlet extends HttpServlet {
             String string=mapper.writeValueAsString(regist);
             System.out.println(string);
             pw.println(string);
+            pw.close();
         }if (check2.equals("thr")){
             String casenum=request.getParameter("casenum");
             String visitdatestr=request.getParameter("visitdate");
@@ -58,6 +60,7 @@ public class RegisterServlet extends HttpServlet {
             System.out.println(list);
             String st=mapper.writeValueAsString(list);
             pw.println(st);
+            pw.close();
         }if (check2.equals("foth")){
            String name=request.getParameter("name");
             System.out.println(name);
@@ -66,6 +69,7 @@ public class RegisterServlet extends HttpServlet {
             int ss=service.findUsedQuto(name, Date.valueOf(visitdate));
             System.out.println(ss);
             pw.println(ss);
+            pw.close();
         }if (check2.equals("fith")){
 
             String casenum=request.getParameter("casenum");
