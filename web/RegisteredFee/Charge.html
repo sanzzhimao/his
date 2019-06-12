@@ -18,12 +18,12 @@
         <div class="layui-form-item layui-inline">
             <label class="layui-form-label">*病 历 号：</label>
             <div class="layui-input-inline">
-                <input type="text" name="" required lay-verify="required" placeholder="病历号" autocomplete="off"
+                <input type="text" name="ck" required lay-verify="required" placeholder="病历号" autocomplete="off"
                     class="layui-input">
             </div>
         </div>
         <div class="layui-form-item layui-inline">
-            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615; 搜索</button>
+            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo" type="button">&#xe615; 搜索</button>
         </div>
 
         <p>患者信息确认</p>
@@ -85,6 +85,13 @@
                         title: '操作'
                     }]
                 ]
+            })
+            $("button[name='ck']").click(function () {
+                var post = $.post('cost/fir',
+                    {},
+                    function (resp, status, xhr){
+                    console.log(resp)
+                })
             })
         })
     </script>
