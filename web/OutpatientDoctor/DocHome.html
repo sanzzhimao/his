@@ -18,10 +18,10 @@
             <!-- <p>患者选择：</p> -->
             <!-- <button type="reset" class="layui-btn layui-icon layui-btn-primary">&#xe669;</button> -->
 
-            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615;</button>
+            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo" id="select">&#xe615;</button>
             <label class="layui-form-label">患者名:</label>
             <div class="layui-input-inline">
-                <input type="text" name="" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
+                <input type="text" name="select" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
                     class="layui-input">
             </div>
 
@@ -32,17 +32,21 @@
                 </ul>
 
                 <div class="layui-tab-content">
-                    <div class="layui-form-item" style="margin-top:20px;">
-                        <p>未诊患者:</p>
-                        <table class="layui-hide" id="weizhenhuanzhe"></table>
+                    <div class="layui-form-item " style="margin-top:20px;" id="user">
+                        <p style="background: #1E9FFF;color: white;font-size: 16px;">未诊患者:</p>
+                        <table class="" id="weizhenhuanzhe" style="width: 280px">
+                            <tr>
+                                <td>15615</td>
+                            </tr>
+                        </table>
                         <hr style="width: 280px">
-                        <p>已诊患者:</p>
-                        <table class="layui-hide" id="yizhenhuanzhe"></table>
+                        <p style="background: #1E9FFF;color: white;font-size: 16px;">已诊患者:</p>
+                        <table class="" id="yizhenhuanzhe" style="width: 280px"></table>
                     </div>
                 </div>
             </div>
 
-            <div class="layui-tab" style="margin-left: 380px;margin-top: -190px;">
+            <div class="layui-tab" style="margin-left: 380px;margin-top: -190px;float: left" id="" name="message">
                 <ul class="layui-tab-title">
                     <li class="layui-this">病历首页</li>
                     <li>检查申请</li>
@@ -55,7 +59,7 @@
                 </ul>
 
                 <div class="layui-tab-content">
-                    <div class="layui-tab-item layui-show">
+                    <div class="layui-tab-item layui-show" id="homepage">
                         <form action="">
                             <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">暂存</button>
                             <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">提交</button>
@@ -66,131 +70,128 @@
                             <br>
                             <label class="layui-form-label">主 诉</label>
                             <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" autocomplete="off"
-                                    class="layui-input">
+                                <textarea name="readme" class="layui-textarea"></textarea>
                             </div>
                             <br>
 
                             <label class="layui-form-label">现病史</label>
                             <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" autocomplete="off"
-                                    class="layui-input">
+                                <textarea name="present" class="layui-textarea"></textarea>
+
                             </div>
                             <br>
 
                             <label class="layui-form-label">治疗情况</label>
                             <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" autocomplete="off"
-                                    class="layui-input">
+                                <textarea name="presenttreat" class="layui-textarea"></textarea>
                             </div>
                             <br>
 
                             <label class="layui-form-label">既往史</label>
                             <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" autocomplete="off"
-                                    class="layui-input">
+                                <textarea name="history" class="layui-textarea"></textarea>
                             </div>
                             <br>
 
                             <label class="layui-form-label">过敏史</label>
                             <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" autocomplete="off"
-                                    class="layui-input">
+                                <textarea name="allergy" class="layui-textarea" value=""></textarea>
                             </div>
                             <br>
 
                             <label class="layui-form-label">体格检查</label>
                             <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" autocomplete="off"
-                                    class="layui-input">
+                                <textarea name="physique" class="layui-textarea" value=""></textarea>
                             </div>
                             <br>
 
-                            <p>评估/诊断</p>
-                            <div class="layui-tab layui-tab-card">
-                                <p>西医诊断</p>
-                                <hr>
-                                <table class="layui-table" id="binglishouye1"></table>
-                            </div>
-                            <div class="layui-tab layui-tab-card">
-                                <p>中医诊断</p>
-                                <hr>
-                                <table class="layui-table" id="binglishouye2"></table>
-                            </div>
+                            <!--                            <p>评估/诊断</p>-->
+                            <!--                            <div class="layui-tab layui-tab-card">-->
+                            <!--                                <p>西医诊断</p>-->
+                            <!--                                <hr>-->
+                            <!--                                <table class="layui-table" id="binglishouye1"></table>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="layui-tab layui-tab-card">-->
+                            <!--                                <p>中医诊断</p>-->
+                            <!--                                <hr>-->
+                            <!--                                <table class="layui-table" id="binglishouye2"></table>-->
+                            <!--                            </div>-->
 
                             <label class="layui-form-label">检察建议</label>
                             <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" autocomplete="off"
-                                    class="layui-input">
+                                <textarea name="proposal" class="layui-textarea" value=""></textarea>
                             </div>
                             <br>
                             <label class="layui-form-label">注意事项</label>
                             <div class="layui-input-block">
-                                <input type="text" name="" required lay-verify="required" autocomplete="off"
-                                    class="layui-input">
+                                <textarea name="careful" class="layui-textarea" value=""></textarea>
                             </div>
                             <br>
-                            <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">提交</button>
+                            <button type="button" class="layui-btn" id="submit">提交</button>
                         </form>
                     </div>
 
                     <div class="layui-tab-item">
-                        <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">新增项目</button>
+                        <button class="layui-btn" lay-submit lay-filter="formDemo" id="xinzengxiangmu1">新增项目</button>
                         <p>本项目金额合计:0元</p>
                         <table class="layui-hide" id="jianchashenqing1"></table>
                     </div>
 
                     <div class="layui-tab-item">
-                        <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">新增项目</button>
+                        <button class="layui-btn" lay-submit lay-filter="formDemo" id="xinzengxiangmu2">新增项目</button>
                         <p>本项目金额合计:0元</p>
                         <table class="layui-hide" id="jianchashenqing2"></table>
                     </div>
 
                     <div class="layui-tab-item">
+                        <p style="background: #01AAED; color:white">
+                            <span style="padding-right: 400px">患者病历填写</span>
+                            <span id="save">保存</span>
+                        </p>
                         <label class="layui-form-label">病历号</label>
                         <div class="layui-input-block">
-                            <input type="text" name="" required lay-verify="required" autocomplete="off"
+                            <input type="text" name="casenumber" required lay-verify="required" autocomplete="off"
                                 class="layui-input">
                         </div>
                         <br>
                         <label class="layui-form-label">患者姓名</label>
                         <div class="layui-input-block">
-                            <input type="text" name="" required lay-verify="required" autocomplete="off"
+                            <input type="text" name="realname" required lay-verify="required" autocomplete="off"
                                 class="layui-input">
                         </div>
                         <br>
                         <label class="layui-form-label">性别</label>
                         <div class="layui-input-block">
-                            <select>
-                                <option value="">男</option>
-                                <option value="">女</option>
+                            <select name="sex">
+                                <option value="71">男</option>
+                                <option value="72">女</option>
                             </select>
                         </div>
                         <br>
                         <label class="layui-form-label">年龄</label>
                         <div class="layui-input-block">
-                            <input type="text" name="" required lay-verify="required" autocomplete="off"
+                            <input type="text" name="age" required lay-verify="required" autocomplete="off"
                                 class="layui-input">
                         </div>
                         <br>
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">检查</label>
                             <div class="layui-input-block">
-                                <textarea name="desc" placeholder="请输入检查结果" class="layui-textarea"></textarea>
+                                <textarea name="checkresult" placeholder="请输入检查结果" class="layui-textarea"></textarea>
                             </div>
                         </div>
                         <br>
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">诊断</label>
                             <div class="layui-input-block">
-                                <textarea name="desc" placeholder="请输入诊断结果" class="layui-textarea"></textarea>
+                                <textarea name="diagnosis" placeholder="请输入诊断结果" class="layui-textarea"></textarea>
                             </div>
                         </div>
                         <br>
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">处理意见</label>
                             <div class="layui-input-block">
-                                <textarea name="desc" placeholder="请输入处理意见" class="layui-textarea"></textarea>
+                                <textarea name="handling" placeholder="请输入处理意见" class="layui-textarea"></textarea>
                             </div>
                         </div>
 
@@ -259,10 +260,156 @@
     </div>
 
     <script>
-        layui.use(['element', 'form', 'laydate', 'table'], function () {
+        layui.use(['element', 'form', 'laydate', 'table', 'layer'], function () {
             var element = layui.element;
             var form = layui.form;
             var table = layui.table;
+            var layer = layui.layer;
+
+            $('#xinzengxiangmu1').on('click', function () {
+                layer.open({
+                    type: 2,
+                    title: '新增医技',
+                    area: ['800px', '500px'],
+                    content: '../layer/xinzengyiji.html'
+                })
+            })
+
+            $('#xinzengxiangmu2').on('click', function () {
+                layer.open({
+                    type: 2,
+                    title: '新增医技',
+                    area: ['800px', '500px'],
+                    content: '../layer/xinzengyiji.html'
+                })
+            })
+
+
+            $.post(
+                'doctor/all',
+                function (res) {
+                    console.log(res);
+                    var msg;
+                    for (var i = 0; i < res.length; i++) {
+                        msg = '<tr id=' + res[i].registerID + '><td>' + res[i].caseNumber + '</td><td>' +
+                            res[i].realName + '</td><td>' + res[i].age + '</td></tr>';
+                        if (res[i].caseState == 3) {
+                            $("#yizhenhuanzhe").append(msg);
+                        } else {
+                            $("#weizhenhuanzhe").append(msg);
+                        }
+
+                    }
+                },
+                'json'
+            );
+
+
+            $(document).on("mouseover", "tr", function () {
+                $(this).css({
+                    "cursor": "pointer",
+                    "opacity": "0.5"
+                });
+            });
+
+            $(document).on("mouseout", "tr", function () {
+                $(this).css({
+                    "cursor": "default",
+                    "opacity": "1"
+                });
+            });
+
+            $("#user").on("click", "tr", function () {
+                $("#user").find("tr").css({
+                    "background": "white",
+                    "color": "black"
+                });
+                $(this).css({
+                    "background": "deepskyblue",
+                    "color": "white"
+                });
+                $.post(
+                    'doctor/byid', {
+                        id: $(this).attr('id')
+                    },
+                    function (res) {
+                        console.log(res);
+                        if (res.caseState != "1") {
+                            $("#homepage textarea").attr('disabled', true).css({
+                                "background": "white",
+                                "opacity": "0.5"
+                            });
+                            $("#submit").attr('disabled', true).css({
+                                "opacity": "0.5"
+                            });
+                        } else {
+                            $("#homepage textarea").attr('disabled', false).css({
+                                "background": "white",
+                                "opacity": "1"
+                            });
+                            $("#submit").attr('disabled', false).css({
+                                "opacity": "1"
+                            });;
+                        }
+                        $("textarea[name=readme]").val(res.readme);
+                        $("textarea[name=present]").val(res.present);
+                        $("textarea[name=presenttreat]").val(res.presentTreat);
+                        $("textarea[name=history]").val(res.history);
+                        $("textarea[name=allergy]").val(res.allergy);
+                        $("textarea[name=proposal]").val(res.proposal);
+                        $("textarea[name=physique]").val(res.physique);
+                        $("textarea[name=careful]").val(res.careful);
+                        $("textarea[name=checkresult]").val(res.checkResult);
+                        $("textarea[name=diagnosis]").val(res.diagnosis);
+                        $("textarea[name=handling]").val(res.handling);
+                        $("input[name=realname]").val(res.realName);
+                        $("input[name=casenumber]").val(res.caseNumber);
+                        $("input[name=age]").val(res.age);
+                        $("select[name=sex]").val(res.gender);
+                        $("div[name=message]").attr('id', res.registerID)
+                    },
+                    'json'
+                )
+            });
+            //病历首页提交按钮点击事件
+            $("#submit").click(function () {
+                console.log($("#submit").val());
+                $.post(
+                    'doctor/submit1', {
+                        readme: $("textarea[name=readme]").val(),
+                        present: $("textarea[name=present]").val(),
+                        presenttreat: $("textarea[name=presenttreat]").val(),
+                        history: $("textarea[name=history]").val(),
+                        allergy: $("textarea[name=allergy]").val(),
+                        proposal: $("textarea[name=proposal]").val(),
+                        physique: $("textarea[name=physique]").val(),
+                        careful: $("textarea[name=careful]").val(),
+                        id: $("div[name=message]").attr('id')
+                    }
+                )
+            })
+            $("#save").hover(function () {
+                $(this).css({
+                    "opacity": "0.7",
+                    "cursor": "pointer"
+                });
+            }, function () {
+                $(this).css({
+                    "opacity": "1"
+                });
+            })
+            //门诊确诊保存点击事件
+            $("#save").click(function () {
+                $.post(
+                    'doctor/submit2', {
+                        checkresult: $("textarea[name=checkresult]").val(),
+                        diagnosis: $("textarea[name=diagnosis]").val(),
+                        handling: $("textarea[name=handling]").val(),
+                        id: $("div[name=message]").attr('id')
+                    }
+                )
+            })
+
 
             form.render();
             //方法渲染
@@ -272,14 +419,12 @@
 
                 ]
             })
-
             table.render({
                 elem: "#yizhenhuanzhe",
                 cols: [
 
                 ]
             })
-
             table.render({
                 elem: "#binglishouye1",
                 cols: [
@@ -302,7 +447,6 @@
                     "fabingshijian": "2019-03-26 9:28"
                 }]
             })
-
             table.render({
                 elem: "#binglishouye2",
                 cols: [
@@ -325,10 +469,6 @@
                     "fabingshijian": "2019-03-26 9:28"
                 }]
             })
-
-
-
-
             table.render({
                 elem: '#jianchashenqing1',
                 cols: [
@@ -364,7 +504,6 @@
                     "jianchajieguo": "123"
                 }]
             });
-
             table.render({
                 elem: '#jianchashenqing2',
                 cols: [
@@ -401,7 +540,6 @@
                     "jianchajieguo": "123"
                 }]
             });
-
             table.render({
                 elem: '#feiyongchaxun',
                 cols: [
@@ -442,6 +580,7 @@
                     "shoufeizhuangtai": "123"
                 }]
             });
+
         })
     </script>
 </body>
