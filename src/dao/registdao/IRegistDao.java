@@ -120,4 +120,5 @@ public interface IRegistDao {
     **/
     int selectConstantIDByConstantName(String constantName) throws  SQLException;
     int selectRegistID(String caseNum,String visitDate) throws SQLException;
+    boolean addmedical(MedicalRecord medicalRecord) throws SQLException;
 }

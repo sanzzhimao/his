@@ -14,7 +14,7 @@
 
 <body>
     <div class="layui-tab-content">
-        <form class="layui-form" action="">
+        <form class="" action="">
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label">*发票号</label>
                 <div class="layui-input-inline">
@@ -38,7 +38,7 @@
                 </div>
                 <label class="layui-form-label">*性 别：</label>
                 <div class="layui-input-inline">
-                    <select name="sex">
+                    <select name="sex" class="layui-select">
                         <option value="1" selected>男</option>
                         <option value="0">女</option>
                     </select>
@@ -53,7 +53,7 @@
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label">出生日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" class="layui-input layui-icon" id="birthDate" placeholder="&#xe637; 出生日期">
+                    <input type="date" class="layui-icon" id="birthDate" placeholder="&#xe637; 出生日期">
                 </div>
                 <label class="layui-form-label">身份证号：</label>
                 <div class="layui-input-inline">
@@ -70,24 +70,24 @@
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label">*结算类别</label>
                 <div class="layui-input-inline">
-                    <select name="settle">
+                    <select name="settle" class="layui-select">
                         <option selected value="1">自费</option>
                         <option value="2">市医保</option>
                     </select>
                 </div>
                 <label class="layui-form-label">*看诊日期</label>
                 <div class="layui-input-inline">
-                    <input type="text" class="layui-input layui-icon" id="visitDate" placeholder="&#xe637; 看诊日期">
+                    <input type="date" class="layui-icon" id="visitDate" placeholder="&#xe637; 看诊日期">
                 </div>
                 <label class="layui-form-label">*午 别：</label>
                 <div class="layui-input-inline">
-                    <select name="noon">
+                    <select name="noon" class="layui-select">
 
                     </select>
                 </div>
                 <label class="layui-form-label">挂号科室：</label>
                 <div class="layui-input-inline">
-                    <select name="dep">
+                    <select name="dep" class="layui-select">
                     </select>
                 </div>
             </div>
@@ -95,12 +95,12 @@
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label">*号 别</label>
                 <div class="layui-input-inline">
-                    <select name="haobie">
+                    <select name="haobie" class="layui-select">
                     </select>
                 </div>
                 <label class="layui-form-label">*看诊医生</label>
                 <div class="layui-input-inline">
-                    <select name="doc">
+                    <select name="doc" class="layui-select">
 
                     </select>
                 </div>
@@ -128,8 +128,8 @@
                 </div>
                 <label class="layui-form-label">*收费方式：</label>
                 <div class="layui-input-inline">
-                    <select name="feetype">
-                        <option value="1" selected>现金</option>
+                    <select name="feetype" class="layui-select">
+                        <option value="1" selected >现金</option>
                         <option value="2">医保卡</option>
                         <option value="3">银行卡</option>
                         <option value="4">信用卡</option>
@@ -144,18 +144,10 @@
     </div>
 
     <script>
-        layui.use(['element', 'form', 'laydate'], function () {
+        layui.use(['element', 'form'], function () {
             var element = layui.element;
             var form = layui.form;
-            var laydate = layui.laydate;
 
-            form.render();
-            laydate.render({
-                elem: '#birthDate' //指定元素
-            });
-            laydate.render({
-                elem: '#visitDate'
-            });
             var decew;
             $.post("regist/fir",{name:"root"},function (resp,status,xhr) {
                 console.log(resp);
@@ -283,7 +275,11 @@
                 },
                 function (resp,status,xhr){
 
-                console.log(status);
+                if (console.log(status)=='success' ){
+                    alert("挂号成功");
+                }else {
+                    alert("挂号失败")
+                }
             })
         })
 

@@ -396,4 +396,16 @@ public class RegistDao implements IRegistDao {
 
     }
 
+    @Override
+    public boolean addmedical(MedicalRecord medicalRecord) throws SQLException {
+        String sql="insert into medicalrecord(casenumber,registid,casestate) values(?,?,?)";
+        PreparedStatement psmt=con.prepareStatement(sql);
+        psmt.setString(1,medicalRecord.getCaseNumber());
+        psmt.setInt(2,medicalRecord.getRegisterID());
+        psmt.setInt(3,1);
+        psmt.executeUpdate();
+        JdbcUtil.release(null,psmt,null);
+        return false;
+    }
+
 }
