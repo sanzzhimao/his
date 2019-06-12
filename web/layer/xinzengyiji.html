@@ -29,6 +29,14 @@
             var element = layui.element;
             var table = layui.table;
 
+            $('barDemo').on('click', function(){
+                layer.open({
+                    type:2,
+                    area: ['600px', '400px'],
+                    content: 'tianjiaxiangqing.html'
+                })
+            })
+
             table.render({
                 elem: "#xinzengyiji",
                 cols: [
@@ -48,14 +56,20 @@
                         field: "pinyinzhujima",
                         title: "拼音助记码"
                     }, {
-                        field: "caozuo",
-                        title: "操作"
+                        fixed: 'right',
+                        title: '操作',
+                        toolbar: '#barDemo'
                     }]
                 ],
                 page: true
             })
         })
     </script>
+
+    <script type="text/html" id="barDemo">
+        <button class="layui-btn">选择</button>
+    </script>
+
 </body>
 
 </html>

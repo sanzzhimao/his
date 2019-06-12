@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../layui/layui.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <h2 style="text-align: center">添加详情</h2>
+    <form action="">
+        <label class="layui-form-label">申请名称</label>
+        <div class="layui-input-block">
+            <input type="text" required lay-verify="required" placeholder="申请名称" autocomplete="off" class="layui-input">
+        </div>
+        <br>
+
+        <label class="layui-form-label">项目名称</label>
+        <div class="layui-input-block">
+        </div>
+        <br>
+
+        <label class="layui-form-label">目的要求</label>
+        <div class="layui-input-block">
+            <input type="text" required lay-verify="required" placeholder="检查部位" autocomplete="off" class="layui-input">
+        </div>
+        <br>
+
+        <label class="layui-form-label">检查部位</label>
+        <div class="layui-input-block">
+            <input type="text" required lay-verify="required" placeholder="检查部位" autocomplete="off" class="layui-input">
+        </div>
+        <br>
+
+        <label class="layui-form-label">是否加急</label>
+        <div class="layui-input-block">
+            <input type="checkbox" lay-skin="switch" lay-text="是|否">
+        </div>
+    </form>
+
+
+    <script>
+        layui.use('form', function () {
+            var form = layui.form;
+        })
+    </script>
+</body>
+
+
+</html>
