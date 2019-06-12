@@ -119,4 +119,5 @@ public interface IRegistDao {
      * @return int
     **/
     int selectConstantIDByConstantName(String constantName) throws  SQLException;
+    int selectRegistID(String caseNum,String visitDate) throws SQLException;
 }

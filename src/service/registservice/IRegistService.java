@@ -51,4 +51,5 @@ public interface IRegistService {
      * @return java.util.List<vo.ConstantItem>
     **/
     List<ConstantItem> fianShouFeiFangShi();
+    int findRrgisteID(String caseNum,String visitdate) ;
 }
