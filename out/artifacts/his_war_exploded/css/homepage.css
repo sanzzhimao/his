@@ -1,0 +1,14 @@
+header {
+    width: 100%;
+    height: 60px;
+    background:#393D49;
+    font-family: "微软雅黑";
+    font-size: 22px;
+    color: white;
+    line-height: 60px;
+    padding-left: 30px;
+    font-weight: 20;
+}
+dd{
+    background: #009688;
+}

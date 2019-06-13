@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  #panel {
+    float: left;
+    position: absolute;
+    top: 80px;
+    left: 220px;
+  }
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/homepage.css">
+  <link rel="stylesheet" href="layui/css/layui.css">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="layui/layui.js"></script>
+</head>
+
+<body>
+  <header>
+    <span>东软云医院HIS系统</span>
+    <ul class="layui-nav layui-layout-right" id="y_headerright">
+      <li class="layui-nav-item" id="y_root">
+        <a href="javascript:;">ROOT</a>
+        <dl class="layui-nav-child">
+          <dd>
+            <a href="">隐藏菜单</a>
+          </dd>
+          <dd>
+            <a href="">退出登录</a>
+          </dd>
+        </dl>
+      </li>
+    </ul>
+  </header>
+
+  <!-- 左侧导航 -->
+  <ul class="layui-nav layui-nav-tree layui-bg-#393D49" lay-filter="test">
+    <li class="layui-nav-item layui-nav-itemed">
+      <a href="javascript:;">挂号收费</a>
+      <dl class="layui-nav-child">
+        <dd>
+          <a data-url="RegisteredFee/Register.html" data-id="xianchangguahao" class="site-demo-active"
+            data-type="tabAdd" data-title="现场挂号">现场挂号</a>
+        </dd>
+        <dd>
+          <a data-url="RegisteredFee/Signout.html" data-id="tuihao" class="site-demo-active" data-type="tabAdd"
+            data-title="退号">退号</a>
+        </dd>
+        <dd>
+          <a data-url="RegisteredFee/Charge.html" data-id="shoufei" class="site-demo-active" data-type="tabAdd"
+            data-title="收费">收费</a>
+        </dd>
+        <dd>
+          <a data-url="RegisteredFee/Refund.html" data-id="tuifei" class="site-demo-active" data-type="tabAdd"
+            data-title="退费">退费</a>
+        </dd>
+        <dd>
+          <a data-url="RegisteredFee/Makeup.html" data-id="fapiaobuda" class="site-demo-active" data-type="tabAdd"
+            data-title="发票补打">发票补打</a>
+        </dd>
+        <dd>
+          <a data-url="RegisteredFee/Replay.html" data-id="fapiaochongda" class="site-demo-active" data-type="tabAdd"
+            data-title="发票重打">发票重打</a>
+        </dd>
+        <dd>
+          <a data-url="RegisteredFee/Patient.html" data-id="huanzhefeiyongchaxun" class="site-demo-active"
+            data-type="tabAdd" data-title="患者费用查询">患者费用查询</a>
+        </dd>
+        <dd>
+          <a data-url="RegisteredFee/Daily.html" data-id="rijie" class="site-demo-active" data-type="tabAdd"
+            data-title="日结">日结*</a>
+        </dd>
+        <dd>
+          <a data-url="RegisteredFee/Daily2.html" data-id="rijiechaxun" class="site-demo-active" data-type="tabAdd"
+            data-title="日结查询">日结查询*</a>
+        </dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item">
+      <a>门诊医生</a>
+      <dl class="layui-nav-child">
+        <dd>
+          <a data-url="OutpatientDoctor/DocHome.html" data-id="menzhenbingli" class="site-demo-active"
+            data-type="tabAdd" data-title="门诊病历">门诊病历</a>
+        </dd>
+        <dd>
+          <a>医技模板管理</a>
+        </dd>
+        <dd>
+          <a>西药处方模板</a>
+        </dd>
+        <dd>
+          <a>中药处方模板</a>
+        </dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item">
+      <a>医技处置*</a>
+      <dl class="layui-nav-child">
+        <dd>
+          <a data-url="MedicalTreatment/tech01.html" data-id="huanzhejianyan" class="site-demo-active"
+            data-type="tabAdd" data-title="患者检验">患者检验*</a>
+        </dd>
+        <dd>
+          <a data-url="MedicalTreatment/tech02.html" data-id="huanzhejiancha" class="site-demo-active"
+            data-type="tabAdd" data-title="门诊病历">患者检查*</a>
+        </dd>
+        <dd>
+          <a data-url="MedicalTreatment/tech03.html" data-id="huanzhechuzhi" class="site-demo-active" data-type="tabAdd"
+            data-title="门诊病历">患者处置*</a>
+        </dd>
+        <dd>
+          <a data-url="MedicalTreatment/tech04.html" data-id="yijiguanli" class="site-demo-active" data-type="tabAdd"
+            data-title="医技管理">医技管理*</a>
+        </dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item">
+      <a>药房管理</a>
+      <dl class="layui-nav-child">
+        <dd>
+          <a data-url="PharmacyManagement/yaofangfayao.html" data-id="yaofangfayao" class="site-demo-active"
+            data-type="tabAdd" data-title="药房发药">药房发药</a>
+        </dd>
+        <dd>
+          <a data-url="PharmacyManagement/yaofangtuiyao.html" data-id="yaofangtuiyao" class="site-demo-active"
+            data-type="tabAdd" data-title="药房退药">药房退药</a>
+        </dd>
+        <dd>
+          <a data-url="PharmacyManagement/yaopinguanli.html" data-id="yaopinguanli" class="site-demo-active"
+            data-type="tabAdd" data-title="药品管理">药品管理</a>
+        </dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item">
+      <a>财务管理</a>
+      <dl class="layui-nav-child">
+        <dd><a>门诊医生工作量统计*</a></dd>
+        <dd><a>开单科室工作量统计*</a></dd>
+        <dd><a>执行科室工作量统计*</a></dd>
+        <dd><a>费用科目管理</a></dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item">
+      <a>系统信息</a>
+      <dl class="layui-nav-child">
+        <dd>
+          <a data-url="SystemInformation/changshuleibie.html" data-id="changshuleibie" class="site-demo-active"
+            data-type="tabAdd" data-title="常数类别管理">常数类别管理</a></dd>
+        <dd>
+          <a data-url="SystemInformation/keshiguanli.html" data-id="keshi" class="site-demo-active" data-type="tabAdd"
+            data-title="科室管理">科室管理</a>
+        </dd>
+        <dd>
+          <a data-url="SystemInformation/yonghuguanli.html" data-id="yonghu" class="site-demo-active" data-type="tabAdd"
+            data-title="用户管理">用户管理</a>
+        </dd>
+        <dd>
+          <a data-url="SystemInformation/guahaojibieguanli.html" data-id="guahaojibie" class="site-demo-active"
+            data-type="tabAdd" data-title="挂号级别管理">挂号级别管理</a>
+        </dd>
+        <dd>
+          <a data-url="SystemInformation/jiesuanleibieguanli.html" data-id="jiesuanleibie" class="site-demo-active"
+            data-type="tabAdd" data-title="结算类别管理">结算类别管理</a>
+        </dd>
+        <dd>
+          <a data-url="SystemInformation/zhenduanmuluguanli.html" data-id="zhenduanmulu" class="site-demo-active"
+            data-type="tabAdd" data-title="诊断目录管理">诊断目录管理</a>
+        </dd>
+        <dd>
+          <a data-url="SystemInformation/feiyaopinshoufei.html" data-id="feiyaopinshoufei" class="site-demo-active"
+            data-type="tabAdd" data-title="非药品收费项目管理">非药品收费项目管理</a>
+        </dd>
+        <dd>
+          <a data-url="SystemInformation/yishengpaiban.html" data-id="yishengpaiban" class="site-demo-active"
+            data-type="tabAdd" data-title="医生排班管理">医生排班管理</a>
+        </dd>
+      </dl>
+    </li>
+  </ul>
+
+  <!--右侧主体内容区-->
+  <div class="layui-body layui-tab layui-tab-card" lay-filter="test" lay-allowClose="true" id="panel">
+    <ul class="layui-tab-title">
+      <li class="layui-this"></li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item">
+        <iframe scrolling="no" frameborder="0" src=""></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    layui.use('element', function () {
+      var element = layui.element;
+      var $ = layui.jquery;
+
+      //触发事件
+      var active = {
+        tabAdd: function (url, id, name) {
+          //新增一个Tab项 传入三个参数，分别对应其标题，tab页面的地址，还有一个规定的id，是标签中data-id的属性值
+          //新增一个Tab项
+          element.tabAdd('test', {
+            title: name,
+            content: '<iframe data-frameid="' + id + '" scrolling="no" frameborder="0" src="' +
+              url + '" style="width:100%;height:600px;""></iframe>',
+            // content: ' <div class="layui-body layui-tab layui-tab-card" lay-filter="test" lay-allowClose="true" id="panel"> ',
+            id: id //规定好的id
+          }),
+            element.render('tab'); //重新对tab选项卡进行初始化渲染
+        },
+
+        tabChange: function (id) {
+          //切换到指定Tab项
+          element.tabChange('test', id); //根据传入的id传入到指定的tab项
+        }
+      };
+
+      //当点击有site-demo-active属性的标签时，即左侧菜单栏中内容 ，触发点击事件
+      $('.site-demo-active').on('click', function () {
+        var dataid = $(this);
+
+        //这时会判断右侧.layui-tab-title属性下的有lay-id属性的li的数目，即已经打开的tab项数目
+        if ($(".layui-tab-title li[lay-id]").length <= 0) {
+          //如果比零小，则直接打开新的tab项
+          active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
+        } else {
+          //否则判断该tab项是否以及存在
+
+          var isData = false; //初始化一个标志，为false说明未打开该tab项 为true则说明已有
+          $.each($(".layui-tab-title li[lay-id]"), function () {
+            //如果点击左侧菜单栏所传入的id 在右侧tab项中的lay-id属性可以找到，则说明该tab项已经打开
+            if ($(this).attr("lay-id") == dataid.attr("data-id")) {
+              isData = true;
+            }
+          })
+          if (isData == false) {
+            //标志为false 新增一个tab项
+            active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
+          }
+        }
+        //最后不管是否新增tab，最后都转到要打开的选项页面上
+        active.tabChange(dataid.attr("data-id"));
+      });
+
+      // 获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+      var layid = location.hash.replace(/^#test=/, '');
+      element.tabChange('test', layid);
+      //监听Tab切换，以改变地址hash值
+      element.on('tab(test)', function (elem) {
+        location.hash = 'test=' + $(this).attr('lay-id');
+      });
+
+    })
+  </script>
+</body>
+
+</html>
