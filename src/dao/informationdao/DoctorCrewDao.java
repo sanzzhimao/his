@@ -27,7 +27,7 @@ public class DoctorCrewDao implements IDoctorCrewDao {
      */
     @Override
     public List<DoctorCrew> selectDoctorCrew(Date starttime, Date endtime)  throws SQLException {
-        String sql="select S.ID,S.SchedDate,S.Noon,S.DeptID,D.DeptName,S.UserID,U.RealName,U.RegistLeID,R.RegistName,R.RegistQuota,R.RegistFee\n" +
+        String sql="select S.ID,S.SchedDate,S.Noon,S.DeptID,D.DeptName,s.UserID,U.RealName,S.RuleID,R.RegistName,R.RegistQuota,R.RegistFee\n" +
                 "FROM Scheduling S,Department D,User U,RegistLevel R\n" +
                 "where S.DeptID = D.ID\n" +
                 "and S.UserID = U.ID\n" +
@@ -118,15 +118,12 @@ public class DoctorCrewDao implements IDoctorCrewDao {
         String sql="select ID,UserName,Password,RealName,UseType,DocTitleID,IsScheduling,DeptID,RegistLeID,DelMark\n" +
                 "from user\n" +
                 "where UseType = 3\n" +
-                "and IsScheduling = '是'\n";
-
-        if(deptID!=0){
-           sql+="and DeptID ='"+deptID+"' \n";
-        }
-        if(registLeID!=0) {
-            sql+="and RegistLeID ='"+registLeID+"'";
-        }
+                "and IsScheduling = '是'\n" +
+                "and DeptID = ?\n" +
+                "and RegistLeID =?";
         PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setInt(1,deptID);
+        pstmt.setInt(2,registLeID);
         ResultSet rs=pstmt.executeQuery();
         List<User> users=new ArrayList<>();
         User user=null;
@@ -155,11 +152,10 @@ public class DoctorCrewDao implements IDoctorCrewDao {
     public List<Rule> selectRule(int id) throws SQLException {
         String sql="select ID,RuleName,DeptID,UserID,Week,DelMark\n" +
                 "from Rule\n" +
-                "where DelMark=1\n";
-        if(id!=0) {
-            sql+="and DeptID ='"+id+"'";
-        }
+                "where DeptID = ?\n" +
+                "And DelMark=1";
         PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setInt(1,id);
         ResultSet rs=pstmt.executeQuery();
         List<Rule> rules=new ArrayList<>();
         Rule rule=null;

@@ -12,12 +12,12 @@ import java.util.List;
 public class MedicalService implements IMedicalService{
     /**
      *通过医生ID查病历
-     * @param userid
+     * @param
      * @return
      * @throws SQLException
      */
     @Override
-    public List<MedicalRecord> selectMedicalByUserID(int userid) throws SQLException {
+    public List<MedicalRecord> selectMedical() throws SQLException {
         List<MedicalRecord> list=null;
         Connection con=null;
         try {
@@ -25,7 +25,7 @@ public class MedicalService implements IMedicalService{
             con.setAutoCommit(false);
             IMedicalDao idd=new MedicalDao();
             idd.setConnection(con);
-            list=idd.selectMedicalByUserID(userid);
+            list=idd.selectMedical();
             con.commit();
             return list;
         } catch (SQLException e) {
@@ -39,20 +39,20 @@ public class MedicalService implements IMedicalService{
 
     /**
      * 通过科室ID查病历
-     * @param deptid
+     * @param
      * @return
      * @throws SQLException
      */
     @Override
-    public List<MedicalRecord> selectMedicalByDeptID(int deptid) throws SQLException {
-        List<MedicalRecord> list=null;
+    public MedicalRecord selectMedicalByID(int id) throws SQLException {
+        MedicalRecord list=null;
         Connection con=null;
         try {
             con= JdbcUtil.getConnection();
             con.setAutoCommit(false);
             IMedicalDao idd=new MedicalDao();
             idd.setConnection(con);
-            list=idd.selectMedicalByDeptID(deptid);
+            list=idd.selectMedicalByID(id);
             con.commit();
             return list;
         } catch (SQLException e) {
@@ -62,6 +62,24 @@ public class MedicalService implements IMedicalService{
             JdbcUtil.release(con,null,null);
         }
         return null;
+    }
+
+    @Override
+    public void updateCaseState(int id) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IMedicalDao idd=new MedicalDao();
+            idd.setConnection(con);
+            idd.updateCaseState(id);
+            con.commit();
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
     }
 
     /**
@@ -88,7 +106,7 @@ public class MedicalService implements IMedicalService{
     }
 
     @Override
-    public void updaMedical(MedicalRecord me) throws SQLException {
+    public void updateMedical(MedicalRecord me) throws SQLException {
         Connection con=null;
         try {
             con= JdbcUtil.getConnection();

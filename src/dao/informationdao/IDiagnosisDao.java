@@ -29,7 +29,7 @@ public interface IDiagnosisDao {
     void addDiseCategory(DiseCategory dis) throws SQLException;
 
     //编辑疾病分类
-    void updateDiseCategory(DiseCategory dis) throws SQLException;
+    void updateDiseCategory(String dicacode,String dicaname,int sequenceno,int id) throws SQLException;
 
     //删除选中疾病分类
     void deleteDiseCategory(int id) throws SQLException;

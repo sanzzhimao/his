@@ -10,10 +10,13 @@ public interface IMedicalDao {
     void setConnection(Connection con);
 
     //通过医生ID查病历
-    List<MedicalRecord> selectMedicalByUserID(int userid) throws SQLException;
+    List<MedicalRecord> selectMedical() throws SQLException;
 
     //通过科室ID查病历
-    List<MedicalRecord> selectMedicalByDeptID(int deptid) throws SQLException;
+    MedicalRecord selectMedicalByID(int id) throws SQLException;
+
+    //诊毕
+    void updateCaseState(int id)throws SQLException;
 
     //修改病历首页
     void updateMedicalHome(MedicalRecord me) throws SQLException;

@@ -317,4 +317,5 @@ public class UserManagementDao implements IUserManagementDao {
         JdbcUtil.release(null,ptmt,rs);
         return list;
     }
+
 }

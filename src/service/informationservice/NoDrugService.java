@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * 非药品收费项目管理业务(已测所有select，批量删除未完成)
+ * 非药品收费项目管理业务
  */
 public class NoDrugService implements INoDrugService {
     /**

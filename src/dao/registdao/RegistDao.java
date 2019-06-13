@@ -194,14 +194,13 @@ public class RegistDao implements IRegistDao {
      * @return int
     **/
     @Override
-    public int selectDoctorUsedId(Register reg) throws SQLException {
-        String sql="select count(id) from register " +
-                "where userid=?" +
-                "and visidate=?" +
-                "and visistate in (1,2,3)" ;
+    public int selectDoctorUsedId(int userID,Date date ) throws SQLException {
+        String sql="select count(id) from register \n" +
+                "where userid=?\n" +
+                "AND VisitDate=?\n" +
+                "and VisitState in (1,2,3)" ;
         PreparedStatement ptmt=con.prepareStatement(sql);
-        ptmt.setInt(1,reg.getUserID());
-        Date date=new Date(reg.getVisitDate().getTime());
+        ptmt.setInt(1,userID);
         ptmt.setDate(2,date);
         ResultSet rs = ptmt.executeQuery();
         int allUsedId=0;
@@ -220,8 +219,8 @@ public class RegistDao implements IRegistDao {
     **/
     @Override
     public Boolean addRegist(Register reg) throws SQLException {
-        String sql="insert into register(casenumber,realname,gender,idnumber,birthday,age,agetype," +
-                "homeaddress,visidate,noon,deptid,userid,registleid,settleid,isbook," +
+        String sql="insert into register(casenumber,realname,gender,idnumber,birthdate,age,agetype," +
+                "homeaddress,visitdate,noon,deptid,userid,registleid,settleid,isbook," +
                 "registtime,registerid,visitstate) " +
                 "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,1)";
         PreparedStatement pstm=con.prepareStatement(sql);
@@ -235,7 +234,7 @@ public class RegistDao implements IRegistDao {
         pstm.setDate(5,date);
         pstm.setInt(6,reg.getAge());
         //年龄类型？？？
-        pstm.setString(7, reg.getAgeTpye());
+        pstm.setString(7,"s");
         pstm.setString(8,reg.getHomeAddress());
         //看诊日期
         Date vistiDate=new Date(reg.getVisitDate().getTime());
@@ -265,12 +264,12 @@ public class RegistDao implements IRegistDao {
     **/
     @Override
     public boolean addInvoice(Invoice iv) throws SQLException {
-        String sql="insert into invoice(invoicenum,money,state,creationtime,userid,registid,freetype,back,dailystate)" +
+        String sql="insert into invoice(invoicenum,money,state,creationtime,userid,registid,feetype,back,dailystate)" +
                 "values(?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstm=con.prepareStatement(sql);
         pstm.setString(1,iv.getInvoiceNum());
         pstm.setDouble(2,iv.getMoney());
-        pstm.setInt(3,iv.getState());
+        pstm.setInt(3,1);
         //系统时间
         pstm.setDate(4,new Date(System.currentTimeMillis()));
         pstm.setInt(5,iv.getUserID());
@@ -290,7 +289,7 @@ public class RegistDao implements IRegistDao {
     **/
     @Override
     public boolean addPatientCosts(PatientCosts pc) throws SQLException {
-        String sql="insert into patientCosts(registid,invoiceid,itemid,itemtype,name,price,amount,deptid,createtime,createoperid,paytime,registerid,freetype,backid)" +
+        String sql="insert into patientCosts(registid,invoiceid,itemid,itemtype,name,price,amount,deptid,createtime,createoperid,paytime,registerid,feetype,backid)" +
                 " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstm = con.prepareStatement(sql);
         pstm.setInt(1,pc.getRegistID());
@@ -309,6 +308,7 @@ public class RegistDao implements IRegistDao {
         pstm.setInt(12,pc.getRegisterID());
         pstm.setInt(13,pc.getFeeType());
         pstm.setInt(14,pc.getBackID());
+        pstm.executeUpdate();
         JdbcUtil.release(null,pstm,null);
         return true;
     }
@@ -320,7 +320,7 @@ public class RegistDao implements IRegistDao {
      **/
     @Override
     public Register reRegisterByCaseNumber(String  caseNumber) throws SQLException {
-        String sql="select r.*,d.deptname from register r,department d where r.deptid=d.id and r.casenumber=? and visitstate=1";
+        String sql="select r.*,d.deptname from register r,department d where r.deptid=d.id and r.casenumber=?";
         PreparedStatement psmt=con.prepareStatement(sql);
         psmt.setString(1,caseNumber);
         ResultSet rs=psmt.executeQuery();
@@ -351,33 +351,61 @@ public class RegistDao implements IRegistDao {
         JdbcUtil.release(null,psmt,rs);
         return register;
     }
-        /**
-         * @Author lym
-         * @Description：退号之后修改挂号状态--4
-         * @Param [caseNumber]通过病历号修改
-         * @return vo.Register
-         * w
-        **/
+
     @Override
-    public void  changeByCaseNumber(String caseNumber) throws SQLException {
-        String sql="update register set visitstate=4 where casenumber=?";
-        PreparedStatement psmt =con.prepareStatement(sql);
-        psmt.setString(1,caseNumber);
+    public int selectUserIDByUserName(String name) throws SQLException {
+        String sql="select id from user where username=?";
+        PreparedStatement psmt=con.prepareStatement(sql);
+        psmt.setString(1,name);
+        ResultSet rs=psmt.executeQuery();
+        int id=0;
+        while (rs.next()){
+            id=rs.getInt(1);
+        }
+        JdbcUtil.release(null,psmt,rs);
+        return  id;
+    }
+
+    @Override
+    public int selectConstantIDByConstantName(String constantName) throws SQLException {
+       String sql="SELECT id FROM constantitem WHERE ConstantName=?";
+       PreparedStatement psmt=con.prepareStatement(sql);
+        psmt.setString(1,constantName);
+        ResultSet rs=psmt.executeQuery();
+        int constantID=0;
+        while (rs.next()){
+            constantID=rs.getInt(1);
+        }
+        JdbcUtil.release(null,psmt,rs);
+        return constantID;
+    }
+
+    @Override
+    public int selectRegistID(String caseNum, String  visitDate) throws SQLException {
+        String sql="select id from register where CaseNumber=? and VisitDate=?";
+        PreparedStatement psmt=con.prepareStatement(sql);
+        psmt.setString(1,caseNum);
+        psmt.setString(2,visitDate);
+        ResultSet rs=psmt.executeQuery();
+        int id=0;
+        while (rs.next()){
+            id=rs.getInt(1);
+        }
+        JdbcUtil.release(null,psmt,rs);
+        return id;
+
+    }
+
+    @Override
+    public boolean addmedical(MedicalRecord medicalRecord) throws SQLException {
+        String sql="insert into medicalrecord(casenumber,registid,casestate) values(?,?,?)";
+        PreparedStatement psmt=con.prepareStatement(sql);
+        psmt.setString(1,medicalRecord.getCaseNumber());
+        psmt.setInt(2,medicalRecord.getRegisterID());
+        psmt.setInt(3,1);
         psmt.executeUpdate();
         JdbcUtil.release(null,psmt,null);
+        return false;
     }
-    /**
-     * @Author lym
-     * @Description：退号之后修改挂号状态--4
-     * @Param [id]通过id修改
-     * @return vo.Register
-     **/
-    @Override
-    public void  changeByCaseNumber(int id) throws SQLException {
-        String sql="update register set visitstate=4 where casenumber=?";
-        PreparedStatement psmt =con.prepareStatement(sql);
-        psmt.setInt(1,id);
-        psmt.executeUpdate();
-        JdbcUtil.release(null,psmt,null);
-    }
+
 }

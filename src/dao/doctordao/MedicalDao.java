@@ -22,15 +22,14 @@ public class MedicalDao implements IMedicalDao {
 
     /**
      * 通过医生ID查病历
-     * @param userid
+     * @param
      * @return
      * @throws SQLException
      */
     @Override
-    public List<MedicalRecord> selectMedicalByUserID(int userid) throws SQLException {
-        String sql="select m.*,r.RealName,r.Gender,r.Age from register r,medicalrecord m where m.RegistID=r.ID and r.UserID=?";
+    public List<MedicalRecord> selectMedical() throws SQLException {
+        String sql="select m.*,r.RealName,r.Gender,r.Age from register r,medicalrecord m where m.RegistID=r.ID";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,userid);
         ResultSet rs=pstmt.executeQuery();
         List<MedicalRecord> list=new ArrayList<>();
         MedicalRecord mr=null;
@@ -62,17 +61,16 @@ public class MedicalDao implements IMedicalDao {
 
     /**
      * 通过科室ID查病历
-     * @param deptid
+     * @param id
      * @return
      * @throws SQLException
      */
     @Override
-    public List<MedicalRecord> selectMedicalByDeptID(int deptid) throws SQLException {
-        String sql="select m.*,r.RealName,r.Gender,r.Age from register r,medicalrecord m where m.RegistID=r.ID and r.DeptID=?";
+    public MedicalRecord selectMedicalByID(int id) throws SQLException {
+        String sql="select m.*,r.RealName,r.Gender,r.Age from register r,medicalrecord m where m.RegistID=r.ID and r.ID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,deptid);
+        pstmt.setInt(1,id);
         ResultSet rs=pstmt.executeQuery();
-        List<MedicalRecord> list=new ArrayList<>();
         MedicalRecord mr=null;
         while (rs.next()){
             mr=new MedicalRecord();
@@ -94,10 +92,23 @@ public class MedicalDao implements IMedicalDao {
             mr.setRealName(rs.getString(16));
             mr.setGender(rs.getInt(17));
             mr.setAge(rs.getInt(18));
-            list.add(mr);
         }
         JdbcUtil.release(null,pstmt,rs);
-        return list;
+        return mr;
+    }
+
+    /**
+     * 诊毕
+     * @param id
+     * @throws SQLException
+     */
+    @Override
+    public void updateCaseState(int id) throws SQLException {
+        String sql="update medicalrecord set CaseState=3 where RegistID=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setInt(1,id);
+        pstmt.executeUpdate();
+        JdbcUtil.release(null,pstmt,null);
     }
 
     /**
@@ -107,7 +118,7 @@ public class MedicalDao implements IMedicalDao {
      */
     @Override
     public void updateMedicalHome(MedicalRecord me) throws SQLException {
-        String sql="update medicalrecord set Readme=?,Present=?,PresentTreat=?,History=?,Allergy=?,Physique=?,Proposal=?,Careful=?,CaseState=2 where ID=?";
+        String sql="update medicalrecord set Readme=?,Present=?,PresentTreat=?,History=?,Allergy=?,Physique=?,Proposal=?,Careful=?,CaseState=2 where RegistID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setString(1,me.getReadme());
         pstmt.setString(2,me.getPresent());
@@ -117,7 +128,7 @@ public class MedicalDao implements IMedicalDao {
         pstmt.setString(6,me.getPhysique());
         pstmt.setString(7,me.getProposal());
         pstmt.setString(8,me.getCareful());
-        pstmt.setInt(9,me.getId());
+        pstmt.setInt(9,me.getRegisterID());
         pstmt.executeUpdate();
         JdbcUtil.release(null,pstmt,null);
     }
@@ -129,12 +140,12 @@ public class MedicalDao implements IMedicalDao {
      */
     @Override
     public void updaMedical(MedicalRecord me) throws SQLException {
-        String sql="update medicalrecord CheckResult=?,Diagnosis=?,Handling=? set where ID=?";
+        String sql="update medicalrecord set CheckResult=?,Diagnosis=?,Handling=?  where RegistID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setString(1,me.getCheckResult());
         pstmt.setString(2,me.getDiagnosis());
         pstmt.setString(3,me.getHandling());
-        pstmt.setInt(4,me.getId());
+        pstmt.setInt(4,me.getRegisterID());
         pstmt.executeUpdate();
         JdbcUtil.release(null,pstmt,null);
     }
