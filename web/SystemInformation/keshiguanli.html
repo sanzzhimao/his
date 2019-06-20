@@ -8,6 +8,7 @@
     <title>科室管理</title>
     <link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../layui/layui.all.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
@@ -23,12 +24,12 @@
             </td>
             <td>
                 <div class="layui-form-item layui-inline">
-                    <button class="layui-btn">查询常数类别</button>
+                    <button class="layui-btn">查询科室</button>
                 </div>
             </td>
             <td>
                 <div class="layui-form-item">
-                    <button type="button" class="layui-btn" id="xinzeng">新增常数类别</button>
+                    <button type="button" class="layui-btn" id="xinzeng">新增科室</button>
                 </div>
             </td>
         </table>
@@ -59,14 +60,26 @@
         });
 
         layui.use(['laypage', 'layer'], function () {
-            var laypage = layui.laypage,
-                layer = layui.layer;
+            var element = layui.element;
+            var laypage = layui.laypage;
+            var layer = layui.layer;
+            var form = layui.form;
+            var table = layui.table;
 
             laypage.render({
                 elem: 'keshiguanli',
                 count: 100,
                 prev: '<',
                 next: '>'
+            });
+        });
+
+        $('#xinzeng').on('click', function () {
+            layer.open({
+                type: 2,
+                title: '新增科室',
+                area: ['800px', '400px'],
+                content: '../layer/xinzengkeshi.html'
             });
         });
     </script>
